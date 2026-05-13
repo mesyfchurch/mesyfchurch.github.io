@@ -113,15 +113,16 @@
             <p class="mb-5">Nadie debería caminar solo. Nuestro equipo de oración quiere interceder por ti.</p>
             <div class="row justify-content-center">
                 <div class="col-md-6">
-                    <form class="text-start">
-                        <div class="mb-3">
-                            <input type="text" class="form-control bg-transparent text-white" placeholder="Tu Nombre">
-                        </div>
-                        <div class="mb-3">
-                            <textarea class="form-control bg-transparent text-white" rows="4" placeholder="¿Cómo podemos orar por ti?"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-outline-light w-100 py-3">ENVIAR PETICIÓN</button>
-                    </form>
+                    <form action="https://formspree.io/f/xaqvkewl" method="POST">
+    <div class="mb-3">
+        <input type="text" name="nombre" class="form-control bg-transparent text-white" placeholder="Tu Nombre" required>
+    </div>
+    <div class="mb-3">
+        <textarea name="mensaje" class="form-control bg-transparent text-white" rows="4" placeholder="¿Cómo podemos orar por ti?" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-outline-light w-100 py-3">ENVIAR PETICIÓN</button>
+</form>
+
                 </div>
             </div>
         </div>

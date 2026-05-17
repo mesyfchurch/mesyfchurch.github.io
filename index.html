@@ -51,6 +51,12 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <div class="container">
         <a class="navbar-brand fw-bold" href="#">MESYF</a>
+
+        <!-- Contenedor derecho: Agrupa el Botón de Idioma SIEMPRE visible y el menú móvil -->
+        <div class="d-flex align-items-center ms-auto">
+            
+            <!-- EL BOTÓN DE IDIOMA (Fuera del menú colapsable, visible en móvil y PC) -->
+            <button id="lang-btn" class="btn btn-outline-light me-2 px-3 py-1 text-uppercase" style="font-size: 0.8rem; font-weight: bold; border-radius: 0;">EN</button>
         
         <!-- Botón de menú para móviles -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -91,8 +97,8 @@
     <!-- Hero Section -->
     <header class="hero">
         <div class="container">
-            <h1 class="display-1">Iglesia Mesyf</h1>
-            <p class="lead mb-5">Transformando el tormento en testimonio.</p>
+            <h1 class="display-1" data-es="Iglesia Mesyf" data-en="Mesyf Church">Iglesia Mesyf</h1>
+            <p class="lead mb-5" data-es="Transformando el tormento en testimonio." data-en="Transforming torment into testimony."></p>
             <a href="#evangelismo" class="btn btn-hillsong">Conócenos</a>
             <a href="#oracion" class="btn btn-hillsong">Necesito Oración</a>
         </div>
@@ -102,8 +108,8 @@
     <section id="evangelismo" class="section-padding container text-center">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <h2 class="fw-bold mb-4">¿BUSCAS RESPUESTAS?</h2>
-                <p class="fs-5">En Mesyf creemos que no importa dónde hayas estado o qué hayas pasado, Dios tiene un plan de restauración total para tu vida.</p>
+                <h2 class="fw-bold mb-4" data-es="¿BUSCAS RESPUESTAS?" data-en="LOOKING FOR ANSWERS?">¿BUSCAS RESPUESTAS?</h2>
+                <p class="fs-5" data-es="En Mesyf creemos que no importa dónde hayas estado..." data-en="At Mesyf we believe that no matter where you've been..."></p>
                 <div class="evangelismo-box mt-5">
                     <h3>EL MAPA HACIA LA PAZ</h3>
                     <p>Descubre cómo Dios transforma el dolor en un mensaje de esperanza.</p>
@@ -154,6 +160,31 @@
 <!-- Start of HubSpot Embed Code -->
 <script type="text/javascript" id="hs-script-loader" async defer src="https://js-na2.hs-scripts.com/246204734.js"></script>
 <!-- End of HubSpot Embed Code -->
+
+<script>
+    const langBtn = document.getElementById('lang-btn');
+    let currentLang = 'es'; // Idioma por defecto
+
+    langBtn.addEventListener('click', () => {
+        // Alternar idioma
+        currentLang = currentLang === 'es' ? 'en' : 'es';
+        
+        // Cambiar el texto del botón
+        langBtn.textContent = currentLang === 'es' ? 'EN' : 'ES';
+
+        // Buscar todos los elementos con datos de idioma y cambiarlos
+        document.querySelectorAll('[data-es]').forEach(element => {
+            if (currentLang === 'en') {
+                element.textContent = element.getAttribute('data-en');
+                // Si es un input o textarea, cambia el placeholder también
+                if(element.placeholder) element.placeholder = element.getAttribute('data-en-placeholder');
+            } else {
+                element.textContent = element.getAttribute('data-es');
+                if(element.placeholder) element.placeholder = element.getAttribute('data-es-placeholder');
+            }
+        });
+    });
+</script>
 
 </body>
 </html>

@@ -306,18 +306,19 @@
         });
     </script>
 
-        <!-- Reproductor de Música Espiritual Flotante (Ubicación Corregida a la Izquierda) -->
+            <!-- Reproductor de Música Espiritual Flotante (Icono Emoji y Enlace Seguro) -->
     <div id="audio-container" style="position: fixed; bottom: 20px; left: 20px; z-index: 9999;">
         <button id="musicBtn" class="btn btn-dark rounded-circle shadow-lg d-flex align-items-center justify-content-center" 
-                style="width: 50px; height: 50px; border: 2px solid rgba(255,255,255,0.2); transition: all 0.3s ease;"
+                style="width: 50px; height: 50px; border: 2px solid rgba(255,255,255,0.2); transition: all 0.3s ease; font-size: 1.2rem;"
                 title="Música de meditación">
-            <!-- Icono de Nota Musical (Bootstrap Icons) -->
-            <i id="musicIcon" class="bi bi-music-note-beamed fs-5 text-light"></i>
+            <!-- Emoji Nativo que funciona en cualquier pantalla -->
+            <span id="musicEmoji">🎵</span>
         </button>
         
-        <!-- Archivo de audio: Piano ambiental espiritual de carga ultraligera -->
+        <!-- Archivo de audio: Flauta y Piano Meditativo desde servidor abierto de Wikimedia -->
         <audio id="bgMusic" loop preload="auto">
-            <source src="https://assets.mixkit.co/music/preview/mixkit-ambient-piano-01-2051.mp3" type="audio/mpeg">
+            <source src="https://upload.wikimedia.org/wikipedia/commons/4/41/Meditation_Music_1.ogg" type="audio/ogg">
+            <source src="https://upload.wikimedia.org/wikipedia/commons/transcoded/4/41/Meditation_Music_1.ogg/Meditation_Music_1.ogg.mp3" type="audio/mpeg">
         </audio>
     </div>
 
@@ -325,27 +326,28 @@
         document.addEventListener('DOMContentLoaded', function() {
             const musicBtn = document.getElementById('musicBtn');
             const bgMusic = document.getElementById('bgMusic');
-            const musicIcon = document.getElementById('musicIcon');
+            const musicEmoji = document.getElementById('musicEmoji');
             
-            // Establecer un volumen suave y reverente (30%)
-            bgMusic.volume = 0.3;
+            // Volumen muy suave y reverente (25%) para fondo de lectura
+            bgMusic.volume = 0.25;
 
             musicBtn.addEventListener('click', function() {
                 if (bgMusic.paused) {
                     bgMusic.play()
                         .then(() => {
-                            // Cambia el icono a "Pausa"
-                            musicIcon.className = "bi bi-pause-fill fs-5 text-light";
+                            // Cambia el emoji a Pausa cuando suena
+                            musicEmoji.innerText = "⏸️";
                             musicBtn.classList.remove('btn-dark');
                             musicBtn.classList.add('btn-secondary');
                         })
                         .catch(error => {
-                            console.log("La reproducción requiere interacción previa del usuario:", error);
+                            alert("Por favor, interactúa primero con la página para permitir el audio.");
+                            console.log("Error de reproducción:", error);
                         });
                 } else {
                     bgMusic.pause();
-                    // Regresa al icono original
-                    musicIcon.className = "bi bi-music-note-beamed fs-5 text-light";
+                    // Regresa al emoji de nota musical
+                    musicEmoji.innerText = "🎵";
                     musicBtn.classList.remove('btn-secondary');
                     musicBtn.classList.add('btn-dark');
                 }

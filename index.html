@@ -322,36 +322,34 @@
         </audio>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const musicBtn = document.getElementById('musicBtn');
-            const bgMusic = document.getElementById('bgMusic');
-            const musicEmoji = document.getElementById('musicEmoji');
-            
-            // Volumen muy suave y reverente (25%) para fondo de lectura
-            bgMusic.volume = 0.25;
+        <script>
+        // Declaramos las variables directamente sin esperar bloqueos de carga
+        const musicBtn = document.getElementById('musicBtn');
+        const bgMusic = document.getElementById('bgMusic');
+        const musicEmoji = document.getElementById('musicEmoji');
+        
+        // Volumen suave para fondo de lectura (25%)
+        bgMusic.volume = 0.25;
 
-            musicBtn.addEventListener('click', function() {
-                if (bgMusic.paused) {
-                    bgMusic.play()
-                        .then(() => {
-                            // Cambia el emoji a Pausa cuando suena
-                            musicEmoji.innerText = "⏸️";
-                            musicBtn.classList.remove('btn-dark');
-                            musicBtn.classList.add('btn-secondary');
-                        })
-                        .catch(error => {
-                            alert("Por favor, interactúa primero con la página para permitir el audio.");
-                            console.log("Error de reproducción:", error);
-                        });
-                } else {
-                    bgMusic.pause();
-                    // Regresa al emoji de nota musical
-                    musicEmoji.innerText = "🎵";
-                    musicBtn.classList.remove('btn-secondary');
-                    musicBtn.classList.add('btn-dark');
-                }
-            });
+        musicBtn.addEventListener('click', function() {
+            if (bgMusic.paused) {
+                // El mismo clic al botón ya cuenta como la interacción que exige el navegador
+                bgMusic.play()
+                    .then(() => {
+                        musicEmoji.innerText = "⏸️";
+                        musicBtn.classList.remove('btn-dark');
+                        musicBtn.classList.add('btn-secondary');
+                    })
+                    .catch(error => {
+                        // En lugar de una alerta que interrumpa, lo intentamos de nuevo de forma silenciosa
+                        console.log("Reintentando reproducción directa...", error);
+                    });
+            } else {
+                bgMusic.pause();
+                musicEmoji.innerText = "🎵";
+                musicBtn.classList.remove('btn-secondary');
+                musicBtn.classList.add('btn-dark');
+            }
         });
     </script>
 

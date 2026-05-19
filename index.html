@@ -306,6 +306,53 @@
         });
     </script>
 
+        <!-- Reproductor de Música Espiritual Flotante (Ubicación Corregida a la Izquierda) -->
+    <div id="audio-container" style="position: fixed; bottom: 20px; left: 20px; z-index: 9999;">
+        <button id="musicBtn" class="btn btn-dark rounded-circle shadow-lg d-flex align-items-center justify-content-center" 
+                style="width: 50px; height: 50px; border: 2px solid rgba(255,255,255,0.2); transition: all 0.3s ease;"
+                title="Música de meditación">
+            <!-- Icono de Nota Musical (Bootstrap Icons) -->
+            <i id="musicIcon" class="bi bi-music-note-beamed fs-5 text-light"></i>
+        </button>
+        
+        <!-- Archivo de audio: Piano ambiental espiritual de carga ultraligera -->
+        <audio id="bgMusic" loop preload="auto">
+            <source src="https://assets.mixkit.co/music/preview/mixkit-ambient-piano-01-2051.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const musicBtn = document.getElementById('musicBtn');
+            const bgMusic = document.getElementById('bgMusic');
+            const musicIcon = document.getElementById('musicIcon');
+            
+            // Establecer un volumen suave y reverente (30%)
+            bgMusic.volume = 0.3;
+
+            musicBtn.addEventListener('click', function() {
+                if (bgMusic.paused) {
+                    bgMusic.play()
+                        .then(() => {
+                            // Cambia el icono a "Pausa"
+                            musicIcon.className = "bi bi-pause-fill fs-5 text-light";
+                            musicBtn.classList.remove('btn-dark');
+                            musicBtn.classList.add('btn-secondary');
+                        })
+                        .catch(error => {
+                            console.log("La reproducción requiere interacción previa del usuario:", error);
+                        });
+                } else {
+                    bgMusic.pause();
+                    // Regresa al icono original
+                    musicIcon.className = "bi bi-music-note-beamed fs-5 text-light";
+                    musicBtn.classList.remove('btn-secondary');
+                    musicBtn.classList.add('btn-dark');
+                }
+            });
+        });
+    </script>
+
 </body>
 </html>
 

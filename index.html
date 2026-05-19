@@ -306,7 +306,7 @@
         });
     </script>
 
-                <!-- Reproductor de Música Espiritual (Versión Google/YouTube de Alta Fiabilidad) -->
+                    <!-- Reproductor de Música Espiritual Local -->
     <div id="audio-container" style="position: fixed; bottom: 20px; left: 20px; z-index: 9999;">
         <button id="musicBtn" class="btn btn-dark rounded-circle shadow-lg d-flex align-items-center justify-content-center" 
                 style="width: 50px; height: 50px; border: 2px solid rgba(255,255,255,0.2); transition: all 0.3s ease; font-size: 1.2rem;"
@@ -314,57 +314,38 @@
             <span id="musicEmoji">🎵</span>
         </button>
         
-        <!-- Contenedor invisible para el reproductor de YouTube -->
-        <div id="yt-player" style="display: none;"></div>
+        <!-- Tu archivo local de piano cargado directamente desde GitHub Pages -->
+        <audio id="bgMusic" loop preload="auto">
+            <source src="images/quiero-conocer-a-jesus.m4a" type="audio/mp4">
+        </audio>
     </div>
 
-    <!-- Cargamos la API oficial de YouTube de forma segura -->
-    <script src="https://www.youtube.com/iframe_api"></script>
     <script>
-        let player;
-        let isPlaying = false;
+        const musicBtn = document.getElementById('musicBtn');
+        const bgMusic = document.getElementById('bgMusic');
+        const musicEmoji = document.getElementById('musicEmoji');
+        
+        // Volumen muy suave y reverente (25%) para fondo de lectura
+        bgMusic.volume = 0.25;
 
-        // Esta función la llama automáticamente la API de YouTube al cargar
-        function onYouTubeIframeAPIReady() {
-            player = new YT.Player('yt-player', {
-                height: '0',
-                width: '0',
-                videoId: 'tNt_MTwL4bE', // ID de una hermosa hora de Piano Instrumental de Adoración y Oración Profunda
-                playerVars: {
-                    'autoplay': 0,
-                    'controls': 0,
-                    'loop': 1,
-                    'playlist': 'tNt_MTwL4bE' // Requisito de YouTube para que repita en bucle
-                },
-                events: {
-                    'onReady': onPlayerReady
-                }
-            });
-        }
-
-        function onPlayerReady(event) {
-            const musicBtn = document.getElementById('musicBtn');
-            const musicEmoji = document.getElementById('musicEmoji');
-
-            // Establecemos un volumen muy suave y reverente para la lectura (30%)
-            player.setVolume(30);
-
-            musicBtn.addEventListener('click', function() {
-                if (!isPlaying) {
-                    player.playVideo();
-                    musicEmoji.innerText = "⏸️";
-                    musicBtn.classList.remove('btn-dark');
-                    musicBtn.classList.add('btn-secondary');
-                    isPlaying = true;
-                } else {
-                    player.pauseVideo();
-                    musicEmoji.innerText = "🎵";
-                    musicBtn.classList.remove('btn-secondary');
-                    musicBtn.classList.add('btn-dark');
-                    isPlaying = false;
-                }
-            });
-        }
+        musicBtn.addEventListener('click', function() {
+            if (bgMusic.paused) {
+                bgMusic.play()
+                    .then(() => {
+                        musicEmoji.innerText = "⏸️";
+                        musicBtn.classList.remove('btn-dark');
+                        musicBtn.classList.add('btn-secondary');
+                    })
+                    .catch(error => {
+                        console.log("Error al reproducir el archivo local:", error);
+                    });
+            } else {
+                bgMusic.pause();
+                musicEmoji.innerText = "🎵";
+                musicBtn.classList.remove('btn-secondary');
+                musicBtn.classList.add('btn-dark');
+            }
+        });
     </script>
 
 </body>

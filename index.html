@@ -347,9 +347,10 @@
             <span id="musicEmoji">🎵</span>
         </button>
 
+                <!-- Etiqueta del nombre de la canción (Oculta por defecto) con atributos de traducción -->
         <span id="musicTitle" class="badge bg-dark text-wrap shadow-sm ms-2 px-3 py-2" 
               style="display: none; font-weight: 500; font-size: 0.9rem; letter-spacing: 0.5px; border: 1px solid rgba(255,255,255,0.15); border-radius: 20px; max-width: 200px; animation: fadeIn 0.4s ease-in-out;">
-            Quiero conocer a Jesús 🎹
+            <span data-es="Quiero conocer a Jesús" data-en="I Want to Know Jesus">Quiero conocer a Jesús</span> 🎹
         </span>
         
         <audio id="bgMusic" loop preload="auto">
@@ -408,11 +409,14 @@
                     <button type="button" class="btn-close btn-close-white fs-4" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <!-- Cuerpo del modal donde se despliega la imagen expandida -->
-                <div class="modal-body p-0 text-center">
-                    <img src="images/pablo-agripa.png" alt="Pablo ante el Rey Agripa - Pantalla Completa" class="img-fluid rounded shadow-lg" style="max-height: 85vh; object-fit: contain;">
-                    <div class="text-white-50 mt-3 small text-uppercase" style="letter-spacing: 2px;">
+                                <!-- Cuerpo del modal donde se despliega la imagen expandida con traducción automática -->
+                <div class="modal-body p-0 text-center">                  
+                    <img src="images/pablo-agripa.png" alt="Pablo ante el Rey Agripa - Pantalla Completa" class="img-fluid rounded shadow-lg" style="max-height: 85vh; object-fit: contain;">                               
+                    <div class="text-white-50 mt-3 small text-uppercase" style="letter-spacing: 2px;"
+                         data-es="El Apóstol Pablo explicando los dogmas de la fe al Rey Agripa" 
+                         data-en="The Apostle Paul explaining the dogmas of faith to King Agrippa">
                         El Apóstol Pablo explicando los dogmas de la fe al Rey Agripa
-                    </div>
+                    </div>                                                 
                 </div>
             </div>
         </div>

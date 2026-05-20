@@ -137,10 +137,14 @@
                 
                 <!-- Columna de la Imagen Corregida con Archivo Local -->
 <div class="col-lg-5 text-center">
-    <img src="images/pablo-agripa.png" 
-         alt="Pablo ante el Rey Agripa" 
-         class="img-fluid shadow border" 
-         style="max-height: 450px; object-fit: cover; width: 100%;">
+    <!-- Tu imagen corregida ahora con disparador de zoom -->
+    <img src="images/pablo-agripa.jpg" 
+     alt="Pablo ante el Rey Agripa" 
+     class="img-fluid shadow border" 
+     style="max-height: 450px; object-fit: cover; width: 100%; cursor: pointer;"
+     data-bs-toggle="modal" 
+     data-bs-target="#imageModal"
+     title="Haz clic para agrandar">
     <div class="mt-3 text-muted small text-uppercase" style="letter-spacing: 1px;" data-es="Hechos 26 — Pablo ante Agripa" data-en="Acts 26 — Paul before Agrippa">Hechos 26 — Pablo ante Agripa</div>
 </div>
 
@@ -375,6 +379,25 @@
             }
         });
     </script>
+
+        <!-- Ventana Emergente (Modal) para agrandar la imagen -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content bg-transparent border-0 shadow-none">
+                <!-- Botón de cerrar elegante en la esquina superior derecha -->
+                <div class="modal-header border-0 p-0 mb-2 justify-content-end">
+                    <button type="button" class="btn-close btn-close-white fs-4" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <!-- Cuerpo del modal donde se despliega la imagen expandida -->
+                <div class="modal-body p-0 text-center">
+                    <img src="images/pablo-agripa.jpg" alt="Pablo ante el Rey Agripa - Pantalla Completa" class="img-fluid rounded shadow-lg" style="max-height: 85vh; object-fit: contain;">
+                    <div class="text-white-50 mt-3 small text-uppercase" style="letter-spacing: 2px;">
+                        Vasily Surikov — El Apóstol Pablo explicando los dogmas de la fe al Rey Agripa (1875)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>

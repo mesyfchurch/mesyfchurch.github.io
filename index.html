@@ -168,7 +168,7 @@
                     <!-- Bloque de Cita Destacada -->
                     <blockquote class="border-start border-dark border-3 ps-3 my-4 italic text-muted" style="font-style: italic;">
                         <p class="mb-1" data-es="&ldquo;Casi salvado es perderse por completo. Detenerse antes de Cristo es perecer. Un hombre puede estar a un centímetro del cielo y sin embargo ser arrojado al infierno.&rdquo;" data-en="&ldquo;Almost saved is to be wholly lost. To stop short of Christ is to perish. A man may be within an inch of heaven, and yet be shut out.&rdquo;">&ldquo;Casi salvado es perderse por completo. Detenerse antes de Cristo es perecer. Un hombre puede estar a un centímetro del cielo y sin embargo ser arrojado al infierno.&rdquo;</p>
-                        <footer class="blockquote-footer text-uppercase" style="font-size: 0.75rem;">Charles Spurgeon</footer>
+                        <footer class="blockquote-footer text-uppercase" style="font-size: 0.75rem;"><br>Charles Spurgeon</footer>
                     </blockquote>
 
                     <p class="fs-6 text-secondary" data-es="El cautiverio más difícil de romper no es el de las cadenas de hierro que cargaba el apóstol, sino el de la indecisión. La ironía del juicio humano absolvió a Pablo formalmente, pero la providencia utilizó esas leyes para llevarlo al corazón del Imperio. No te detengas en la orilla de la fe: ya no eres el rey de tu vida, Cristo reclama el trono de tu corazón." data-en="The captivity hardest to break is not that of the iron chains worn by the apostle, but that of indecision. The irony of human judgment formally acquitted Paul, but providence used those very laws to bring him to the heart of the Empire. Do not stop at the shore of faith: you are no longer the king of your life, Christ claims the throne of your heart.">El cautiverio más difícil de romper no es el de las cadenas de hierro que cargaba el apóstol, sino el de la indecisión. La ironía del juicio humano absolvió a Pablo formalmente, pero la providencia utilizó esas leyes para llevarlo al corazón del Imperio. No te detengas en la orilla de la fe: ya no eres el rey de tu vida, Cristo reclama el trono de tu corazón.</p>
@@ -247,7 +247,7 @@
                     <div>
                         <h5 class="fw-bold mb-1" data-es="Nuestra Ubicación" data-en="Our Location">Nuestra Ubicación</h5>
                         <p class="text-muted mb-2">38304 15th St East Palmdale, CA 93550</p>
-                        <a href="https://maps.google.com/?q=38304+15th+St+East+Palmdale+CA+93550" target="_blank" class="btn btn-sm btn-dark rounded-0 text-uppercase" data-es="Cómo Llegar" data-en="Get Directions">Cómo Llegar</a>
+                        <a id="como-llegar" href="https://maps.google.com/?q=38304+15th+St+East+Palmdale+CA+93550" target="_blank" class="btn btn-sm btn-dark rounded-0 text-uppercase" data-es="Cómo Llegar" data-en="Get Directions">Cómo Llegar</a>
                     </div>
                 </div>
                 
@@ -303,6 +303,34 @@
                 const placeholderValue = currentLang === 'en' ? input.getAttribute('data-en-placeholder') : input.getAttribute('data-es-placeholder');
                 input.setAttribute('placeholder', placeholderValue);
             });
+        });
+    </script>
+
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 1. Definimos las direcciones exactas para ambos mapas
+            // Reemplaza "Tu+Direccion+Aqui" por la ubicación real de la iglesia
+            const direccionGoogleMaps = "https://maps.google.com/?q=38304 15th St East Palmdale, CA 93550";
+            const direccionAppleMaps  = "maps://maps.apple.com/?q=38304 15th St East Palmdale, CA 93550";
+
+            const botonComoLlegar = document.getElementById('como-llegar');
+
+            if (botonComoLlegar) {
+                // 2. Detectamos de forma robusta si es un dispositivo Apple (iPhone, iPad, iPod o Mac con Safari)
+                const isApple = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
+                                (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) ||
+                                /Macintosh/.test(navigator.userAgent);
+
+                if (isApple) {
+                    // 3. Si es Apple, alteramos el enlace para abrir la app nativa Apple Maps
+                    botonComoLlegar.href = direccionAppleMaps;
+                    // En iOS, los protocolos nativos abren mejor en la misma pestaña; quitamos el target="_blank" si se desea
+                    botonComoLlegar.removeAttribute('target'); 
+                } else {
+                    // 4. Si es Android o PC, nos aseguramos de que mantenga Google Maps
+                    botonComoLlegar.href = direccionGoogleMaps;
+                }
+            }
         });
     </script>
 

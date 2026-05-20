@@ -144,6 +144,8 @@
      style="max-height: 450px; object-fit: cover; width: 100%; cursor: pointer;"
      data-bs-toggle="modal" 
      data-bs-target="#imageModal"
+     data-es="Haz clic para agrandar" 
+     data-en="Click to enlarge"
      title="Haz clic para agrandar">
     <div class="mt-3 text-muted small text-uppercase" style="letter-spacing: 1px;" data-es="Hechos 26 — Pablo ante Agripa" data-en="Acts 26 — Paul before Agrippa">Hechos 26 — Pablo ante Agripa</div>
 </div>
@@ -300,6 +302,10 @@
             // Traducimos todos los elementos de texto estándar
             document.querySelectorAll('[data-es]').forEach(element => {
                 element.textContent = currentLang === 'en' ? element.getAttribute('data-en') : element.getAttribute('data-es');
+            // NUEVA LÍNEA: Si el elemento tiene atributos de título para traducir, lo actualizamos también
+                if (element.hasAttribute('data-es') && element.hasAttribute('data-en')) {
+                    element.setAttribute('title', currentLang === 'en' ? element.getAttribute('data-en') : element.getAttribute('data-es'));
+                }
             });
 
             // Traducimos los placeholders de los inputs (Campos del formulario)

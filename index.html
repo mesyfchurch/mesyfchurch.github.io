@@ -299,14 +299,13 @@
                 &copy; 2026 Iglesia MESYF | Palmdale, California
             </p>
 
-            <!-- Botón Informativo al final de la línea -->
+                        <!-- Botón Informativo al final de la línea (Limpio de atributos data para evitar conflictos) -->
             <button id="devInfoBtn" class="btn btn-sm btn-outline-secondary rounded-circle ms-2" 
                     style="font-size: 0.7rem; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center;" 
-                    title="Información técnica" 
-                    data-es="Información técnica" 
-                    data-en="Technical info">
+                    title="Información técnica">
                 i
             </button>
+
         </div>
 
         <!-- Contenedor de Información del Desarrollador (Aparece abajo al hacer clic) -->
@@ -349,6 +348,15 @@
                 document.title = "MESYF Church | Evangelism & Pray"; // Tu título en inglés aquí
             } else {
                 document.title = "Iglesia MESYF | Evangelismo y Oracion"; // Tu título original en español
+            }
+            // =========================================================
+
+            // =========================================================
+            // NUEVO: TRADUCIR EL TITLE DEL BOTÓN DE INFORMACIÓN TÉCNICA
+            // =========================================================
+            const devBtn = document.getElementById('devInfoBtn');
+            if (devBtn) {
+                devBtn.setAttribute('title', currentLang === 'en' ? 'Technical info' : 'Información técnica');
             }
             // =========================================================
 

@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-bs-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta property="og:title" content="Iglesia MESYF | Evangelismo y Oración" />
+    <meta property="og:description" content="El lugar donde tu tormento se transforma en testimonio. Palmdale, California." />
+    <meta property="og:image" content="images/mesyf-logo.jpg" />
+    <meta property="og:type" content="website" />
+
     <link rel="icon" type="image/jpeg" href="images/mesyf-logo.jpg">
     <title>Iglesia MESYF | Evangelismo y Oracion</title>
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
@@ -13,7 +20,7 @@
             --primary-dark: #111111;
             --accent-color: #ffffff;
         }
-        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #ffffff; }
+        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; transition: background-color 0.3s ease, color 0.3s ease; }
 
         /* Sección Hero (Impacto Visual) */
         .hero {
@@ -45,7 +52,35 @@
         .btn-hillsong:hover { background: white; color: black; }
 
         .section-padding { padding: 80px 20px; }
-        .evangelismo-box { background-color: #f8f9fa; border-radius: 0; padding: 60px; }
+        .evangelismo-box { background-color: rgba(0,0,0,0.03); border-radius: 0; padding: 60px; }
+        [data-bs-theme="dark"] .evangelismo-box { background-color: rgba(255,255,255,0.03); }
+
+        /* 5. DISEÑO DE MAPA CON FILTRO ESTÉTICO */
+        .map-container iframe {
+            filter: grayscale(1) opacity(0.85);
+            transition: all 0.5s ease;
+        }
+        .map-container iframe:hover {
+            filter: grayscale(0) opacity(1);
+        }
+
+        /* 3. ANIMACIÓN DEL EQUALIZADOR DE MÚSICA */
+        .eq-bar {
+            width: 3px;
+            background-color: #fff;
+            display: inline-block;
+            margin-right: 1px;
+            animation: bounce 1s ease-in-out infinite alternate;
+            height: 5px;
+        }
+        .eq-bar:nth-child(2) { animation-delay: 0.2s; height: 12px; }
+        .eq-bar:nth-child(3) { animation-delay: 0.4s; height: 8px; }
+        
+        @keyframes bounce {
+            10% { height: 4px; }
+            50% { height: 14px; }
+            100% { height: 6px; }
+        }
     </style>
 </head>
 <body>
@@ -64,6 +99,10 @@
             </a>
 
             <div class="d-flex align-items-center ms-auto">
+                <button id="theme-toggle" class="btn btn-link text-light me-2 p-1" style="font-size: 1.1rem; text-decoration: none;" title="Cambiar tema">
+                    <i class="fa-solid fa-moon" id="theme-icon"></i>
+                </button>
+
                 <button id="lang-btn" class="btn btn-outline-light me-2 px-3 py-1 text-uppercase" style="font-size: 0.8rem; font-weight: bold; border-radius: 0;">EN</button>
                 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -78,6 +117,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#mensaje" data-es="Mensaje de la Semana" data-en="Message of the Week">Mensaje de la Semana</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#eventos" data-es="Eventos" data-en="Events">Eventos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#evangelismo" data-es="Evangelismo" data-en="Evangelism">Evangelismo</a>
@@ -111,6 +153,33 @@
         </div>
     </section>
 
+    <section id="eventos" class="section-padding container border-bottom">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold text-uppercase" data-es="Próximos Eventos" data-en="Upcoming Events">Próximos Eventos</h2>
+            <p class="text-muted" data-es="Mantente conectado y participa con nosotros este mes." data-en="Stay connected and participate with us this month.">Mantente conectado y participa con nosotros este mes.</p>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-4">
+                <div class="card h-100 border rounded-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="text-uppercase text-danger fw-bold small mb-1" data-es="Mayo 24" data-en="May 24">Mayo 24</div>
+                        <h5 class="card-title fw-bold" data-es="Domingo de Primicias" data-en="Firstfruits Sunday">Domingo de Primicias</h5>
+                        <p class="card-text small text-muted" data-es="Un servicio especial de consagración familiar y agradecimiento por las bendiciones recibidas." data-en="A special service of family consecration and thanksgiving for the blessings received.">Un servicio especial de consagración familiar y agradecimiento por las bendiciones recibidas.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border rounded-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="text-uppercase text-danger fw-bold small mb-1" data-es="Viernes Clamor" data-en="Friday Cry">Viernes Clamor</div>
+                        <h5 class="card-title fw-bold" data-es="Noche de Intercesión" data-en="Intercession Night">Noche de Intercesión</h5>
+                        <p class="card-text small text-muted" data-es="Nos unimos en un solo clamor por las peticiones recibidas en nuestra web y la restauración comunitaria." data-en="We unite in one cry for the requests received on our website and community restoration.">Nos unimos en un solo clamor por las peticiones recibidas en nuestra web y la restauración comunitaria.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="evangelismo" class="section-padding container text-center">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -128,7 +197,7 @@
         </div>
     </section>
 
-    <section id="mensaje" class="bg-light section-padding border-top border-bottom">
+    <section id="mensaje" class="bg-body-tertiary section-padding border-top border-bottom">
         <div class="container">
             <div class="row align-items-center g-5">
                 
@@ -148,7 +217,7 @@
                 <div class="col-lg-7">
                     <h6 class="text-muted text-uppercase fw-bold mb-2" style="letter-spacing: 2px;" data-es="Estudio Bíblico" data-en="Bible Study">Estudio Bíblico</h6>
                     <h2 class="fw-bold mb-1" data-es="MENSAJE DE LA SEMANA" data-en="MESSAGE OF THE WEEK">MENSAJE DE LA SEMANA</h2>
-                    <h4 class="text-dark fw-light mb-4" data-es="«De la Parálisis a la Promesa: El Peligro del Casi»" data-en="«From Paralysis to Promise: The Danger of Almost»">«De la Parálisis a la Promesa: El Peligro del Casi»</h4>
+                    <h4 class="text-body fw-light mb-4" data-es="«De la Parálisis a la Promesa: El Peligro del Casi»" data-en="«From Paralysis to Promise: The Danger of Almost»">«De la Parálisis a la Promesa: El Peligro del Casi»</h4>
                     
                     <p class="fs-6 text-secondary mb-4" data-es="En el clímax de Hechos 26:19-32, el apóstol Pablo no se limita a defenderse en un juicio legal; transforma el estrado imperial en un púlpito para confrontar la conciencia de la élite política. Frente al procurador Festo, quien tilda el Evangelio de locura por su racionalidad pagana, y ante el rey Herodes Agripa II, quien poseía el conocimiento de las Escrituras pero cuidaba su estatus, Pablo revela que el Evangelio es un hecho público: 'no se ha hecho esto en algún rincón'." data-en="At the climax of Acts 26:19-32, the Apostle Paul does not merely defend himself in a legal trial; he transforms the imperial stage into a pulpit to confront the conscience of the political elite. Before Governor Festo, who brands the Gospel as madness due to his pagan rationality, and before King Herod Agrippa II, who possessed knowledge of the Scriptures but guarded his status, Paul reveals that the Gospel is a public event: 'this thing was not done in a corner'.">En el clímax de Hechos 26:19-32, el apóstol Pablo no se limita a defenderse en un juicio legal; transforma el estrado imperial en un púlpito para confrontar la conciencia de la élite política. Frente al procurador Festo, quien tilda el Evangelio de locura por su racionalidad pagana, y ante el rey Herodes Agripa II, quien poseía el conocimiento de las Escrituras pero cuidaba su estatus, Pablo revela que el Evangelio es un hecho público: 'no se ha hecho esto en algún rincón'.</p>
 
@@ -163,7 +232,7 @@
                         </div>
                     </div>
 
-                    <blockquote class="border-start border-dark border-3 ps-3 my-4 italic text-muted" style="font-style: italic;">
+                    <blockquote class="border-start border-dark border-3 ps-3 my-4 text-muted" style="font-style: italic;">
                         <p class="mb-1" data-es="“Casi salvado es perderse por completo. Detenerse antes de Cristo es perecer. Un hombre puede estar a un centímetro del cielo y sin embargo ser arrojado al infierno.”" data-en="“Almost saved is to be wholly lost. To stop short of Christ is to perish. A man may be within an inch of heaven, and yet be shut out.”">“Casi salvado es perderse por completo. Detenerse antes de Cristo es perecer. Un hombre puede estar a un centímetro del cielo y sin embargo ser arrojado al infierno.”</p>
                         <footer class="blockquote-footer text-uppercase" style="font-size: 0.75rem;"><br>Charles Spurgeon</footer>
                     </blockquote>
@@ -232,13 +301,18 @@
                 <p class="text-muted mb-4" data-es="Nos encantaría recibirte en persona. Si tienes preguntas sobre nuestra comunidad, no dudes en escribirnos o visitarnos." data-en="We would love to welcome you in person. If you have questions about our community, please don't hesitate to reach out or visit us.">Nos encantaría recibirte en persona. Si tienes preguntas sobre nuestra comunidad, no dudes en escribirnos o visitarnos.</p>
                 
                 <div class="d-flex align-items-start mb-4">
-                    <div class="me-3 mt-1 text-dark" style="font-size: 1.3rem; width: 25px; text-align: center;">
+                    <div class="me-3 mt-1 text-body" style="font-size: 1.3rem; width: 25px; text-align: center;">
                         <i class="fa-solid fa-location-dot"></i>
                     </div>
                     <div>
                         <h5 class="fw-bold mb-1" data-es="Nuestra Ubicación" data-en="Our Location">Nuestra Ubicación</h5>
                         <p class="text-muted mb-2">38304 15th St East Palmdale, CA 93550</p>
-                        <a id="como-llegar" href="https://maps.google.com/?q=38304+15th+St+East+Palmdale+CA+93550" target="_blank" class="btn btn-sm btn-dark rounded-0 text-uppercase" data-es="Cómo Llegar" data-en="Get Directions">Cómo Llegar</a>
+                        <a id="como-llegar" href="https://maps.google.com/?q=38304+15th+St+East+Palmdale+CA+93550" target="_blank" class="btn btn-sm btn-dark rounded-0 text-uppercase mb-3" data-es="Cómo Llegar" data-en="Get Directions">Cómo Llegar</a>
+                        
+                        <div class="map-container shadow-sm border overflow-hidden mt-2" style="max-width: 100%; width: 400px; height: 200px;">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3278.4346452814324!2d-118.1065114!3d34.5678456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c25607ea692e1b%3A0x6e287ff27ff33008!2s38304%2015th%20St%20E%2C%20Palmdale%2C%20CA%2093550!5e0!3m2!1ses!2sus!4v1716310000000!5m2!1ses!2sus" 
+                                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
                     </div>
                 </div>
                 
@@ -263,14 +337,14 @@
         <div class="container d-flex flex-column align-items-center justify-content-center">
             
             <div class="d-flex align-items-center justify-content-center flex-wrap">
-                <p id="copyright-text" class="mb-0 text-muted" style="font-size: 0.75rem; line-height: 1.4;" data-es="&copy; 2026 Iglesia MESYF | Palmdale, California" data-en="&copy; 2026 MESYF Church | Palmdale, California">
-                    &copy; 2026 Iglesia MESYF <br> Palmdale, California
+                <p id="copyright-text" class="mb-0 text-muted" style="font-size: 0.75rem; line-height: 1.4;" data-es="© 2026 Iglesia MESYF | Palmdale, California" data-en="© 2026 MESYF Church | Palmdale, California">
+                    © 2026 Iglesia MESYF <br> Palmdale, California
                 </p>
 
                 <button id="devInfoBtn" class="btn btn-sm btn-outline-secondary rounded-circle ms-2" 
-                        style="font-size: 0.7rem; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center;" 
+                        style="font-size: 0.65rem; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; padding: 0;" 
                         title="Información técnica">
-                    i
+                    <i class="fa-solid fa-info"></i>
                 </button>
             </div>
 
@@ -294,53 +368,75 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script type="text/javascript" id="hs-script-loader" async defer src="https://js-na2.hs-scripts.com/246204734.js"></script>
+    
     <script>
         const langBtn = document.getElementById('lang-btn');
-        let currentLang = 'es'; // Idioma inicial
+        let currentLang = 'es'; 
 
         langBtn.addEventListener('click', () => {
-            // Alternamos la bandera del idioma
             currentLang = currentLang === 'es' ? 'en' : 'es';
-            
-            // Cambiamos el texto visual del botón superior
             langBtn.textContent = currentLang === 'es' ? 'EN' : 'ES';
 
-            // Cambiar el título de la pestaña del navegador
             if (currentLang === 'en') {
                 document.title = "MESYF Church | Evangelism & Pray";
             } else {
                 document.title = "Iglesia MESYF | Evangelismo y Oracion";
             }
 
-            // Traducir de manera segura la etiqueta del flotante (title) del botón i
             const devBtn = document.getElementById('devInfoBtn');
             if (devBtn) {
                 devBtn.setAttribute('title', currentLang === 'en' ? 'Technical info' : 'Información técnica');
             }
 
-            // Traducimos todos los elementos estándar regulados por data-es
             document.querySelectorAll('[data-es]').forEach(element => {
                 let translatedText = currentLang === 'en' ? element.getAttribute('data-en') : element.getAttribute('data-es');
                 
-                // Si el texto contiene la barra '|', inyectamos HTML interpretando el salto <br>
                 if (translatedText.includes('|')) {
                     element.innerHTML = translatedText.replace('|', '<br>');
                 } else {
                     element.textContent = translatedText;
                 }
                 
-                // Si el elemento maneja títulos flotantes nativos, los actualizamos
                 if (element.hasAttribute('data-es') && element.hasAttribute('data-en')) {
                     element.setAttribute('title', currentLang === 'en' ? element.getAttribute('data-en') : element.getAttribute('data-es'));
                 }
             });
 
-            // Traducimos los placeholders de los inputs (Formularios)
             document.querySelectorAll('[data-es-placeholder]').forEach(input => {
                 const placeholderValue = currentLang === 'en' ? input.getAttribute('data-en-placeholder') : input.getAttribute('data-es-placeholder');
                 input.setAttribute('placeholder', placeholderValue);
             });
         });
+    </script>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const htmlElement = document.documentElement;
+
+        // Recuperar tema preferido guardado
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        htmlElement.setAttribute('data-bs-theme', savedTheme);
+        updateThemeIcon(savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-bs-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            htmlElement.setAttribute('data-bs-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        function updateThemeIcon(theme) {
+            if (theme === 'dark') {
+                themeIcon.className = 'fa-solid fa-sun';
+                themeToggle.setAttribute('title', 'Modo Claro');
+            } else {
+                themeIcon.className = 'fa-solid fa-moon';
+                themeToggle.setAttribute('title', 'Modo Oscuro');
+            }
+        }
     </script>
 
     <script>
@@ -373,8 +469,13 @@
         </button>
 
         <span id="musicTitle" class="badge bg-dark text-wrap shadow-sm ms-2 px-3 py-2" 
-              style="display: none; font-weight: 500; font-size: 0.9rem; letter-spacing: 0.5px; border: 1px solid rgba(255,255,255,0.15); border-radius: 20px; max-width: 200px; animation: fadeIn 0.4s ease-in-out;">
-            <span data-es="Quiero conocer a Jesús" data-en="I Want to Know Jesus">Quiero conocer a Jesús</span> 🎹
+              style="display: none; font-weight: 500; font-size: 0.9rem; letter-spacing: 0.5px; border: 1px solid rgba(255,255,255,0.15); border-radius: 20px; max-width: 250px; animation: fadeIn 0.4s ease-in-out;">
+            <span data-es="Quiero conocer a Jesús" data-en="I Want to Know Jesus">Quiero conocer a Jesús</span> 
+            <span id="eq-animation" class="ms-2 d-none">
+                <span class="eq-bar"></span>
+                <span class="eq-bar"></span>
+                <span class="eq-bar"></span>
+            </span>
         </span>
         
         <audio id="bgMusic" loop preload="auto">
@@ -394,6 +495,7 @@
         const bgMusic = document.getElementById('bgMusic');
         const musicEmoji = document.getElementById('musicEmoji');
         const musicTitle = document.getElementById('musicTitle');
+        const eqAnimation = document.getElementById('eq-animation');
         
         bgMusic.volume = 0.25;
 
@@ -405,6 +507,7 @@
                         musicBtn.classList.remove('btn-dark');
                         musicBtn.classList.add('btn-secondary');
                         musicTitle.style.display = "inline-block";
+                        eqAnimation.classList.remove('d-none');
                     })
                     .catch(error => {
                         console.log("Error al reproducir el archivo local:", error);
@@ -415,6 +518,7 @@
                 musicBtn.classList.remove('btn-secondary');
                 musicBtn.classList.add('btn-dark');
                 musicTitle.style.display = "none";
+                eqAnimation.classList.add('d-none');
             }
         });
     </script>
@@ -430,7 +534,7 @@
                     <div class="text-white-50 mt-3 small text-uppercase" style="letter-spacing: 2px;"
                          data-es="El Apóstol Pablo explicando los dogmas de la fe al Rey Agripa" 
                          data-en="The Apostle Paul explaining the dogmas of faith to King Agrippa">
-                        El Apóstol Pablo explaining los dogmas de la fe al Rey Agripa
+                        El Apóstol Pablo explicando los dogmas de la fe al Rey Agripa
                     </div>                                                 
                 </div>
             </div>

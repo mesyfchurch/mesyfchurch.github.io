@@ -491,12 +491,15 @@
     </div>
     
     <script>
-    // Lógica para mostrar/ocultar los créditos del desarrollador de forma animada
+    // Lógica mejorada para abrir y cerrar (toggle) los créditos del desarrollador de forma animada
     const devInfoBtn = document.getElementById('devInfoBtn');
     const devBadgeContainer = document.getElementById('devBadgeContainer');
 
     devInfoBtn.addEventListener('click', () => {
-        if (devBadgeContainer.style.display === 'none') {
+        // Leemos el estilo real y actual que el navegador está renderizando
+        const currentDisplay = window.getComputedStyle(devBadgeContainer).display;
+
+        if (currentDisplay === 'none') {
             devBadgeContainer.style.display = 'block';
         } else {
             devBadgeContainer.style.display = 'none';

@@ -312,6 +312,16 @@
             // Cambiamos el texto visual del botón superior
             langBtn.textContent = currentLang === 'es' ? 'EN' : 'ES';
 
+            // =========================================================
+            // NUEVO: CAMBIAR EL TÍTULO DE LA PESTAÑA DEL NAVEGADOR
+            // =========================================================
+            if (currentLang === 'en') {
+                document.title = "MESYF Church | Evangelism & Pray"; // Tu título en inglés aquí
+            } else {
+                document.title = "Iglesia MESYF | Evangelismo y Oracion"; // Tu título original en español
+            }
+            // =========================================================
+
             // Traducimos todos los elementos de texto estándar
             document.querySelectorAll('[data-es]').forEach(element => {
                 element.textContent = currentLang === 'en' ? element.getAttribute('data-en') : element.getAttribute('data-es');

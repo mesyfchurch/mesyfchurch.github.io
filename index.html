@@ -24,7 +24,7 @@
 
         /* Sección Hero (Impacto Visual) */
         .hero {
-            height: 95vh; /* Ajustado ligeramente para acomodar el logo superior de manera armónica */
+            height: 95vh;
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
                         url('https://images.unsplash.com/photo-1438232992991-995b7058bbb3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
@@ -94,27 +94,35 @@
             100% { height: 6px; }
         }
 
-        /* Barra del Contador Regresivo */
-        .countdown-banner {
-            background: #000000;
-            color: #ffffff;
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            text-transform: uppercase;
-            padding: 10px 0;
+        /* Bloque del Contador en la sección de Eventos */
+        .event-countdown-box {
+            background: rgba(0,0,0,0.04);
+            border: 1px solid rgba(0,0,0,0.08);
+            max-width: 500px;
+            margin: 0 auto 40px auto;
+            padding: 15px 25px;
+            letter-spacing: 0.5px;
+        }
+        [data-bs-theme="dark"] .event-countdown-box {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
         }
         .countdown-timer {
             font-family: 'Courier New', Courier, monospace;
             color: #ffc107;
-            font-weight: bold;
-            margin-left: 5px;
+            font-weight: 700;
+            font-size: 1.4rem;
+            display: block;
+            margin-top: 5px;
+        }
+        [data-bs-theme="light"] .countdown-timer {
+            color: #b8860b; /* Un dorado más oscuro y legible en el modo claro */
         }
         .live-pulse {
             color: #dc3545;
             animation: blinker 1.5s linear infinite;
             font-weight: bold;
+            font-size: 1.1rem;
         }
         @keyframes blinker {
             50% { opacity: 0; }
@@ -124,13 +132,6 @@
     <script defer src="https://cloud.umami.is/script.js" data-website-id="99d3c068-724a-4feb-9928-be961cd7e31d"></script>
 </head>
 <body>
-
-    <div class="countdown-banner text-center">
-        <div class="container">
-            <span id="countdown-text" data-es="Próximo Servicio en:" data-en="Next Service in:">Próximo Servicio en:</span>
-            <span id="timer-display" class="countdown-timer">00d 00h 00m 00s</span>
-        </div>
-    </div>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
@@ -184,16 +185,22 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <h2 class="fw-bold mb-4" data-es="NUESTRA CASA" data-en="OUR HOUSE">NUESTRA CASA</h2>
-                <p class="fs-5 text-muted" data-es="Somos una comunidad de fe en Palmdale, California, que cree en el poder de la restauración total. No nos importa tu pasado, nos importa tu futuro con Dios." data-en="We are a faith community in Palmdale, California, that believes in the power of total restoration. We don't care about your past; we care about your future with God.">Somos una comunidad de fe en Palmdale, California, que cree en el poder de la restauración total. No nos importa tu pasado, nos importa tu futuro con Dios.</p>
+                <p class="fs-5 text-muted" data-es="Somos una comunidad de fe en Palmdale, California, que cree en el power de la restauración total. No nos importa tu pasado, nos importa tu futuro con Dios." data-en="We are a faith community in Palmdale, California, that believes in the power of total restoration. We don't care about your past; we care about your future with God.">Somos una comunidad de fe en Palmdale, California, que cree en el poder de la restauración total. No nos importa tu pasado, nos importa tu futuro con Dios.</p>
             </div>
         </div>
     </section>
 
     <section id="eventos" class="section-padding container border-bottom">
-        <div class="text-center mb-5">
+        <div class="text-center mb-4">
             <h2 class="fw-bold text-uppercase" data-es="Próximos Eventos" data-en="Upcoming Events">Próximos Eventos</h2>
             <p class="text-muted" data-es="Mantente conectado y participa con nosotros este mes." data-en="Stay connected and participate with us this month.">Mantente conectado y participa con nosotros este mes.</p>
         </div>
+
+        <div class="event-countdown-box text-center shadow-sm">
+            <span id="countdown-text" class="text-uppercase fw-bold small text-secondary" data-es="Próximo Servicio en:" data-en="Next Service in:">Próximo Servicio en:</span>
+            <span id="timer-display" class="countdown-timer">00d 00h 00m 00s</span>
+        </div>
+
         <div class="row g-4 justify-content-center">
             <div class="col-md-4">
                 <div class="card h-100 border rounded-0 shadow-sm">
@@ -267,7 +274,7 @@
                     </div>
 
                     <p class="fs-6 text-secondary mb-4" 
-                       data-es="El apóstol Pablo expone con crudeza la realidad de nuestra vida en la tierra, pero introduce de inmediato una contraparte sobrenatural. Dios permite que seamos vasijas vulnerables de barro para que, cuando el mundo nos vea resistir de pie, entienda que el verdadero Héroe habita dentro de nosotros." 
+                       data-es="El apóstol Pablo expone con crudeza la reality de nuestra vida en la tierra, pero introduce de inmediato una contraparte sobrenatural. Dios permite que seamos vasijas vulnerables de barro para que, cuando el mundo nos vea resistir de pie, entienda que el verdadero Héroe habita dentro de nosotros." 
                        data-en="The apostle Paul bluntly exposes the reality of our life on earth, but immediately introduces a supernatural counterpart. God allows us to be vulnerable clay vessels so that when the world sees us standing resilient, it understands that the true Hero dwells within us.">
                        El apóstol Pablo expone con crudeza la realidad de nuestra vida en la tierra, pero introduce de inmediato una contraparte sobrenatural. Dios permite que seamos vasijas vulnerables de barro para que, cuando el mundo nos vea resistir de pie, entienda que el verdadero Héroe habita dentro de nosotros.
                     </p>
@@ -368,7 +375,7 @@
             </div>
             
             <div class="col-md-6 ps-md-5">
-                <h2 class="fw-bold mb-4" data-es="CONÉCTATE CON NOSOTROS" data-en="CONNECT WITH US">CONÉCTATE CON NOSOTROS</h2>
+                <h2 class="fw-bold mb-4" data-es="CONÉCTATE WITH US" data-en="CONNECT WITH US">CONÉCTATE CON NOSOTROS</h2>
                 <p class="text-muted mb-4" data-es="Nos encantaría recibirte en persona. Si tienes preguntas sobre nuestra comunidad, no dudes en escribirnos o visitarnos." data-en="We would love to welcome you in person. If you have questions about our community, please don't hesitate to reach out or visit us.">Nos encantaría recibirte en persona. Si tienes preguntas sobre nuestra comunidad, no dudes en escribirnos o visitarnos.</p>
                 
                 <div class="d-flex align-items-start mb-4">
@@ -440,7 +447,7 @@
                 input.setAttribute('placeholder', placeholderValue);
             });
 
-            // Forzar actualización sutil del idioma en el contador
+            // Forzar actualización del idioma en el contador reubicado
             if (typeof updateCountdown === 'function') {
                 updateCountdown();
             }
@@ -607,7 +614,7 @@
                 return;
             }
             
-            countdownText.className = "";
+            countdownText.className = "text-uppercase fw-bold small text-secondary";
             countdownText.setAttribute('data-es', 'Próximo Servicio en:');
             countdownText.setAttribute('data-en', 'Next Service in:');
             countdownText.textContent = currentLang === 'en' ? 'Next Service in:' : 'Próximo Servicio en:';

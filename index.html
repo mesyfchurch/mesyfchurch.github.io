@@ -63,45 +63,6 @@
         }
         .btn-hillsong:hover { background: white; color: black; }
 
-        /* Botones de Categorías Estilo Hillsong (Minimalistas) */
-        .btn-filter {
-            border: 1px solid rgba(0,0,0,0.15);
-            background: transparent;
-            color: #111111;
-            padding: 10px 24px;
-            text-transform: uppercase;
-            font-weight: 600;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-            border-radius: 0;
-            transition: all 0.3s ease;
-            margin: 5px;
-        }
-        .btn-filter.active, .btn-filter:hover {
-            background: #111111;
-            color: #ffffff;
-            border-color: #111111;
-        }
-        [data-bs-theme="dark"] .btn-filter {
-            border-col0r: rgba(255,255,255,0.2);
-            color: #ffffff;
-        }
-        [data-bs-theme="dark"] .btn-filter.active, [data-bs-theme="dark"] .btn-filter:hover {
-            background: #ffffff;
-            color: #111111;
-            border-color: #ffffff;
-        }
-
-        /* Animación suave para el filtrado de tarjetas */
-        .catalog-item {
-            transition: opacity 0.4s ease, transform 0.4s ease;
-        }
-        .catalog-item.hidden {
-            display: none !important;
-            opacity: 0;
-            transform: scale(0.95);
-        }
-
         .section-padding { padding: 80px 20px; }
         .evangelismo-box { background-color: rgba(0,0,0,0.03); border-radius: 0; padding: 60px; }
         [data-bs-theme="dark"] .evangelismo-box { background-color: rgba(255,255,255,0.03); }
@@ -280,106 +241,89 @@
 
     <section id="mensaje" class="bg-body-tertiary section-padding border-top border-bottom">
         <div class="container">
-            <div class="text-center mb-5">
-                <h6 class="text-muted text-uppercase fw-bold mb-2" style="letter-spacing: 2px;" data-es="Palabra Fresca" data-en="Fresh Word">Palabra Fresca</h6>
-                <h2 class="fw-bold text-uppercase" data-es="Catálogo de Mensajes" data-en="Message Catalog">Catálogo de Mensajes</h2>
+            <div class="row align-items-center g-5">
                 
-                <div class="d-flex flex-wrap justify-content-center mt-4">
-                    <button class="btn-filter active" data-filter="all" data-es="Todos" data-en="All">Todos</button>
-                    <button class="btn-filter" data-filter="profetico" data-es="Estudio Profético" data-en="Prophetic Study">Estudio Profético</button>
-                    <button class="btn-filter" data-filter="guerra" data-es="Guerra Espiritual" data-en="Spiritual Warfare">Guerra Espiritual</button>
-                    <button class="btn-filter" data-filter="restauracion" data-es="Restauración" data-en="Restoration">Restauración</button>
-                    <button class="btn-filter" data-filter="familia" data-es="Familia" data-en="Family">Familia</button>
-                </div>
-            </div>
-
-            <div class="row g-5 justify-content-center" id="catalog-container">
-                
-                <div class="col-12 catalog-item" data-category="profetico">
-                    <div class="row align-items-center g-5">
-                        <div class="col-lg-5 text-center">
-                            <img src="images/paradoja.png" 
-                                 alt="Estudio Profético Las Paradojas del Cristiano" 
-                                 class="img-fluid shadow border" 
-                                 style="max-height: 450px; object-fit: cover; width: 100%; cursor: pointer;"
-                                 data-bs-toggle="modal" 
-                                 data-bs-target="#imageModal"
-                                 data-es="Haz clic para agrandar" 
-                                 data-en="Click to enlarge"
-                                 title="Haz clic para agrandar">
-                            <div class="mt-3 text-muted small text-uppercase fw-bold" style="letter-spacing: 1px;" 
-                                 data-es="2 Corintios 4:8 — Sostenidos en la Tormenta: Presión Exterior vs. Espacio Interior" 
-                                 data-en="2 Corinthians 4:8 — Sustained in the Storm: Outer Pressure vs. Inner Space">
-                                 2 Corintios 4:8 — Sostenidos en la Tormenta: Presión Exterior vs. Espacio Interior
-                            </div>
-                        </div>
-
-                        <div class="col-lg-7">
-                            <h6 class="text-muted text-uppercase fw-bold mb-2" style="letter-spacing: 2px;" data-es="Resumen de Estudio Profético" data-en="Prophetic Study Summary">Resumen de Estudio Profético</h6>
-                            <h2 class="fw-bold mb-1" data-es="MENSAJE DE LA SEMANA" data-en="MESSAGE OF THE WEEK">MENSAJE DE LA SEMANA</h2>
-                            <h4 class="text-body fw-bold mb-4" data-es="⚓ Las Paradojas del Cristiano: Sostenidos en la Tormenta" data-en="⚓ The Paradoxes of the Christian: Sustained in the Storm">⚓ Las Paradojas del Cristiano: Sostenidos en la Tormenta</h4>
-                            
-                            <div class="mb-4 text-secondary small fw-bold">
-                                <span data-es="Pasaje Base: 2 Corintios 4:8 (RVR1960)" data-en="Base Scripture: 2 Corinthians 4:8 (RVR1960)">Pasaje Base: 2 Corintios 4:8 (RVR1960)</span>
-                            </div>
-
-                            <div class="p-3 bg-body border-start border-4 border-dark mb-4 italic">
-                                <p class="mb-0 fw-bold" data-es='"Que estamos atribulados en todo, mas no angustiados; en apuros, mas no desesperados;"' data-en='"We are troubled on every side, yet not distressed; we are perplexed, but not in despair;"'>"Que estamos atribulados en todo, mas no angustiados; en apuros, mas no desesperados;"</p>
-                            </div>
-
-                            <p class="fs-6 text-secondary mb-4" 
-                               data-es="El apóstol Pablo expone con crudeza la reality de nuestra vida en la tierra, pero introduce de inmediato una contraparte sobrenatural. Dios permite que seamos vasijas vulnerables de barro para que, cuando el mundo nos vea resistir de pie, entienda que el verdadero Héroe habita dentro de nosotros." 
-                               data-en="The apostle Paul bluntly exposes the reality of our life on earth, but immediately introduces a supernatural counterpart. God allows us to be vulnerable clay vessels so that when the world sees us standing resilient, it understands that the true Hero dwells within us.">
-                               El apóstol Pablo expone con crudeza la realidad de nuestra vida en la tierra, pero introduce de inmediato una contraparte sobrenatural. Dios permite que seamos vasijas vulnerables de barro para que, cuando el mundo nos vea resistir de pie, entienda que el verdadero Héroe habita dentro de nosotros.
-                            </p>
-
-                            <div class="row g-4 mb-4">
-                                <div class="col-md-6">
-                                    <h5 class="fw-bold fs-6 mb-2" data-es="1. Presión Exterior vs. Espacio Interior 🥊" data-en="1. Outer Pressure vs. Inner Space 🥊">1. Presión Exterior vs. Espacio Interior 🥊</h5>
-                                    <p class="small text-muted" 
-                                       data-es="El ataque del entorno (Thlíbō) significa estar bajo una fuerte presión, comprimido o aplastado por los flancos (crisis familiares, financieras o culturales). Sin embargo, la respuesta del Espíritu impide la angustia (Stenochōréō), que significa 'quedarse sin espacio'. La paradoja radica en que el mundo te puede apretar por fuera, pero el Espíritu Santo ensancha tu capacidad interna. Hay presión, pero no hay confinamiento." 
-                                       data-en="The environmental attack (Thlíbō) means being under heavy pressure, compressed or crushed from the flanks (family, financial, or cultural crises). However, the Spirit's response prevents distress (Stenochōréō), which means 'running out of space'. The paradox is that the world can squeeze you from the outside, but the Holy Spirit expands your internal capacity. There is pressure, but no confinement.">
-                                       El ataque del entorno (Thlíbō) significa estar bajo una fuerte presión, comprimido o aplastado por los flancos (crisis familiares, financieras o culturales). Sin embargo, la respuesta del Espíritu impide la angustia (Stenochōréō), que significa "quedarse sin espacio". La paradoja radica en que el mundo te puede apretar por fuera, pero el Espíritu Santo ensancha tu capacidad interna. Hay presión, pero no hay confinamiento.
-                                    </p>
-                                </div>
-                                <div class="col-md-6">
-                                    <h5 class="fw-bold fs-6 mb-2" data-es="2. Callejones sin Salida vs. Esperanza Inquebrantable 🛡️" data-en="2. Dead Ends vs. Unshakable Hope 🛡️">2. Callejones sin Salida vs. Esperanza Inquebrantable 🛡️</h5>
-                                    <p class="small text-muted" 
-                                       data-es="Estar en apuros (Aporéō) implica tener la mente lógica en cero, encontrarse perplejo, en pérdida, o carecer de recursos humanos. Es el momento donde dices: 'Ya no sé qué más hacer'. Pero el Reino evita el límite de la desesperación (Exaporéō), que es la rendición total. El diseño del Reino nos sostiene para que la confusión temporal no se convierta en una ruina permanente. No tener una salida clara hoy no significa que Dios haya perdido el control del mañana." 
-                                       data-en="Being perplexed (Aporéō) implies having the logical mind at zero, being at a loss, or lacking human resources. It's the moment you say, 'I don't know what else to do.' But the Kingdom prevents the limit of absolute despair (Exaporéō), which is total surrender. The Kingdom's design sustains us so that temporary confusion does not become permanent ruin. Not having a clear exit today does not mean God has lost control of tomorrow.">
-                                       Estar en apuros (Aporéō) implica tener la mente lógica en cero, encontrarse perplejo, en pérdida, o carecer de recursos humanos. Es el momento donde dices: "Ya no sé qué más hacer". Pero el Reino evita el límite de la desesperación (Exaporéō), que es la rendición total. El diseño del Reino nos sostiene para que la confusión temporal no se convierta en una ruina permanente. No tener una salida clara hoy no significa que Dios haya perdido el control del mañana.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="p-3 bg-body shadow-sm border mb-4">
-                                <h6 class="fw-bold text-uppercase small mb-2" data-es="El Impacto Terrenal (Para Reflexionar):" data-en="The Earthly Impact (To Ponder):">El Impacto Terrenal (Para Reflexionar):</h6>
-                                <ul class="small text-muted ps-3 mb-0">
-                                    <li class="mb-2" 
-                                        data-es="**Matrimonios Bajo Presión:** Las familias y los matrimonios están siendo fuertemente atribulados (thlíbō) por las corrientes del individualismo y el diseño del mundo." 
-                                        data-en="**Marriages Under Pressure:** Families and marriages are being heavily troubled (thlíbō) by the currents of individualism and the world's design.">
-                                        <strong>Matrimonios Bajo Presión:</strong> Las familias y los matrimonios están siendo fuertemente atribulados (thlíbō) por las corrientes del individualismo y el diseño del mundo.
-                                    </li>
-                                    <li 
-                                        data-es="**El Factor Desilusión:** La decepción o el desánimo se harán presentes en el caminar del cristiano, pero el Evangelio no es inmunidad frente al dolor, sino una plataforma sobrenatural para levantarnos de él." 
-                                        data-en="**The Disillusionment Factor:** Deception or discouragement will appear on the Christian walk, but the Gospel is not immunity from pain, but a supernatural platform to rise above it.">
-                                        <strong>El Factor Desilusión:</strong> La decepción o el desánimo se harán presentes en el caminar del cristiano, pero el Evangelio no es inmunidad frente al dolor, sino una plataforma sobrenatural para levantarnos de él.
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div class="p-3 bg-dark text-white rounded-0 shadow-sm mb-4">
-                                <p class="small mb-0" 
-                                   data-es="📌 Veredicto: La madurez espiritual no nos vuelve inmunes a las presiones de la vida, sino resistentes a sus efectos destructivos. El cristiano de hoy camina como un ancla (⚓): el entorno puede estar agitado y en constante turbulencia, pero nuestra fe permanece fija, inmóvil y segura en lo invisible. Golpeados por el entorno, pero sostenidos por el Eterno." 
-                                   data-en="📌 Verdict: Spiritual maturity does not make us immune to life's pressures, but resilient against their destructive effects. Today's Christian walks like an anchor (⚓): the environment may be agitated and in constant turbulence, but our faith remains fixed, motionless, and secure in the invisible. Hit by the surroundings, but sustained by the Eternal.">
-                                   📌 Veredicto: La madurez espiritual no nos vuelve inmunes a las presiones de la vida, sino resistentes a sus efectos destructivos. El cristiano de hoy camina como un ancla (⚓): el entorno puede estar agitado y en constante turbulencia, pero nuestra fe permanece fija, inmóvil y segura en lo invisible. Golpeados por el entorno, pero sostenidos por el Eterno.
-                                </p>
-                            </div>
-                        </div>
+                <div class="col-lg-5 text-center">
+                    <img src="images/paradoja.png" 
+                         alt="Estudio Profético Las Paradojas del Cristiano" 
+                         class="img-fluid shadow border" 
+                         style="max-height: 450px; object-fit: cover; width: 100%; cursor: pointer;"
+                         data-bs-toggle="modal" 
+                         data-bs-target="#imageModal"
+                         data-es="Haz clic para agrandar" 
+                         data-en="Click to enlarge"
+                         title="Haz clic para agrandar">
+                    <div class="mt-3 text-muted small text-uppercase fw-bold" style="letter-spacing: 1px;" 
+                         data-es="2 Corintios 4:8 — Sostenidos en la Tormenta: Presión Exterior vs. Espacio Interior" 
+                         data-en="2 Corinthians 4:8 — Sustained in the Storm: Outer Pressure vs. Inner Space">
+                         2 Corintios 4:8 — Sostenidos en la Tormenta: Presión Exterior vs. Espacio Interior
                     </div>
                 </div>
 
+                <div class="col-lg-7">
+                    <h6 class="text-muted text-uppercase fw-bold mb-2" style="letter-spacing: 2px;" data-es="Resumen de Estudio Profético" data-en="Prophetic Study Summary">Resumen de Estudio Profético</h6>
+                    <h2 class="fw-bold mb-1" data-es="MENSAJE DE LA SEMANA" data-en="MESSAGE OF THE WEEK">MENSAJE DE LA SEMANA</h2>
+                    <h4 class="text-body fw-bold mb-4" data-es="⚓ Las Paradojas del Cristiano: Sostenidos en la Tormenta" data-en="⚓ The Paradoxes of the Christian: Sustained in the Storm">⚓ Las Paradojas del Cristiano: Sostenidos en la Tormenta</h4>
+                    
+                    <div class="mb-4 text-secondary small fw-bold">
+                        <span data-es="Pasaje Base: 2 Corintios 4:8 (RVR1960)" data-en="Base Scripture: 2 Corinthians 4:8 (RVR1960)">Pasaje Base: 2 Corintios 4:8 (RVR1960)</span>
+                    </div>
+
+                    <div class="p-3 bg-body border-start border-4 border-dark mb-4 italic">
+                        <p class="mb-0 fw-bold" data-es='"Que estamos atribulados en todo, mas no angustiados; en apuros, mas no desesperados;"' data-en='"We are troubled on every side, yet not distressed; we are perplexed, but not in despair;"'>"Que estamos atribulados en todo, mas no angustiados; en apuros, mas no desesperados;"</p>
+                    </div>
+
+                    <p class="fs-6 text-secondary mb-4" 
+                       data-es="El apóstol Pablo expone con crudeza la reality de nuestra vida en la tierra, pero introduce de inmediato una contraparte sobrenatural. Dios permite que seamos vasijas vulnerables de barro para que, cuando el mundo nos vea resistir de pie, entienda que el verdadero Héroe habita dentro de nosotros." 
+                       data-en="The apostle Paul bluntly exposes the reality of our life on earth, but immediately introduces a supernatural counterpart. God allows us to be vulnerable clay vessels so that when the world sees us standing resilient, it understands that the true Hero dwells within us.">
+                       El apóstol Pablo expone con crudeza la realidad de nuestra vida en la tierra, pero introduce de inmediato una contraparte sobrenatural. Dios permite que seamos vasijas vulnerables de barro para que, cuando el mundo nos vea resistir de pie, entienda que el verdadero Héroe habita dentro de nosotros.
+                    </p>
+
+                    <div class="row g-4 mb-4">
+                        <div class="col-md-6">
+                            <h5 class="fw-bold fs-6 mb-2" data-es="1. Presión Exterior vs. Espacio Interior 🥊" data-en="1. Outer Pressure vs. Inner Space 🥊">1. Presión Exterior vs. Espacio Interior 🥊</h5>
+                            <p class="small text-muted" 
+                               data-es="El ataque del entorno (Thlíbō) significa estar bajo una fuerte presión, comprimido o aplastado por los flancos (crisis familiares, financieras o culturales). Sin embargo, la respuesta del Espíritu impide la angustia (Stenochōréō), que significa 'quedarse sin espacio'. La paradoja radica en que el mundo te puede apretar por fuera, pero el Espíritu Santo ensancha tu capacidad interna. Hay presión, pero no hay confinamiento." 
+                               data-en="The environmental attack (Thlíbō) means being under heavy pressure, compressed or crushed from the flanks (family, financial, or cultural crises). However, the Spirit's response prevents distress (Stenochōréō), which means 'running out of space'. The paradox is that the world can squeeze you from the outside, but the Holy Spirit expands your internal capacity. There is pressure, but no confinement.">
+                               El ataque del entorno (Thlíbō) significa estar bajo una fuerte presión, comprimido o aplastado por los flancos (crisis familiares, financieras o culturales). Sin embargo, la respuesta del Espíritu impide la angustia (Stenochōréō), que significa "quedarse sin espacio". La paradoja radica en que el mundo te puede apretar por fuera, pero el Espíritu Santo ensancha tu capacidad interna. Hay presión, pero no hay confinamiento.
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <h5 class="fw-bold fs-6 mb-2" data-es="2. Callejones sin Salida vs. Esperanza Inquebrantable 🛡️" data-en="2. Dead Ends vs. Unshakable Hope 🛡️">2. Callejones sin Salida vs. Esperanza Inquebrantable 🛡️</h5>
+                            <p class="small text-muted" 
+                               data-es="Estar en apuros (Aporéō) implica tener la mente lógica en cero, encontrarse perplejo, en pérdida, o carecer de recursos humanos. Es el momento donde dices: 'Ya no sé qué más hacer'. Pero el Reino evita el límite de la desesperación (Exaporéō), que es la rendición total. El diseño del Reino nos sostiene para que la confusión temporal no se convierta en una ruina permanente. No tener una salida clara hoy no significa que Dios haya perdido el control del mañana." 
+                               data-en="Being perplexed (Aporéō) implies having the logical mind at zero, being at a loss, or lacking human resources. It's the moment you say, 'I don't know what else to do.' But the Kingdom prevents the limit of absolute despair (Exaporéō), which is total surrender. The Kingdom's design sustains us so that temporary confusion does not become permanent ruin. Not having a clear exit today does not mean God has lost control of tomorrow.">
+                               Estar en apuros (Aporéō) implica tener la mente lógica en cero, encontrarse perplejo, en pérdida, o carecer de recursos humanos. Es el momento donde dices: "Ya no sé qué más hacer". Pero el Reino evita el límite de la desesperación (Exaporéō), que es la rendición total. El diseño del Reino nos sostiene para que la confusión temporal no se convierta en una ruina permanente. No tener una salida clara hoy no significa que Dios haya perdido el control del mañana.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="p-3 bg-body shadow-sm border mb-4">
+                        <h6 class="fw-bold text-uppercase small mb-2" data-es="El Impacto Terrenal (Para Reflexionar):" data-en="The Earthly Impact (To Ponder):">El Impacto Terrenal (Para Reflexionar):</h6>
+                        <ul class="small text-muted ps-3 mb-0">
+                            <li class="mb-2" 
+                                data-es="**Matrimonios Bajo Presión:** Las familias y los matrimonios están siendo fuertemente atribulados (thlíbō) por las corrientes del individualismo y el diseño del mundo." 
+                                data-en="**Marriages Under Pressure:** Families and marriages are being heavily troubled (thlíbō) by the currents of individualism and the world's design.">
+                                <strong>Matrimonios Bajo Presión:</strong> Las familias y los matrimonios están siendo fuertemente atribulados (thlíbō) por las corrientes del individualismo y el diseño del mundo.
+                            </li>
+                            <li 
+                                data-es="**El Factor Desilusión:** La decepción o el desánimo se harán presentes en el caminar del cristiano, pero el Evangelio no es inmunidad frente al dolor, sino una plataforma sobrenatural para levantarnos de él." 
+                                data-en="**The Disillusionment Factor:** Deception or discouragement will appear on the Christian walk, but the Gospel is not immunity from pain, but a supernatural platform to rise above it.">
+                                <strong>El Factor Desilusión:</strong> La decepción o el desánimo se harán presentes en el caminar del cristiano, pero el Evangelio no es inmunidad frente al dolor, sino una plataforma sobrenatural para levantarnos de él.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="p-3 bg-dark text-white rounded-0 shadow-sm mb-4">
+                        <p class="small mb-0" 
+                           data-es="📌 Veredicto: La madurez espiritual no nos vuelve inmunes a las presiones de la vida, sino resistentes a sus efectos destructivos. El cristiano de hoy camina como un ancla (⚓): el entorno puede estar agitado y en constante turbulencia, pero nuestra fe permanece fija, inmóvil y segura en lo invisible. Golpeados por el entorno, pero sostenidos por el Eterno." 
+                           data-en="📌 Verdict: Spiritual maturity does not make us immune to life's pressures, but resilient against their destructive effects. Today's Christian walks like an anchor (⚓): the environment may be agitated and in constant turbulence, but our faith remains fixed, motionless, and secure in the invisible. Hit by the surroundings, but sustained by the Eternal.">
+                           📌 Veredicto: La madurez espiritual no nos vuelve inmunes a las presiones de la vida, sino resistentes a sus efectos destructivos. El cristiano de hoy camina como un ancla (⚓): el entorno puede estar agitado y en constante turbulencia, pero nuestra fe permanece fija, inmóvil y segura en lo invisible. Golpeados por el entorno, pero sostenidos por el Eterno.
+                        </p>
+                    </div>
                 </div>
+
+            </div>
         </div>
     </section>
 
@@ -503,6 +447,7 @@
                 input.setAttribute('placeholder', placeholderValue);
             });
 
+            // Forzar actualización del idioma en el contador reubicado
             if (typeof updateCountdown === 'function') {
                 updateCountdown();
             }
@@ -538,38 +483,6 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const filters = document.querySelectorAll('.btn-filter');
-            const items = document.querySelectorAll('.catalog-item');
-
-            filters.forEach(filter => {
-                filter.addEventListener('click', function() {
-                    // Remover estado activo de todos los botones
-                    filters.forEach(btn => btn.classList.remove('active'));
-                    // Activar el botón seleccionado
-                    this.classList.add('active');
-
-                    const selectedCategory = this.getAttribute('data-filter');
-
-                    items.forEach(item => {
-                        const itemCategory = item.getAttribute('data-category');
-                        
-                        if (selectedCategory === 'all' || itemCategory === selectedCategory) {
-                            item.classList.remove('hidden');
-                            item.style.opacity = '0';
-                            setTimeout(() => {
-                                item.style.opacity = '1';
-                            }, 50);
-                        } else {
-                            item.classList.add('hidden');
-                        }
-                    });
-                });
-            });
-        });
-    </script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
             const direccionGoogleMaps = "https://maps.google.com/?q=38304 15th St East Palmdale, CA 93550";
             const direccionAppleMaps  = "maps://maps.apple.com/?q=38304 15th St East Palmdale, CA 93550";
             const botonComoLlegar = document.getElementById('como-llegar');
@@ -584,7 +497,7 @@
     <div id="audio-container" style="position: fixed; bottom: 20px; left: 20px; z-index: 9999;" class="d-flex align-items-center">
         <button id="musicBtn" class="btn btn-dark rounded-circle shadow-lg d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; border: 2px solid rgba(255,255,255,0.2); transition: all 0.3s ease; font-size: 1.2rem;" title="Música de meditación"><span id="musicEmoji">🎵</span></button>
         <span id="musicTitle" class="badge bg-dark text-wrap shadow-sm ms-2 px-3 py-2" style="display: none; font-weight: 500; font-size: 0.9rem; letter-spacing: 0.5px; border: 1px solid rgba(255,255,255,0.15); border-radius: 20px; max-width: 250px; animation: fadeIn 0.4s ease-in-out;">
-            <span id="song-name" data-es="Santo por Siempre" data-en="Holly Forever">Santo por Siempre/</span> 
+            <span id="song-name" data-es="Santo por Siempre" data-en="Holly Forever">Santo por Siempre</span> 
             <span id="eq-animation" class="ms-2 d-none"><span class="eq-bar"></span><span class="eq-bar"></span><span class="eq-bar"></span></span>
         </span>
         <audio id="bgMusic" loop preload="auto"><source src="images/santo-siempre.m4a" type="audio/mp4"></audio>
@@ -652,6 +565,7 @@
         function updateCountdown() {
             const now = new Date();
             
+            // Definir servicios semanales: Viernes 19:30 y Domingo 09:00
             const schedules = [
                 { day: 5, hours: 19, minutes: 30, durationHours: 1.5 }, // Viernes
                 { day: 0, hours: 9, minutes: 0, durationHours: 2 }      // Domingo
@@ -672,6 +586,7 @@
                 }
                 target.setDate(now.getDate() + daysAhead);
                 
+                // Verificar si el servicio está ocurriendo EN VIVO en este momento
                 if (daysAhead === 0) {
                     let endService = new Date(target).getTime() + (service.durationHours * 60 * 60 * 1000);
                     let startService = target.getTime();
@@ -713,6 +628,7 @@
             timerDisplay.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
         }
         
+        // Ejecutar e inicializar al cargar
         setInterval(updateCountdown, 1000);
         document.addEventListener('DOMContentLoaded', updateCountdown);
     </script>

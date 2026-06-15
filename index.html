@@ -6,6 +6,15 @@
     
     <meta property="og:title" content="Iglesia MESYF | Evangelismo y Oración" />
     <meta property="og:description" content="El lugar donde tu tormento se transforma en testimonio. Palmdale, California." />
+
+    <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#212529">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="MESYF">
+<link rel="apple-touch-icon" href="images/MESYF-LOGO-transparent.png">
+
+
     <meta property="og:image" content="images/MESYF-LOGO-transparent.png" />
     <meta property="og:type" content="website" />
 
@@ -632,5 +641,17 @@
         setInterval(updateCountdown, 1000);
         document.addEventListener('DOMContentLoaded', updateCountdown);
     </script>
+    
+    <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js')
+        .then(reg => console.log('Aplicación MESYF lista y registrada con éxito.'))
+        .catch(err => console.log('Error al registrar la app móvil:', err));
+    });
+  }
+</script>
+
+
 </body>
 </html>

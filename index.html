@@ -8,12 +8,11 @@
     <meta property="og:description" content="El lugar donde tu tormento se transforma en testimonio. Palmdale, California." />
 
     <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#212529">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="MESYF">
-<link rel="apple-touch-icon" href="images/MESYF-LOGO-transparent.png">
-
+    <meta name="theme-color" content="#212529">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="MESYF">
+    <link rel="apple-touch-icon" href="images/MESYF-LOGO-transparent.png">
 
     <meta property="og:image" content="images/MESYF-LOGO-transparent.png" />
     <meta property="og:type" content="website" />
@@ -125,7 +124,7 @@
             margin-top: 5px;
         }
         [data-bs-theme="light"] .countdown-timer {
-            color: #b8860b; /* Un dorado más oscuro y legible en el modo claro */
+            color: #b8860b;
         }
         .live-pulse {
             color: #dc3545;
@@ -139,6 +138,16 @@
     </style>
 
     <script defer src="https://cloud.umami.is/script.js" data-website-id="99d3c068-724a-4feb-9928-be961cd7e31d"></script>
+
+    <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+    <script>
+      window.OneSignalDeferred = window.OneSignalDeferred || [];
+      OneSignalDeferred.push(async function(OneSignal) {
+        await OneSignal.init({
+          appId: "9bd1b0ff-4521-4a17-8038-173b3b46aaa0",
+        });
+      });
+    </script>
 </head>
 <body>
 
@@ -180,7 +189,6 @@
     <header class="hero">
         <div class="container d-flex flex-column align-items-center">
             <img src="images/MESYF-LOGO-transparent.png" alt="Logo Tridimensional MESYF" class="hero-logo img-fluid">
-            
             <h1 class="display-1" data-es="Iglesia Mesyf" data-en="Mesyf Church">Iglesia Mesyf</h1>
             <p class="lead mb-5" data-es="El lugar donde tu tormento se transforma en testimonio." data-en="The place where your torment is transformed into a testimony.">El lugar donde tu tormento se transforma en testimonio.</p>
             <div>
@@ -214,7 +222,7 @@
             <div class="col-md-5">
                 <div class="card h-100 border rounded-0 shadow-sm">
                     <div class="card-body">
-                        <div class="text-uppercase text-danger fw-bold small mb-1" data-es="Viernes 19 de junio" data-en="Friday, June 19">Viernes 19 de junio</div>
+                        <div class="text-uppercase text-danger fw-bold small mb-1" data-es="Viernes 26 de junio" data-en="Friday, June 26">Viernes 26 de junio</div>
                         <h5 class="card-title fw-bold" data-es="Servicio Regular" data-en="Regular Service">Servicio Regular</h5>
                         <p class="card-text small text-muted" data-es="Te invitamos a nuestro servicio regular de la semana de 7:30 PM a 9:00 PM. Un tiempo para buscar a Dios en comunidad, intercesión profunda y palabra." data-en="Join us for our regular week service from 7:30 PM to 9:00 PM. A time to seek God together in deep intercession and word.">Te invitamos a nuestro servicio regular de la semana de 7:30 PM a 9:00 PM. Un tiempo para buscar a Dios en comunidad, intercesión profunda y palabra.</p>
                     </div>
@@ -223,7 +231,7 @@
             <div class="col-md-5">
                 <div class="card h-100 border rounded-0 shadow-sm">
                     <div class="card-body">
-                        <div class="text-uppercase text-danger fw-bold small mb-1" data-es="Domingo 21 de junio" data-en="Sunday, June 21">Domingo 21 de junio</div>
+                        <div class="text-uppercase text-danger fw-bold small mb-1" data-es="Domingo 28 de junio" data-en="Sunday, June 28">Domingo 28 de junio</div>
                         <h5 class="card-title fw-bold" data-es="Escuela y Servicio Dominical Regular" data-en="Regular Sunday School & Service">Escuela y Servicio Dominical Regular</h5>
                         <p class="card-text small text-muted" data-es="Acompáñanos a las 9:00 AM en nuestra escuela dominical para todas las edades seguida de nuestro servicio principal de adoración y palabra." data-en="Join us at 9:00 AM for our Sunday school for all ages followed by our main service of worship and word.">Acompáñanos a las 9:00 AM en nuestra escuela dominical para todas las edades seguida de nuestro servicio principal de adoración y palabra.</p>
                     </div>
@@ -239,10 +247,8 @@
                 <p class="fs-5 mb-5" data-es="A veces la vida nos paraliza y el dolor de la espera se vuelve insoportable. Pero la parálisis no es tu final. Dios está moviéndose en la vida de su iglesia y quiere traerte de vuelta a un lugar de paz." data-en="Sometimes life paralyzes us and the pain of waiting becomes unbearable. But paralysis is not your end. God is moving in the life of His church and wants to bring you back to a place of peace.">A veces la vida nos paraliza y el dolor de la espera se vuelve insoportable. Pero la parálisis no es tu final. Dios está moviéndose en la vida de su iglesia y quiere traerte de vuelta a un lugar de paz.</p>
                 
                 <div class="evangelismo-box mt-5 shadow-sm border text-start p-4 p-md-5">
-                <h3 class="fw-bold text-center mb-3" data-es="EL MAPA HACIA LA RESTAURACIÓN" data-en="THE ROADMAP TO RESTORATION">EL MAPA HACIA LA RESTAURACIÓN</h3>
+                    <h3 class="fw-bold text-center mb-3" data-es="EL MAPA HACIA LA RESTAURACIÓN" data-en="THE ROADMAP TO RESTORATION">EL MAPA HACIA LA RESTAURACIÓN</h3>
                     <p data-es="El evangelio no es una religión de cargas, es un camino de libertad. Jesús pagó el precio para sanar cada herida profunda. Si estás listo para experimentar una transformación real, hoy es el día para dar el primer paso." data-en="The gospel is not a religion of burdens; it is a path of freedom. Jesus paid the price to heal every deep wound. If you are ready to experience real transformation, today is the day to take the first step.">El evangelio no es una religión de cargas, es un camino de libertad. Jesús pagó el precio para sanar cada herida profunda. Si estás listo para experimentar una transformación real, hoy es el día para dar el primer paso.</p>
-                    <div class="text-center">
-                        </div>
                 </div>
             </div>
         </div>
@@ -253,85 +259,85 @@
             <div class="row align-items-center g-5">
                 
                 <div class="col-lg-5 text-center">
-                    <img src="images/padre.png" 
-                         alt="Estudio Profético - El Diseño y la Gracia de la Paternidad" 
+                    <img src="images/sacrificio-vivo.png" 
+                         alt="Estudio Profético - Una Vida Entera Entregada a Dios" 
                          class="img-fluid shadow border" 
                          style="max-height: 450px; object-fit: cover; width: 100%; cursor: pointer;"
                          data-bs-toggle="modal" 
                          data-bs-target="#imageModal"
-                         data-es="Haz clic para agrandar — Abbā: Compasión, Formación y Gracia" 
-                         data-en="Click to enlarge — Abbā: Compassion, Formation, and Grace"
+                         data-es="Haz clic para agrandar — Romanos 12:1-2: El Altar de la Consagración Perfecta" 
+                         data-en="Click to enlarge — Romans 12:1-2: The Altar of Perfect Consecration"
                          title="Haz clic para agrandar">
                     <div class="mt-3 text-muted small text-uppercase fw-bold" style="letter-spacing: 1px;" 
-                         data-es="Salmos 103:13 — El Reflejo de la Paternidad Perfecta de Dios" 
-                         data-en="Psalm 103:13 — Reflecting the Perfect Fatherhood of God">
-                         Salmos 103:13 — El Reflejo de la Paternidad Perfecta de Dios
+                         data-es="Romanos 12:1 — Presentando una Ofrenda Viva ante el Alfarero Celestial" 
+                         data-en="Romans 12:1 — Presenting a Living Offering Before the Heavenly Potter">
+                         Romanos 12:1 — Presentando una Ofrenda Viva ante el Alfarero Celestial
                     </div>
                 </div>
 
                 <div class="col-lg-7">
                     <h6 class="text-muted text-uppercase fw-bold mb-2" style="letter-spacing: 2px;" data-es="Resumen de Estudio Profético" data-en="Prophetic Study Summary">Resumen de Estudio Profético</h6>
                     <h2 class="fw-bold mb-1" data-es="MENSAJE DE LA SEMANA" data-en="MESSAGE OF THE WEEK">MENSAJE DE LA SEMANA</h2>
-                    <h4 class="text-body fw-bold mb-4" data-es="🪵 Un Sermon sobre el Día del Padre" data-en="🪵 A Sermon for Father's Day">🪵 Un Sermon sobre el Día del Padre</h4>
+                    <h4 class="text-body fw-bold mb-4" data-es="🔥 Una Vida Entera Entregada a Dios" data-en="🔥 A Whole Life Surrendered to God">🔥 Una Vida Entera Entregada a Dios</h4>
                     
                     <p class="fs-6 text-secondary mb-4" 
-                       data-es="En las Escrituras, Dios se revela como el Abbā (Aba - &quot;Padre amado&quot;), la fuente inagotable, protector y sostenedor de Su pueblo. Al mirar a los padres terrenales, la Biblia nos muestra un mapa claro de cómo reflejar Su carácter a las próximas generaciones. La verdadera fuerza de un padre no radica en la rigidez, sino en el equilibrio perfecto de tres elementos sagrados: Compasión, Formación y Gracia." 
-                       data-en="In Scripture, God reveals Himself as Abbā (Beloved Father), the inexhaustible source, protector, and sustainer of His people. Looking at earthly fathers, the Bible shows us a clear roadmap of how to reflect His character to the next generations. A father's true strength does not lie in rigidity, but in the perfect balance of three sacred elements: Compassion, Formation, and Grace.">
-                       En las Escrituras, Dios se revela como el Abbā (Aba - "Padre amado"), la fuente inagotable, protector y sostenedor de Su pueblo. Al mirar a los padres terrenales, la Biblia nos muestra un mapa claro de cómo reflejar Su carácter a las próximas generaciones. La verdadera fuerza de un padre no radica en la rigidez, sino en el equilibrio perfecto de tres elementos sagrados: Compasión, Formación y Gracia.
+                       data-es="En nuestra comunidad hemos venido caminando en una serie de enseñanzas profundas acerca del liderazgo bíblico, la sumisión a Cristo y el verdadero valor de una vida dedicada. Sin embargo, la verdad de las Escrituras suele ser malinterpretada o filtrada por aquellos que operan bajo un corazón carnal, escuchando únicamente lo que les conviene.<br><br>Ningún principio bíblico puede ser vivido por una persona carnal. La obediencia a Dios es tan necesaria como peligrosa si se asume desde el legalismo humano. Como bien afirmaba el predicador Charles Spurgeon: «Sin el Espíritu de Dios, nada se puede hacer. Somos como veleros sin viento». La verdadera regeneración no es un esfuerzo de la carne; es un acto sobrenatural del Altísimo en nuestra vida.<br><br>Para comprender esta entrega absoluta, nos sumergimos en la columna vertebral de la consagración: Romanos 12:1-2. Este pasaje nos marca la transición perfecta entre recibir la teología de la gracia y comenzar a vivirla en el altar del día a día." 
+                       data-en="In our community, we have been walking through a series of deep teachings about biblical leadership, submission to Christ, and the true value of a dedicated life. However, the truth of Scripture is often misinterpreted or filtered by those operating under a carnal heart, listening only to what suits them.<br><br>No biblical principle can be lived out by a carnal person. Obedience to God is as necessary as it is dangerous if approached from human legalism. As the preacher Charles Spurgeon well stated: 'Without the Spirit of God, nothing can be done. We are like ships without wind.' True regeneration is not an effort of the flesh; it is a supernatural act of the Most High in our lives.<br><br>To understand this absolute surrender, we dive into the backbone of consecration: Romans 12:1-2. This passage marks the perfect transition between receiving the theology of grace and beginning to live it out on the altar of daily life.">
+                       En nuestra comunidad hemos venido caminando en una serie de enseñanzas profundas acerca del liderazgo bíblico, la sumisión a Cristo y el verdadero valor de una vida dedicada. Sin embargo, la verdad de las Escrituras suele ser malinterpretada o filtrada por aquellos que operan bajo un corazón carnal, escuchando únicamente lo que les conviene.<br><br>Ningún principio bíblico puede ser vivido por una persona carnal. La obediencia a Dios es tan necesaria como peligrosa si se asume desde el legalismo humano. Como bien afirmaba el predicador Charles Spurgeon: «Sin el Espíritu de Dios, nada se puede hacer. Somos como veleros sin viento». La verdadera regeneración no es un esfuerzo de la carne; es un acto sobrenatural del Altísimo en nuestra vida.<br><br>Para comprender esta entrega absoluta, nos sumergimos en la columna vertebral de la consagración: Romanos 12:1-2. Este pasaje nos marca la transición perfecta entre recibir la teología de la gracia y comenzar a vivirla en el altar del día a día.
                     </p>
 
-                    <h5 class="fw-bold fs-6 mb-3 text-uppercase tracking-wider" data-es="🪵❤️ Elemento 1: Compasión (Salmos 103:13-14)" data-en="🪵❤️ Elemento 1: Compassion (Psalm 103:13-14)">🪵❤️ Elemento 1: Compasión (Salmos 103:13-14)</h5>
+                    <h5 class="fw-bold fs-6 mb-3 text-uppercase tracking-wider" data-es="🏺 El Altar del Cuerpo: El Sacrificio Vivo (v. 1)" data-en="🏺 The Altar of the Body: The Living Sacrifice (v. 1)">🏺 El Altar del Cuerpo: El Sacrificio Vivo (v. 1)</h5>
                     <div class="p-2 bg-body border-start border-4 border-dark mb-3 italic small">
-                        <p class="mb-0 fw-bold" data-es="«Como el padre se compadece de los hijos, se compadece Jehová de los que le temen. Porque él conoce nuestra condición; se acuerda de que somos polvo.»" data-en="“As a father has compassion on his children, so the Lord has compassion on those who fear him; for he knows how we are formed, he remembers that we are dust.”">«Como el padre se compadece de los hijos, se compadece Jehová de los que le temen. Porque él conoce nuestra condición; se acuerda de que somos polvo.»</p>
+                        <p class="mb-0 fw-bold" data-es="«Así que, hermanos, os ruego por las misericordias de Dios, que presentéis vuestros cuerpos en sacrificio vivo, santo, agradable a Dios, que es vuestro culto racional.»" data-en="“I urge you therefore, brothers, by the mercies of God, to present your bodies as a living sacrifice, holy and acceptable to God, which is your spiritual worship.”">«Así que, hermanos, os ruego por las misericordias de Dios, que presentéis vuestros cuerpos en sacrificio vivo, santo, agradable a Dios, que es vuestro culto racional.»</p>
                     </div>
                     <p class="small text-muted mb-4"
-                       data-es="**Amor Visceral (Rachamim):** En el hebreo, esta palabra comparte raíz con &quot;útero&quot; o &quot;matriz&quot;. No es una lástima superficial; describe un amor tierno, protector y profundamente emocional que conmueve las entrañas y corre a abrazar al hijo que ha caído.<br>**El Modelo de Espejo:** Dios no se sorprende de nuestras debilidades humanas. Él conoce nuestro diseño original (Yatsar), sabe que el hombre es un frágil vaso de polvo y lidera desde la empatía. Un padre bíblico imita este reflejo: quita el peso del legalismo inflexible y se convierte en el refugio seguro donde sus hijos encuentran consuelo en medio de sus procesos de crecimiento."
-                       data-en="**Visceral Love (Rachamim):** In Hebrew, this word shares a root with 'womb'. It is not a superficial pity; it describes a tender, protective, and deeply emotional love that moves the innermost being and runs to embrace the fallen child.<br>**The Mirror Model:** God is not surprised by our human weaknesses. He knows our original design (Yatsar), knows that man is a fragile vessel of dust, and leads from empathy. A biblical father imitates this reflection: he removes the weight of inflexible legalism and becomes the safe haven where his children find comfort amidst their growth processes.">
-                       <strong>Amor Visceral (Rachamim):</strong> En el hebreo, esta palabra comparte raíz con "útero" o "matriz". No es una lástima superficial; describe un amor tierno, protector y profundamente emocional que conmueve las entrañas y corre a abrazar al hijo que ha caído.<br>
-                       <strong>El Modelo de Espejo:** Dios no se sorprende de nuestras debilidades humanas. Él conoce nuestro diseño original (Yatsar), sabe que el hombre es un frágil vaso de polvo y lidera desde la empatía. Un padre bíblico imita este reflejo: quita el peso del legalismo inflexible y se convierte en el refugio seguro donde sus hijos encuentran consuelo en medio de sus procesos de crecimiento.
+                       data-es="**Rendición Voluntaria (Parístēmi):** Presentar el cuerpo significa colocar el sacrificio sobre el altar a total disposición del Sacerdote, cediendo de manera voluntaria y definitiva todo derecho de propiedad sobre nosotros mismos.<br>**La Paradoja del Sacrificio Vivo (Thysía zōsa):** En el antiguo pacto, los sacrificios eran animales muertos; en el Reino de Cristo, el altar exige que el vaso permanezca vivo. El reto diario del cristiano es no 'bajarse del altar' cuando siente el fuego del proceso.<br>**Coherencia Teológica (Logikē latreía):** El culto racional no es un ritual frío, sino la respuesta inteligente, lógica y coherente de la vasija ante las infinitas misericordias del Héroe divino que nos rescató de la quiebra. Dios no es el número uno de una lista, ni forma parte de una categoría; Él es el centro de todo."
+                       data-en="**Voluntary Surrender (Parístēmi):** Presenting the body means placing the sacrifice upon the altar at the complete disposal of the Priest, voluntarily and definitively yielding all rights of ownership over ourselves.<br>**The Paradox of the Living Sacrifice (Thysía zōsa):** In the old covenant, sacrifices were dead animals; in the Kingdom of Christ, the altar demands that the vessel remains alive. The Christian's daily challenge is not to 'step off the altar' when feeling the fire of the process.<br>**Theological Coherence (Logikē latreía):** Reasonable worship is not a cold ritual, but the intelligent, logical, and coherent response of the vessel before the infinite mercies of the divine Hero who rescued us from bankruptcy. God is not number one on a list, nor does He belong to a category; He is the center of everything.">
+                       <strong>Rendición Voluntaria (Parístēmi):</strong> Presentar el cuerpo significa colocar el sacrificio sobre el altar a total disposición del Sacerdote, cediendo de manera voluntaria y definitiva todo derecho de propiedad sobre nosotros mismos.<br>
+                       <strong>La Paradoja del Sacrificio Vivo (Thysía zōsa):</strong> En el antiguo pacto, los sacrificios eran animales muertos; en el Reino de Cristo, el altar exige que el vaso permanezca vivo. El reto diario del cristiano es no "bajarse del altar" cuando siente el fuego del proceso.<br>
+                       <strong>Coherencia Teológica (Logikē latreía):</strong> El culto racional no es un ritual frío, sino la respuesta inteligente, lógica y coherente de la vasija ante las infinitas misericordias del Héroe divino que nos rescató de la quiebra. Dios no es el número uno de una lista, ni forma parte de una categoría; Él es el centro de todo.
                     </p>
 
-                    <h5 class="fw-bold fs-6 mb-3 text-uppercase tracking-wider" data-es="🪵📐 Elemento 2: Formación (Efesios 6:4, 7)" data-en="🪵📐 Elemento 2: Formation (Ephesians 6:4, 7)">🪵📐 Elemento 2: Formación (Efesios 6:4, 7)</h5>
+                    <h5 class="fw-bold fs-6 mb-3 text-uppercase tracking-wider" data-es="🧠 El Campo de Batalla de la Mente: La Metamorfosis (v. 2)" data-en="🧠 The Battlefield of the Mind: The Metamorphosis (v. 2)">🧠 El Campo de Batalla de la Mente: La Metamorfosis (v. 2)</h5>
                     <div class="p-2 bg-body border-start border-4 border-dark mb-3 italic small">
-                        <p class="mb-0 fw-bold" data-es="«Y vosotros, padres, no provoquéis a ira a vuestros hijos, sino criadlos en disciplina y amonestación del Señor... sirviendo de buena voluntad, como al Señor y no a los hombres.»" data-en="“Fathers, do not exasperate your children; instead, bring them up in the training and instruction of the Lord... Serve wholeheartedly, as if you were serving the Lord, not people.”">«Y vosotros, padres, no provoquéis a ira a vuestros hijos, sino criadlos en disciplina y amonestación del Señor... sirviendo de buena voluntad, como al Señor y no a los hombres.»</p>
+                        <p class="mb-0 fw-bold" data-es="«No os conforméis a este siglo, sino transformaos por medio de la renovación de vuestro entendimiento...»" data-en="“Do not be conformed to this world, but be transformed by the renewal of your mind...”">«No os conforméis a este siglo, sino transformaos por medio de la renovación de vuestro entendimiento...»</p>
                     </div>
                     <p class="small text-muted mb-4"
-                       data-es="**El Límite de la Autoridad (Parorgízō):** La tiranía y la exigencia desmedida de perfección &quot;provocan a ira&quot;, exasperando el corazón de los hijos y dejándoles heridas crónicas de rechazo.<br>**El Entrenamiento Integral (Paideia Kyriou):** Formar es la &quot;crianza completa del Señor&quot;. Implica nutrir hasta la madurez (Ektréphō), aplicando instrucción correctiva práctica (Paideia) y consejos oportunos que previenen el desastre antes de que ocurra (Nouthesía).<br>**Un Acto de Adoración:** Criar no es una carga secular; es un servicio sagrado hecho de buena voluntad directamente para el Héroe celestial, cuidando las pequeñas vasijas que Él puso temporalmente bajo nuestra mayordomía."
-                       data-en="**The Limit of Authority (Parorgízō):** Tyranny and unreasonable demands for perfection 'provoke to anger', exasperating the hearts of children and leaving chronic wounds of rejection.<br>**Integral Training (Paideia Kyriou):** Forming is the 'complete bringing up of the Lord'. It implies nurturing to maturity (Ektréphō), applying practical corrective instruction (Paideia) and timely advice that prevents disaster before it occurs (Nouthesía).<br>**An Act of Worship:** Raising children is not a secular burden; it is a sacred service rendered wholeheartedly directly to the heavenly Hero, taking care of the small vessels He temporarily placed under our stewardship.">
-                       <strong>El Límite de la Autoridad (Parorgízō):</strong> La tiranía y la exigencia desmedida de perfección "provocan a ira", exasperando el corazón de los hijos y dejándoles heridas crónicas de rechazo.<br>
-                       <strong>El Entrenamiento Integral (Paideia Kyriou):</strong> Formar es la "crianza completa del Señor". Implica nutrir hasta la madurez (Ektréphō), aplicando instrucción correctiva práctica (Paideia) y consejos oportunos que previenen el desastre antes de que ocurra (Nouthesía).<br>
-                       <strong>Un Acto de Adoración:</strong> Criar no es una carga secular; es un servicio sagrado hecho de buena voluntad directamente para el Héroe celestial, cuidando las pequeñas vasijas que Él puso temporalmente bajo nuestra mayordomía.
+                       data-es="**Romper el Molde del Mundo (Syschématizō):** El sistema de este siglo intenta constantemente ejercer presión externa para forzar al vaso de barro a encajar en sus patrones de orgullo, egoísmo y amargura.<br>**Transformación Radical (Metamorphóō):** La verdadera transformación (metamorfosis) no viene por reglas externas, sino que brota desde el interior profundo del vaso. Como escribió Jonathan Edwards: «No reclamo ningún derecho sobre mí... Me he entregado por completo a Dios».<br>**Renovación Mental (Anakainōsis):** El motor del cambio es la renovación de nuestra mente. Al desplazar las lógicas del mundo y pensar bajo la frecuencia de la Palabra, nuestras llagas del pasado son sanadas y el cuerpo comienza a revelar lo que realmente gobierna el corazón."
+                       data-en="**Breaking the World's Mold (Syschématizō):** The system of this age constantly attempts to exert external pressure to force the clay vessel to fit into its patterns of pride, selfishness, and bitterness.<br>**Radical Transformation (Metamorphóō):** True transformation (metamorphosis) does not come through external rules, but wells up from deep within the vessel. As Jonathan Edwards wrote: 'I claim no right to myself... I have given myself clean away to God.'<br>**Mental Renewal (Anakainōsis):** The engine of change is the renewal of our mind. By displacing the world's logic and thinking under the frequency of the Word, our past wounds are healed and the body begins to reveal what truly governs the heart.">
+                       <strong>Romper el Molde del Mundo (Syschématizō):</strong> El sistema de este siglo intenta constantemente ejercer presión externa para forzar al vaso de barro a encajar en sus patrones de orgullo, egoísmo y amargura.<br>
+                       <strong>Transformación Radical (Metamorphóō):</strong> La verdadera transformación (metamorfosis) no viene por reglas externas, sino que brota desde el interior profundo del vaso. Como escribió Jonathan Edwards: «No reclamo ningún derecho sobre mí... Me he entregado por completo a Dios».<br>
+                       <strong>Renovación Mental (Anakainōsis):</strong> El motor del cambio es la renovación de nuestra mente. Al desplazar las lógicas del mundo y pensar bajo la frecuencia de la Palabra, nuestras llagas del pasado son sanadas y el cuerpo comienza a revelar lo que realmente gobierna el corazón.
                     </p>
 
-                    <h5 class="fw-bold fs-6 mb-3 text-uppercase tracking-wider" data-es="🪵👑 Elemento 3: Gracia (San Lucas 15:11-32)" data-en="🪵👑 Elemento 3: Grace (Luke 15:11-32)">🪵👑 Elemento 3: Gracia (San Lucas 15:11-32)</h5>
-                    <div class="p-2 bg-body border-start border-4 border-dark mb-3 italic small">
-                        <p class="mb-0 fw-bold" data-es="«...Y levantándose, vino a su padre. Y cuando aún estaba lejos, lo vio su padre, y fue movido a misericordia, y corrió, y se echó sobre su cuello, y le besó.» — S. Lucas 15:20" data-en="“And he arose and came to his father. But while he was still a long way off, his father saw him and felt compassion, and ran and embraced him and kissed him.” — Luke 15:20">«...Y levantándose, vino a su padre. Y cuando aún estaba lejos, lo vio su padre, y fue movido a misericordia, y corrió, y se echó sobre su cuello, y le besó.» — S. Lucas 15:20</p>
-                    </div>
+                    <h5 class="fw-bold fs-6 mb-3 text-uppercase tracking-wider" data-es="💎 El Resultado: Comprobar Su Voluntad" data-en="💎 The Result: Proving His Will">💎 El Resultado: Comprobar Su Voluntad</h5>
                     <p class="small text-muted mb-4"
-                       data-es="Cuando el recurso humano se agota y el vaso se quiebra por sus propias malas decisiones, la Gracia opera como el poder redentor que precede al perdón y lo rescata todo.<br>**El Escándalo del Amor (Trechō):** En la cultura antigua, un patriarca digno jamás corría en público, pues significaba humillación y vergüenza. El Padre corrió, asumiendo la vergüenza pública para proteger a su hijo pródigo antes de que la comunidad lo juzgara. Dios no quiere que el pecador se pierda.<br>**Restauración de Identidad:** Sin meses de prueba ni condiciones, la gracia interrumpe el discurso legalista del hijo y le otorga: el mejor vestido (justicia), el anillo (autoridad legal) y el calzado (libertad).<br>**La Confrontación al Legalismo:** La gracia del Padre no solo rescata al pródigo del fango; también sale de la casa a rogarle al hijo mayor, cuyo corazón se había secado en el legalismo, recordándole que la paternidad se trata de intimidad y herencia, no de un contrato de trabajo."
-                       data-en="When human resources are exhausted and the vessel breaks from its own poor decisions, Grace operates as the redeeming power that precedes forgiveness and rescues everything.<br>**The Scandal of Love (Trechō):** In ancient culture, a dignified patriarch would never run in public, as it meant humiliation and shame. The Father ran, assuming public shame to protect his prodigal son before the community could judge him. God does not want the sinner to be lost.<br>**Restoration of Identity:** Without months of probation or conditions, grace interrupts the son's legalistic speech and grants him: the best robe (righteousness), the ring (legal authority), and sandals (freedom).<br>**Confronting Legalism:** The Father's grace not only rescues the prodigal from the mire; it also steps out of the house to plead with the older son, whose heart had dried up in legalism, reminding him that fatherhood is about intimacy and inheritance, not a employment contract.">
-                       Cuando el recurso humano se agota y el vaso se quiebra por sus propias malas decisiones, la Gracia opera como el poder redentor que precede al perdón y lo rescata todo.<br>
-                       <strong>El Escándalo del Amor (Trechō):</strong> En la cultura antigua, un patriarca digno jamás corría en público, pues significaba humillación y vergüenza. El Padre corrió, asumiendo la vergüenza pública para proteger a su hijo pródigo antes de que la comunidad lo juzgara. Dios no quiere que el pecador se pierda.<br>
-                       <strong>Restauración de Identidad:</strong> Sin meses de prueba ni condiciones, la gracia interrumpe el discurso legalista del hijo y le otorga: el mejor vestido (justicia), el anillo (autoridad legal) y el calzado (libertad).<br>
-                       <strong>La Confrontación al Legalismo:</strong> La gracia del Padre no solo rescata al pródigo del fango; también sale de la casa a rogarle al hijo mayor, cuyo corazón se había secado en el legalismo, recordándole que la paternidad se trata de intimidad y herencia, no de un contrato de trabajo.
+                       data-es="Al entregar por completo la estructura de nuestra vida al fuego del Alfarero, pasamos de la duda a la experiencia práctica. El término griego Dokimázō significa poner a prueba en el fuego para certificar el valor de un metal. Solo el vaso rendido en el altar llega a experimentar de primera mano que los caminos de Dios son siempre perfectos, deleitables y justos.<br><br>Vivamos con la urgencia del Reino, sabiendo que el púlpito está para exaltar la Palabra y no al predicador. Como oraba Edwards: «Marca la eternidad en mis ojos», para que cada decisión diaria se tome a la luz de lo eterno. Recuerda las palabras de Spurgeon: «La santidad no es el camino hacia Cristo; Cristo es el camino hacia la santidad»."
+                       data-en="By completely surrendering the structure of our life to the Potter's fire, we move from doubt to practical experience. The Greek term Dokimázō means to test in the fire to certify the value of a metal. Only the vessel surrendered on the altar comes to experience firsthand that God's ways are always perfect, delightful, and just.<br><br>Let us live with the urgency of the Kingdom, knowing that the pulpit is there to exalt the Word and not the preacher. As Edwards prayed: 'Stamp eternity on my eyes,' so that every daily decision is made in the light of eternity. Remember Spurgeon's words: 'Holiness is not the way to Christ; Christ is the way to holiness'.">
+                       Al entregar por completo la estructura de nuestra vida al fuego del Alfarero, pasamos de la duda a la experiencia práctica. El término griego Dokimázō significa poner a prueba en el fuego para certificar el valor de un metal. Solo el vaso rendido en el altar llega a experimentar de primera mano que los caminos de Dios son siempre perfectos, deleitables y justos.<br><br>
+                       Vivamos con la urgencia del Reino, sabiendo que el púlpito está para exaltar la Palabra y no al predicador. Como oraba Edwards: «Marca la eternidad en mis ojos», para que cada decisión diaria se tome a la luz de lo eterno. Recuerda las palabras de Spurgeon: «La santidad no es el camino hacia Cristo; Cristo es el camino hacia la santidad».
                     </p>
 
                     <div class="p-3 bg-dark text-white rounded-0 shadow-sm mb-4">
-                        <h6 class="fw-bold text-uppercase small mb-2" data-es="📌 Veredicto para nuestra Comunidad" data-en="📌 Verdict for our Community">📌 Veredicto para nuestra Comunidad</h6>
-                        <p class="small mb-3" 
-                           data-es="Dios es el Héroe, el hombre es el Vaso. Los padres terrenales somos vasijas imperfectas llamadas a canalizar el amor perfecto del Padre Celestial. Ser un padre conforme a Su corazón exige la firmeza de la madera (🪵) para proteger y guiar, combinada con la flexibilidad de la gracia para restaurar." 
-                           data-en="God is the Hero, man is the Vessel. Earthly fathers are imperfect vessels called to channel the perfect love of the Heavenly Father. Being a father after His heart demands the firmness of wood (🪵) to protect and guide, combined with the flexibility of grace to restore.">
-                           Dios es el Héroe, el hombre es el Vaso. Los padres terrenales somos vasijas imperfectas llamadas a canalizar el amor perfecto del Padre Celestial. Ser un padre conforme a Su corazón exige la firmeza de la madera (🪵) para proteger y guiar, combinada con la flexibilidad de la gracia para restaurar.
+                        <h6 class="fw-bold text-uppercase small mb-2" data-es="🪵🏺🔥 Índice de Enfoque Teológico" data-en="🪵🏺🔥 Theological Focus Index">🪵🏺🔥 Índice de Enfoque Teológico</h6>
+                        <p class="small mb-2" 
+                           data-es="• **Dios es el Héroe, el hombre es el Vaso:** El vaso no aporta el fuego ni la santidad; aporta la disponibilidad y el cuerpo en el altar para que el Héroe lo llene con Su gloria." 
+                           data-en="• **God is the Hero, man is the Vessel:** The vessel does not provide the fire or holiness; it provides availability and the body on the altar for the Hero to fill it with His glory.">
+                           • <strong>Dios es el Héroe, el hombre es el Vaso:</strong> El vaso no aporta el fuego ni la santidad; aporta la disponibilidad y el cuerpo en el altar para que el Héroe lo llene con Su gloria.
                         </p>
-                        <p class="small mb-0"
-                           data-es="Si hoy caminas con heridas del pasado causadas por la ausencia o la rigidez de un padre, o si como papá sientes que has fallado en el diseño, bienvenido a la Casa del Señor. Este es el hospital de la gracia donde el Abbā eterno desinfecta el dolor, sana nuestra identidad y nos enseña a construir hogares bendecidos bajo Su diseño perfecto."
-                           data-en="If today you walk with past wounds caused by the absence or rigidity of a father, or if as a dad you feel you have failed in the design, welcome to the Lord's House. This is the hospital of grace where the eternal Abbā disinfects pain, heals our identity, and teaches us to build blessed homes under His perfect design.">
-                           Si hoy caminas con heridas del pasado causadas por la ausencia o la rigidez de un padre, o si como papá sientes que has fallado en el diseño, bienvenido a la Casa del Señor. Este es el hospital de la gracia donde el Abbā eterno desinfecta el dolor, sana nuestra identidad y nos enseña a construir hogares bendecidos bajo Su diseño perfecto.
+                        <p class="small mb-2" 
+                           data-es="• **La Libertad de la Esclavitud Voluntaria (⚓):** Al rendirnos por completo ante el Maestro, rompemos las cadenas de este siglo y experimentamos la verdadera libertad del Espíritu." 
+                           data-en="• **The Freedom of Voluntary Slavery (⚓):** By completely surrendering to the Master, we break the chains of this age and experience the true freedom of the Spirit.">
+                           • <strong>La Libertad de la Esclavitud Voluntaria (⚓):</strong> Al rendirnos por completo ante el Maestro, rompemos las cadenas de este siglo y experimentamos la verdadera libertad del Espíritu.
+                        </p>
+                        <p class="small mb-0" 
+                           data-es="• **Sanidad en el Altar (🩺🩸):** La metamorfosis de la mente opera como una cirugía divina que extrae los patrones de dolor del pasado para que el vaso refleje el carácter sano de nuestro Salvador." 
+                           data-en="• **Healing on the Altar (🩺🩸):** The metamorphosis of the mind operates as a divine surgery that extracts past patterns of pain so that the vessel reflects the healthy character of our Savior.">
+                           • <strong>Sanidad en el Altar (🩺🩸):</strong> La metamorfosis de la mente opera como una cirugía divina que extrae los patrones de dolor del pasado para que el vaso refleje el carácter sano de nuestro Salvador.
                         </p>
                     </div>
 
                 </div>
-
             </div>
         </div>
     </section>
@@ -456,7 +462,6 @@
                 input.setAttribute('placeholder', placeholderValue);
             });
 
-            // Forzar actualización del idioma en el contador reubicado
             if (typeof updateCountdown === 'function') {
                 updateCountdown();
             }
@@ -506,10 +511,10 @@
     <div id="audio-container" style="position: fixed; bottom: 20px; left: 20px; z-index: 9999;" class="d-flex align-items-center">
         <button id="musicBtn" class="btn btn-dark rounded-circle shadow-lg d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; border: 2px solid rgba(255,255,255,0.2); transition: all 0.3s ease; font-size: 1.2rem;" title="Música de meditación"><span id="musicEmoji">🎵</span></button>
         <span id="musicTitle" class="badge bg-dark text-wrap shadow-sm ms-2 px-3 py-2" style="display: none; font-weight: 500; font-size: 0.9rem; letter-spacing: 0.5px; border: 1px solid rgba(255,255,255,0.15); border-radius: 20px; max-width: 250px; animation: fadeIn 0.4s ease-in-out;">
-            <span id="song-name" data-es="Gracias" data-en="Thank You">Gracias</span> 
+            <span id="song-name" data-es="Increíble" data-en="Incredible">Increíble</span> 
             <span id="eq-animation" class="ms-2 d-none"><span class="eq-bar"></span><span class="eq-bar"></span><span class="eq-bar"></span></span>
         </span>
-        <audio id="bgMusic" loop preload="auto"><source src="images/gracias.mp3" type="audio/mpeg"></audio>
+        <audio id="bgMusic" loop preload="auto"><source src="images/increible.mp3" type="audio/mpeg"></audio>
     </div>
 
     <style>@keyframes fadeIn { from { opacity: 0; transform: translateX(-10px); } to { opacity: 1; transform: translateX(0); } }</style>
@@ -542,11 +547,11 @@
                     <button type="button" class="btn-close btn-close-white fs-4" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body p-0 text-center">                  
-                    <img src="images/padre.png" alt="Estudio Profético - El Diseño y la Gracia de la Paternidad - Completo" class="img-fluid rounded shadow-lg" style="max-height: 85vh; object-fit: contain;">                               
+                    <img src="images/sacrificio-vivo.png" alt="Estudio Profético - Una Vida Entera Entregada a Dios - Completo" class="img-fluid rounded shadow-lg" style="max-height: 85vh; object-fit: contain;">                               
                     <div class="text-white-50 mt-3 small text-uppercase fw-bold" style="letter-spacing: 2px;"
-                         data-es="El Diseño y la Gracia de la Paternidad — Salmos 103 / Efesios 6 / Lucas 15" 
-                         data-en="The Design and Grace of Fatherhood — Psalms 103 / Ephesians 6 / Luke 15">
-                         El Diseño y la Gracia de la Paternidad — Salmos 103 / Efesios 6 / Lucas 15
+                         data-es="Una Vida Entera Entregada a Dios — Romanos 12:1-2" 
+                         data-en="A Whole Life Surrendered to God — Romans 12:1-2">
+                         Una Vida Entera Entregada a Dios — Romanos 12:1-2
                     </div>                                                 
                 </div>
             </div>
@@ -573,11 +578,9 @@
     <script>
         function updateCountdown() {
             const now = new Date();
-            
-            // Definir servicios semanales: Viernes 19:30 y Domingo 09:00
             const schedules = [
-                { day: 5, hours: 19, minutes: 30, durationHours: 1.5 }, // Viernes
-                { day: 0, hours: 9, minutes: 0, durationHours: 2 }      // Domingo
+                { day: 5, hours: 19, minutes: 30, durationHours: 1.5 },
+                { day: 0, hours: 9, minutes: 0, durationHours: 2 }
             ];
             
             let nextService = null;
@@ -595,7 +598,6 @@
                 }
                 target.setDate(now.getDate() + daysAhead);
                 
-                // Verificar si el servicio está ocurriendo EN VIVO en este momento
                 if (daysAhead === 0) {
                     let endService = new Date(target).getTime() + (service.durationHours * 60 * 60 * 1000);
                     let startService = target.getTime();
@@ -628,7 +630,7 @@
             countdownText.setAttribute('data-en', 'Next Service in:');
             countdownText.textContent = currentLang === 'en' ? 'Next Service in:' : 'Próximo Servicio en:';
             
-            const diff = nextService - now;
+            const diff = diff = nextService - now;
             const days = Math.floor(diff / (1000 * 60 * 60 * 24));
             const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
@@ -637,21 +639,19 @@
             timerDisplay.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
         }
         
-        // Ejecutar e inicializar al cargar
         setInterval(updateCountdown, 1000);
         document.addEventListener('DOMContentLoaded', updateCountdown);
     </script>
     
     <script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('sw.js')
-        .then(reg => console.log('Aplicación MESYF lista y registrada con éxito.'))
-        .catch(err => console.log('Error al registrar la app móvil:', err));
-    });
-  }
-</script>
-
-
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('sw.js')
+            .then(reg => console.log('Aplicación MESYF lista y registrada con éxito.'))
+            .catch(err => console.log('Error al registrar la app móvil:', err));
+        });
+      }
+    </script>
 </body>
 </html>
+

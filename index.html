@@ -630,7 +630,7 @@
             countdownText.setAttribute('data-en', 'Next Service in:');
             countdownText.textContent = currentLang === 'en' ? 'Next Service in:' : 'Próximo Servicio en:';
             
-            const diff = diff = nextService - now;
+            const diff = nextService - now;
             const days = Math.floor(diff / (1000 * 60 * 60 * 24));
             const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));

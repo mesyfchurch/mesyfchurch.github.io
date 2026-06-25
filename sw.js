@@ -1,3 +1,5 @@
+importScripts('https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.sw.js');
+// ... (El resto de tu código del Service Worker que ya tenías se queda exactamente igual abajo)
 const CACHE_NAME = 'mesyf-church-v1';
 const ASSETS = [
   '/',

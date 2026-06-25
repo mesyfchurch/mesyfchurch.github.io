@@ -135,11 +135,19 @@
         @keyframes blinker {
             50% { opacity: 0; }
         }
+
+        /* Estilos específicos para la optimización de impresión y PDF */
+        .pdf-export-mode {
+            background: white !important;
+            color: black !important;
+            padding: 30px !important;
+        }
+        .pdf-export-mode p, .pdf-export-mode span, .pdf-export-mode h2, .pdf-export-mode h4, .pdf-export-mode h5 {
+            color: black !important;
+        }
     </style>
 
     <script defer src="https://cloud.umami.is/script.js" data-website-id="99d3c068-724a-4feb-9928-be961cd7e31d"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
     <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
     <script>
@@ -150,6 +158,8 @@
         });
       });
     </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
 
@@ -257,11 +267,11 @@
     </section>
 
     <section id="mensaje" class="bg-body-tertiary section-padding border-top border-bottom">
-        <div class="container">
+        <div class="container" id="pdf-content">
             <div class="row align-items-center g-5">
                 
                 <div class="col-lg-5 text-center">
-                    <img id="mensajeSrcImg" src="images/sacrificio-vivo.png" 
+                    <img src="images/sacrificio-vivo.png" 
                          alt="Estudio Profético - Una Vida Entera Entregada a Dios" 
                          class="img-fluid shadow border" 
                          style="max-height: 450px; object-fit: cover; width: 100%; cursor: pointer;"
@@ -278,16 +288,17 @@
                 </div>
 
                 <div class="col-lg-7">
-                    <h6 class="text-muted text-uppercase fw-bold mb-2" style="letter-spacing: 2px;" data-es="Resumen de Estudio Profético" data-en="Prophetic Study Summary">Resumen de Estudio Profético</h6>
-                    <h2 class="fw-bold mb-1" data-es="MENSAJE DE LA SEMANA" data-en="MESSAGE OF THE WEEK">MENSAJE DE LA SEMANA</h2>
-                    <h4 class="text-body fw-bold mb-3" data-es="🔥 Una Vida Entera Entregada a Dios" data-en="🔥 A Whole Life Surrendered to God">🔥 Una Vida Entera Entregada a Dios</h4>
-                    
-                    <div class="mb-4">
-                        <button id="exportPdfBtn" class="btn btn-danger px-4 py-2 text-uppercase fw-bold shadow-sm" style="border-radius: 0; font-size: 0.8rem; letter-spacing: 1px;">
-                            <i class="fa-solid fa-file-pdf me-2"></i><span id="pdf-btn-text" data-es="Descargar Estudio en PDF" data-en="Download Study as PDF">Descargar Estudio en PDF</span>
+                    <div class="d-flex justify-content-between align-items-start flex-wrap">
+                        <div>
+                            <h6 class="text-muted text-uppercase fw-bold mb-2" style="letter-spacing: 2px;" data-es="Resumen de Estudio Profético" data-en="Prophetic Study Summary">Resumen de Estudio Profético</h6>
+                            <h2 class="fw-bold mb-1" data-es="MENSAJE DE LA SEMANA" data-en="MESSAGE OF THE WEEK">MENSAJE DE LA SEMANA</h2>
+                            <h4 class="text-body fw-bold mb-4" data-es="🔥 Una Vida Entera Entregada a Dios" data-en="🔥 A Whole Life Surrendered to God">🔥 Una Vida Entera Entregada a Dios</h4>
+                        </div>
+                        <button id="btn-download-pdf" class="btn btn-outline-danger rounded-0 mb-3 px-3 py-2 text-uppercase fw-bold" style="font-size: 0.8rem; letter-spacing: 0.5px;">
+                            <i class="fa-solid fa-file-pdf me-2"></i><span data-es="Descargar PDF" data-en="Download PDF">Descargar PDF</span>
                         </button>
                     </div>
-
+                    
                     <p class="fs-6 text-secondary mb-4" 
                        data-es="En nuestra comunidad hemos venido caminando en una serie de enseñanzas profundas acerca del liderazgo bíblico, la sumisión a Cristo y el verdadero valor de una vida dedicada. Sin embargo, la verdad de las Escrituras suele ser malinterpretada o filtrada por aquellos que operan bajo un corazón carnal, escuchando únicamente lo que les conviene.<br><br>Ningún principio bíblico puede ser vivido por una persona carnal. La obediencia a Dios es tan necesaria como peligrosa si se asume desde el legalismo humano. Como bien afirmaba el predicador Charles Spurgeon: «Sin el Espíritu de Dios, nada se puede hacer. Somos como veleros sin viento». La verdadera regeneración no es un esfuerzo de la carne; es un acto sobrenatural del Altísimo en nuestra vida.<br><br>Para comprender esta entrega absoluta, nos sumergimos en la columna vertebral de la consagración: Romanos 12:1-2. Este pasaje nos marca la transición perfecta entre recibir la teología de la gracia y comenzar a vivirla en el altar del día a día." 
                        data-en="In our community, we have been walking through a series of deep teachings about biblical leadership, submission to Christ, and the true value of a dedicated life. However, the truth of Scripture is often misinterpreted or filtered by those operating under a carnal heart, listening only to what suits them.<br><br>No biblical principle can be lived out by a carnal person. Obedience to God is as necessary as it is dangerous if approached from human legalism. As the preacher Charles Spurgeon well stated: 'Without the Spirit of God, nothing can be done. We are like ships without wind.' True regeneration is not an effort of the flesh; it is a supernatural act of the Most High in our lives.<br><br>To understand this absolute surrender, we dive into the backbone of consecration: Romans 12:1-2. This passage marks the perfect transition between receiving the theology of grace and beginning to live it out on the altar of daily life.">
@@ -326,7 +337,7 @@
                        Vivamos con la urgencia del Reino, sabiendo que el púlpito está para exaltar la Palabra y no al predicador. Como oraba Edwards: «Marca la eternidad en mis ojos», para que cada decisión diaria se tome a la luz de lo eterno. Recuerda las palabras de Spurgeon: «La santidad no es el camino hacia Cristo; Cristo es el camino hacia la santidad».
                     </p>
 
-                    <div class="p-3 bg-dark text-white rounded-0 shadow-sm mb-4">
+                    <div class="p-3 bg-dark text-white rounded-0 shadow-sm mb-4" id="theological-index-box">
                         <h6 class="fw-bold text-uppercase small mb-2" data-es="🪵🏺🔥 Índice de Enfoque Teológico" data-en="🪵🏺🔥 Theological Focus Index">🪵🏺🔥 Índice de Enfoque Teológico</h6>
                         <p class="small mb-2" 
                            data-es="• **Dios es el Héroe, el hombre es el Vaso:** El vaso no aporta el fuego ni la santidad; aporta la disponibilidad y el cuerpo en el altar para que el Héroe lo llene con Su gloria." 
@@ -507,7 +518,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             const direccionGoogleMaps = "https://maps.google.com/?q=38304+15th+St+East+Palmdale,+CA+93550";
             const direccionAppleMaps  = "maps://maps.apple.com/?q=38304 15th St East Palmdale, CA 93550";
-            const botonComo Llegar = document.getElementById('como-llegar');
+            const botonComoLlegar = document.getElementById('como-llegar');
             if (botonComoLlegar) {
                 const isApple = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) || /Macintosh/.test(navigator.userAgent);
                 if (isApple) { botonComoLlegar.href = direccionAppleMaps; botonComoLlegar.removeAttribute('target'); } 
@@ -652,6 +663,51 @@
     </script>
     
     <script>
+        document.getElementById('btn-download-pdf').addEventListener('click', function () {
+            const element = document.getElementById('pdf-content');
+            const buttonRef = this;
+            
+            // Deshabilitar botón temporalmente para mitigar doble submit
+            buttonRef.disabled = true;
+            const originalText = buttonRef.innerHTML;
+            buttonRef.innerHTML = '<i class="fa-solid fa-spinner fa-spin me-2"></i>Generando...';
+
+            // Forzar un entorno limpio temporal (fondos claros y textos oscuros legibles) para el capturador
+            const currentTheme = document.documentElement.getAttribute('data-bs-theme');
+            element.classList.add('pdf-export-mode');
+
+            // Configuración optimizada de html2pdf
+            const opt = {
+                margin:       [12, 15, 12, 15], // márgenes en mm (arriba, izquierda, abajo, derecha)
+                filename:     'MESYF_Estudio_Profetico.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { 
+                    scale: 2,           // Mayor resolución para dispositivos móviles e impresión clara
+                    useCORS: true,      // Resuelve problemas de carga en imágenes remotas (Unsplash)
+                    logging: false,
+                    letterRendering: true
+                },
+                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
+                pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] } // Evita cortes a mitad de frases
+            };
+
+            // Ejecución de la promesa de descarga
+            html2pdf().set(opt).from(element).save().then(() => {
+                // Restaurar el estado visual de la web tras procesar
+                element.classList.remove('pdf-export-mode');
+                buttonRef.innerHTML = originalText;
+                buttonRef.disabled = false;
+            }).catch(err => {
+                console.error("Error al generar PDF: ", err);
+                alert("Hubo un percance al compilar el PDF. Inténtalo nuevamente.");
+                element.classList.remove('pdf-export-mode');
+                buttonRef.innerHTML = originalText;
+                buttonRef.disabled = false;
+            });
+        });
+    </script>
+
+    <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
           navigator.serviceWorker.register('sw.js')
@@ -659,162 +715,6 @@
             .catch(err => console.log('Error al registrar la app móvil:', err));
         });
       }
-    </script>
-
-    <script>
-        document.getElementById('exportPdfBtn').addEventListener('click', function () {
-            const idiomaActivo = (typeof currentLang !== 'undefined') ? currentLang : 'es';
-            const btnTextElement = document.getElementById('pdf-btn-text');
-            const textoOriginalBtn = btnTextElement.textContent;
-            
-            // Estado visual de carga respetando idioma activo
-            btnTextElement.textContent = idiomaActivo === 'en' ? 'Generating PDF...' : 'Generando PDF...';
-            
-            const tituloDoc = idiomaActivo === 'en' ? 'PROPHETIC STUDY - MESYF CHURCH' : 'ESTUDIO PROFÉTICO - IGLESIA MESYF';
-            const subtituloDoc = idiomaActivo === 'en' ? 'A Whole Life Surrendered to God (Romans 12:1-2)' : 'Una Vida Entera Entregada a Dios (Romanos 12:1-2)';
-            const fechaDoc = "2026";
-            
-            function generarDocumentoPDF(base64ImgSrc) {
-                let htmlContenido = `
-                    <div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #111111; padding: 35px 45px; line-height: 1.5; font-size: 10.5pt; background-color: #ffffff; width: 100%; box-sizing: border-box;">
-                        <div style="text-align: center; border-bottom: 2px solid #111111; padding-bottom: 12px; margin-bottom: 25px;">
-                            <h2 style="font-size: 13pt; font-weight: 800; letter-spacing: 1px; margin: 0; text-transform: uppercase;">${tituloDoc}</h2>
-                            <h3 style="font-size: 16pt; font-weight: 700; margin: 6px 0 4px 0; color: #000000;">${subtituloDoc}</h3>
-                            <p style="font-size: 8.5pt; color: #666666; margin: 0; text-transform: uppercase; letter-spacing: 0.5px;">Palmdale, California — ${fechaDoc}</p>
-                        </div>
-                        
-                        <div style="text-align: center; margin-bottom: 25px; background: #ffffff; padding: 5px;">
-                            <img src="${base64ImgSrc}" style="max-height: 260px; width: auto; border: 1px solid #dddddd;" />
-                            <div style="margin-top: 6px; font-size: 8pt; color: #777777; font-style: italic; text-transform: uppercase; letter-spacing: 0.5px;">
-                                ${idiomaActivo === 'en' ? 'Romans 12:1 — Presenting a Living Offering Before the Heavenly Potter' : 'Romanos 12:1 — Presentando una Ofrenda Viva ante el Alfarero Celestial'}
-                            </div>
-                        </div>
-                `;
-
-                if (idiomaActivo === 'en') {
-                    htmlContenido += `
-                        <p style="margin-bottom: 15px; text-align: justify; font-style: italic; color: #444444;">
-                            In our community, we have been walking through a series of deep teachings about biblical leadership, submission to Christ, and the true value of a dedicated life. However, the truth of Scripture is often misinterpreted or filtered by those operating under a carnal heart, listening only to what suits them.<br><br>
-                            No biblical principle can be lived out by a carnal person. Obedience to God is as necessary as it is dangerous if approached from human legalism. As the preacher Charles Spurgeon well stated: "Without the Spirit of God, nothing can be done. We are like ships without wind." True regeneration is not an effort of the flesh; it is a supernatural act of the Most High in our lives.<br><br>
-                            To understand this absolute surrender, we dive into the backbone of consecration: Romans 12:1-2. This passage marks the perfect transition between receiving the theology of grace and beginning to live it out on the altar of daily life.
-                        </p>
-                        
-                        <h4 style="font-size: 11pt; font-weight: 700; text-transform: uppercase; margin-top: 20px; margin-bottom: 8px; border-bottom: 1px solid #111111; padding-bottom: 2px;">| The Altar of the Body: The Living Sacrifice (v. 1)</h4>
-                        <div style="background: #f8f9fa; border-left: 3px solid #111111; padding: 8px 12px; margin-bottom: 12px; font-weight: bold; font-size: 9.5pt; font-style: italic;">
-                            “I urge you therefore, brothers, by the mercies of God, to present your bodies as a living sacrifice, holy and acceptable to God, which is your spiritual worship.”
-                        </div>
-                        <p style="margin-bottom: 12px; text-align: justify;">
-                            <strong>Voluntary Surrender (Parístēmi):</strong> Presenting the body means placing the sacrifice upon the altar at the complete disposal of the Priest, voluntarily and definitively yielding all rights of ownership over ourselves.<br>
-                            <strong>The Paradox of the Living Sacrifice (Thysía zōsa):</strong> In the old covenant, sacrifices were dead animals; in the Kingdom of Christ, the altar demands that the vessel remains alive. The challenge is not to 'step off the altar' during the process.<br>
-                            <strong>Theological Coherence (Logikē latreía):</strong> Reasonable worship is the intelligent, logical response of the vessel before the infinite mercies of the divine Hero who rescued us from bankruptcy.
-                        </p>
-
-                        <h4 style="font-size: 11pt; font-weight: 700; text-transform: uppercase; margin-top: 20px; margin-bottom: 8px; border-bottom: 1px solid #111111; padding-bottom: 2px;">| The Battlefield of the Mind: The Metamorphosis (v. 2)</h4>
-                        <div style="background: #f8f9fa; border-left: 3px solid #111111; padding: 8px 12px; margin-bottom: 12px; font-weight: bold; font-size: 9.5pt; font-style: italic;">
-                            “Do not be conformed to this world, but be transformed by the renewal of your mind...”
-                        </div>
-                        <p style="margin-bottom: 12px; text-align: justify;">
-                            <strong>Breaking the World's Mold (Syschématizō):</strong> The system of this age attempts to exert external pressure to force the clay vessel to fit into its patterns.<br>
-                            <strong>Radical Transformation (Metamorphóō):</strong> True transformation (metamorphic change) does not come through external rules, but wells up from deep within the vessel. As Jonathan Edwards wrote: 'I have given myself clean away to God.'<br>
-                            <strong>Mental Renewal (Anakainōsis):</strong> By displacing the world's logic and thinking under the frequency of the Word, our past wounds are healed.
-                        </p>
-                    `;
-                } else {
-                    htmlContenido += `
-                        <p style="margin-bottom: 15px; text-align: justify; font-style: italic; color: #444444;">
-                            En nuestra comunidad hemos venido caminando en una serie de enseñanzas profundas acerca del liderazgo bíblico, la sumisión a Cristo y el verdadero valor de una vida dedicada. Sin embargo, la verdad de las Escrituras suele ser malinterpretada o filtrada por aquellos que operan bajo un corazón carnal, escuchando únicamente lo que les conviene.<br><br>
-                            Ningún principio bíblico puede ser vivido por una persona carnal. La obediencia a Dios es tan necesaria como peligrosa si se asume desde el legalismo humano. Como bien afirmaba el predicador Charles Spurgeon: «Sin el Espíritu de Dios, nada se puede hacer. Somos como veleros sin viento». La verdadera regeneración no es un esfuerzo de la carne; es un acto sobrenatural del Altísimo en nuestra vida.<br><br>
-                            Para comprender esta entrega absoluta, nos sumergimos en la columna vertebral de la consagración: Romanos 12:1-2. Este pasaje nos marca la transición perfecta entre recibir la teología de la gracia y comenzar a vivirla en el altar del día a día.
-                        </p>
-                        
-                        <h4 style="font-size: 11pt; font-weight: 700; text-transform: uppercase; margin-top: 20px; margin-bottom: 8px; border-bottom: 1px solid #111111; padding-bottom: 2px;">| El Altar del Cuerpo: El Sacrificio Vivo (v. 1)</h4>
-                        <div style="background: #f8f9fa; border-left: 3px solid #111111; padding: 8px 12px; margin-bottom: 12px; font-weight: bold; font-size: 9.5pt; font-style: italic;">
-                            «Así que, hermanos, os ruego por las misericordias de Dios, que presentéis vuestros cuerpos en sacrificio vivo, santo, agradable a Dios, que es vuestro culto racional.»
-                        </div>
-                        <p style="margin-bottom: 12px; text-align: justify;">
-                            <strong>Rendición Voluntaria (Parístēmi):</strong> Presentar el cuerpo significa colocar el sacrificio sobre el altar a total disposición del Sacerdote, cediendo de manera voluntaria y definitiva todo derecho de propiedad sobre nosotros mismos.<br>
-                            <strong>La Paradoja del Sacrificio Vivo (Thysía zōsa):</strong> En el antiguo pacto, los sacrificios eran animales muertos; en el Reino de Cristo, el altar exige que el vaso permanezca vivo. El reto diario del cristiano es no 'bajarse del altar' cuando siente el fuego del proceso.<br>
-                            <strong>Coherencia Teológica (Logikē latreía):</strong> El culto racional es la respuesta inteligente, lógica y coherente de la vasija ante las infinitas misericordias del Héroe divino que nos rescató de la quiebra.
-                        </p>
-
-                        <h4 style="font-size: 11pt; font-weight: 700; text-transform: uppercase; margin-top: 20px; margin-bottom: 8px; border-bottom: 1px solid #111111; padding-bottom: 2px;">| El Campo de Batalla de la Mente: La Metamorfosis (v. 2)</h4>
-                        <div style="background: #f8f9fa; border-left: 3px solid #111111; padding: 8px 12px; margin-bottom: 12px; font-weight: bold; font-size: 9.5pt; font-style: italic;">
-                            «No os conforméis a este siglo, sino transformaos por medio de la renovación de vuestro entendimiento...»
-                        </div>
-                        <p style="margin-bottom: 12px; text-align: justify;">
-                            <strong>Romper el Molde del Mundo (Syschématizō):</strong> El sistema de este siglo intenta constantemente ejercer presión externa para forzar al vaso de barro a encajar en sus patrones.<br>
-                            <strong>Transformación Radical (Metamorphóō):</strong> La verdadera transformación no viene por reglas externas, sino que brota desde el interior profundo del vaso. Como escribió Jonathan Edwards: «Me he entregado por completo a Dios».<br>
-                            <strong>Renovación Mental (Anakainōsis):</strong> Al desplazar las lógicas del mundo y pensar bajo la frecuencia de la Palabra, nuestras llagas del pasado son sanadas.
-                        </p>
-                    `;
-                }
-
-                htmlContenido += `
-                        <div style="margin-top: 30px; border-top: 1px dashed #cccccc; padding-top: 8px; text-align: center; font-size: 7.5pt; color: #888888;">
-                            © ${fechaDoc} Iglesia MESYF — 38304 15th St East Palmdale, CA 93550. All Rights Reserved.
-                        </div>
-                    </div>
-                `;
-
-                // SOLUCIÓN DEFINITIVA: Inyectar al documento de forma oculta en vez de dejarlo aislado en memoria
-                const elementoTemporal = document.createElement('div');
-                elementoTemporal.style.position = 'absolute';
-                elementoTemporal.style.left = '-9999px';
-                elementoTemporal.style.top = '0px';
-                elementoTemporal.style.width = '794px'; 
-                elementoTemporal.innerHTML = htmlContenido;
-                document.body.appendChild(elementoTemporal);
-
-                const opcionesConfig = {
-                    margin:       [12, 12, 12, 12],
-                    filename:     idiomaActivo === 'en' ? 'MESYF-Prophetic-Study-Romans12.pdf' : 'MESYF-Estudio-Profetico-Romanos12.pdf',
-                    image:        { type: 'jpeg', quality: 0.98 },
-                    html2canvas:  { scale: 2, useCORS: true, logging: false, backgroundColor: '#ffffff' },
-                    jsPDF:        { unit: 'mm', format: 'letter', orientation: 'portrait' }
-                };
-
-                // Delay estratégico de 150ms para asegurar renderización en el DOM antes del muestreo del canvas
-                setTimeout(() => {
-                    html2pdf().set(opcionesConfig).from(elementoTemporal).save().then(() => {
-                        document.body.removeChild(elementoTemporal);
-                        btnTextElement.textContent = textoOriginalBtn;
-                    }).catch(err => {
-                        console.error("Error al exportar PDF:", err);
-                        if(document.body.contains(elementoTemporal)) document.body.removeChild(elementoTemporal);
-                        btnTextElement.textContent = textoOriginalBtn;
-                    });
-                }, 150);
-            }
-
-            // Canvas para procesamiento seguro y mapeo Base64 de la imagen local
-            const imgOriginal = document.getElementById('mensajeSrcImg');
-            if (!imgOriginal || !imgOriginal.src) {
-                generarDocumentoPDF('');
-                return;
-            }
-
-            const canvas = document.createElement('canvas');
-            const ctx = canvas.getContext('2d');
-            const imgProcesada = new Image();
-            
-            imgProcesada.onload = function () {
-                canvas.width = imgProcesada.width;
-                canvas.height = imgProcesada.height;
-                ctx.drawImage(imgProcesada, 0, 0);
-                try {
-                    const dataURL = canvas.toDataURL('image/png');
-                    generarDocumentoPDF(dataURL);
-                } catch(e) {
-                    generarDocumentoPDF(imgOriginal.src);
-                }
-            };
-            
-            imgProcesada.onerror = function () {
-                generarDocumentoPDF(imgOriginal.src);
-            };
-            
-            imgProcesada.src = imgOriginal.src;
-        });
     </script>
 </body>
 </html>

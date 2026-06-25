@@ -6,25 +6,14 @@
     
     <meta property="og:title" content="Iglesia MESYF | Evangelismo y Oración" />
     <meta property="og:description" content="El lugar donde tu tormento se transforma en testimonio. Palmdale, California." />
-
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#212529">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="MESYF">
-    <link rel="apple-touch-icon" href="images/MESYF-LOGO-transparent.png">
-
     <meta property="og:image" content="images/MESYF-LOGO-transparent.png" />
     <meta property="og:type" content="website" />
 
-    <link class="fluid-icon" rel="icon" type="image/png" href="images/MESYF-LOGO-transparent.png">
-    <title>Iglesia MESYF | Evangelismo y Oración</title>
+    <link rel="icon" type="image/png" href="images/MESYF-LOGO-transparent.png">
+    <title>Iglesia MESYF | Evangelismo y Oracion</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-
-    <!-- Librería html2pdf para la exportación a PDF sin perder estilos -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
     <style>
         :root {
@@ -35,7 +24,7 @@
 
         /* Sección Hero (Impacto Visual) */
         .hero {
-            height: 95vh;
+            height: 95vh; /* Ajustado ligeramente para acomodar el logo superior de manera armónica */
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
                         url('https://images.unsplash.com/photo-1438232992991-995b7058bbb3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
@@ -104,53 +93,9 @@
             50% { height: 14px; }
             100% { height: 6px; }
         }
-
-        /* Bloque del Contador en la sección de Eventos */
-        .event-countdown-box {
-            background: rgba(0,0,0,0.04);
-            border: 1px solid rgba(0,0,0,0.08);
-            max-width: 500px;
-            margin: 0 auto 40px auto;
-            padding: 15px 25px;
-            letter-spacing: 0.5px;
-        }
-        [data-bs-theme="dark"] .event-countdown-box {
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.08);
-        }
-        .countdown-timer {
-            font-family: 'Courier New', Courier, monospace;
-            color: #ffc107;
-            font-weight: 700;
-            font-size: 1.4rem;
-            display: block;
-            margin-top: 5px;
-        }
-        [data-bs-theme="light"] .countdown-timer {
-            color: #b8860b;
-        }
-        .live-pulse {
-            color: #dc3545;
-            animation: blinker 1.5s linear infinite;
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-        @keyframes blinker {
-            50% { opacity: 0; }
-        }
     </style>
 
     <script defer src="https://cloud.umami.is/script.js" data-website-id="99d3c068-724a-4feb-9928-be961cd7e31d"></script>
-
-    <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
-    <script>
-      window.OneSignalDeferred = window.OneSignalDeferred || [];
-      OneSignalDeferred.push(async function(OneSignal) {
-        await OneSignal.init({
-          appId: "9bd1b0ff-4521-4a17-8038-173b3b46aaa0",
-        });
-      });
-    </script>
 </head>
 <body>
 
@@ -192,6 +137,7 @@
     <header class="hero">
         <div class="container d-flex flex-column align-items-center">
             <img src="images/MESYF-LOGO-transparent.png" alt="Logo Tridimensional MESYF" class="hero-logo img-fluid">
+            
             <h1 class="display-1" data-es="Iglesia Mesyf" data-en="Mesyf Church">Iglesia Mesyf</h1>
             <p class="lead mb-5" data-es="El lugar donde tu tormento se transforma en testimonio." data-en="The place where your torment is transformed into a testimony.">El lugar donde tu tormento se transforma en testimonio.</p>
             <div>
@@ -211,32 +157,26 @@
     </section>
 
     <section id="eventos" class="section-padding container border-bottom">
-        <div class="text-center mb-4">
+        <div class="text-center mb-5">
             <h2 class="fw-bold text-uppercase" data-es="Próximos Eventos" data-en="Upcoming Events">Próximos Eventos</h2>
             <p class="text-muted" data-es="Mantente conectado y participa con nosotros este mes." data-en="Stay connected and participate with us this month.">Mantente conectado y participa con nosotros este mes.</p>
         </div>
-
-        <div class="event-countdown-box text-center shadow-sm">
-            <span id="countdown-text" class="text-uppercase fw-bold small text-secondary" data-es="Próximo Servicio en:" data-en="Next Service in:">Próximo Servicio en:</span>
-            <span id="timer-display" class="countdown-timer">00d 00h 00m 00s</span>
-        </div>
-
         <div class="row g-4 justify-content-center">
-            <div class="col-md-5">
+            <div class="col-md-4">
                 <div class="card h-100 border rounded-0 shadow-sm">
                     <div class="card-body">
-                        <div class="text-uppercase text-danger fw-bold small mb-1" data-es="Viernes 26 de junio" data-en="Friday, June 26">Viernes 26 de junio</div>
+                        <div class="text-uppercase text-danger fw-bold small mb-1" data-es="Viernes 12 de junio" data-en="Friday, June 12">Viernes 12 de junio</div>
                         <h5 class="card-title fw-bold" data-es="Servicio Regular" data-en="Regular Service">Servicio Regular</h5>
-                        <p class="card-text small text-muted" data-es="Te invitamos a nuestro servicio regular de la semana de 7:30 PM a 9:00 PM. Un tiempo para buscar a Dios en comunidad, intercesión profunda y palabra." data-en="Join us for our regular week service from 7:30 PM to 9:00 PM. A time to seek God together in deep intercession and word.">Te invitamos a nuestro servicio regular de la semana de 7:30 PM a 9:00 PM. Un tiempo para buscar a Dios en comunidad, intercesión profunda y palabra.</p>
+                        <p class="card-text small text-muted" data-es="Te invitamos a nuestro servicio regular de la semana de 7:30 PM a 9:00 PM. Un tiempo para buscar a Dios en comunidad." data-en="Join us for our regular week service from 7:30 PM to 9:00 PM. A time to seek God together.">Te invitamos a nuestro servicio regular de la semana de 7:30 PM a 9:00 PM. Un tiempo para buscar a Dios en comunidad.</p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-4">
                 <div class="card h-100 border rounded-0 shadow-sm">
                     <div class="card-body">
-                        <div class="text-uppercase text-danger fw-bold small mb-1" data-es="Domingo 28 de junio" data-en="Sunday, June 28">Domingo 28 de junio</div>
-                        <h5 class="card-title fw-bold" data-es="Escuela y Servicio Dominical Regular" data-en="Regular Sunday School & Service">Escuela y Servicio Dominical Regular</h5>
-                        <p class="card-text small text-muted" data-es="Acompáñanos a las 9:00 AM en nuestra escuela dominical para todas las edades seguida de nuestro servicio principal de adoración y palabra." data-en="Join us at 9:00 AM for our Sunday school for all ages followed by our main service of worship and word.">Acompáñanos a las 9:00 AM en nuestra escuela dominical para todas las edades seguida de nuestro servicio principal de adoración y palabra.</p>
+                        <div class="text-uppercase text-danger fw-bold small mb-1" data-es="Domingo 14 de junio" data-en="Sunday, June 14">Domingo 14 de junio</div>
+                        <h5 class="card-title fw-bold" data-es="Servicio Dominical & Día del Padre" data-en="Sunday Service & Father's Day">Servicio Dominical & Día del Padre</h5>
+                        <p class="card-text small text-muted" data-es="Nuestra celebración familiar matutina a las 9:00 AM. Ven con tus seres queridos a alabar y celebrar de manera especial a todos los padres de nuestra comunidad." data-en="Our morning family celebration at 9:00 AM. Come with your loved ones to worship and celebrate in a special way all the fathers in our community.">Nuestra celebración familiar matutina a las 9:00 AM. Ven con tus seres queridos a alabar y celebrar de manera especial a todos los padres de nuestra comunidad.</p>
                     </div>
                 </div>
             </div>
@@ -250,8 +190,10 @@
                 <p class="fs-5 mb-5" data-es="A veces la vida nos paraliza y el dolor de la espera se vuelve insoportable. Pero la parálisis no es tu final. Dios está moviéndose en la vida de su iglesia y quiere traerte de vuelta a un lugar de paz." data-en="Sometimes life paralyzes us and the pain of waiting becomes unbearable. But paralysis is not your end. God is moving in the life of His church and wants to bring you back to a place of peace.">A veces la vida nos paraliza y el dolor de la espera se vuelve insoportable. Pero la parálisis no es tu final. Dios está moviéndose en la vida de su iglesia y quiere traerte de vuelta a un lugar de paz.</p>
                 
                 <div class="evangelismo-box mt-5 shadow-sm border text-start p-4 p-md-5">
-                    <h3 class="fw-bold text-center mb-3" data-es="EL MAPA HACIA LA RESTAURACIÓN" data-en="THE ROADMAP TO RESTORATION">EL MAPA HACIA LA RESTAURACIÓN</h3>
+                <h3 class="fw-bold text-center mb-3" data-es="EL MAPA HACIA LA RESTAURACIÓN" data-en="THE ROADMAP TO RESTORATION">EL MAPA HACIA LA RESTAURACIÓN</h3>
                     <p data-es="El evangelio no es una religión de cargas, es un camino de libertad. Jesús pagó el precio para sanar cada herida profunda. Si estás listo para experimentar una transformación real, hoy es el día para dar el primer paso." data-en="The gospel is not a religion of burdens; it is a path of freedom. Jesus paid the price to heal every deep wound. If you are ready to experience real transformation, today is the day to take the first step.">El evangelio no es una religión de cargas, es un camino de libertad. Jesús pagó el precio para sanar cada herida profunda. Si estás listo para experimentar una transformación real, hoy es el día para dar el primer paso.</p>
+                    <div class="text-center">
+                        </div>
                 </div>
             </div>
         </div>
@@ -262,96 +204,85 @@
             <div class="row align-items-center g-5">
                 
                 <div class="col-lg-5 text-center">
-                    <img src="images/sacrificio-vivo.png" 
-                         alt="Estudio Profético - Una Vida Entera Entregada a Dios" 
+                    <img src="images/paradoja.png" 
+                         alt="Estudio Profético Las Paradojas del Cristiano" 
                          class="img-fluid shadow border" 
                          style="max-height: 450px; object-fit: cover; width: 100%; cursor: pointer;"
                          data-bs-toggle="modal" 
                          data-bs-target="#imageModal"
-                         data-es="Haz clic para agrandar — Romanos 12:1-2: El Altar de la Consagración Perfecta" 
-                         data-en="Click to enlarge — Romans 12:1-2: The Altar of Perfect Consecration"
+                         data-es="Haz clic para agrandar" 
+                         data-en="Click to enlarge"
                          title="Haz clic para agrandar">
                     <div class="mt-3 text-muted small text-uppercase fw-bold" style="letter-spacing: 1px;" 
-                         data-es="Romanos 12:1 — Presentando una Ofrenda Viva ante el Alfarero Celestial" 
-                         data-en="Romans 12:1 — Presenting a Living Offering Before the Heavenly Potter">
-                         Romanos 12:1 — Presentando una Ofrenda Viva ante el Alfarero Celestial
+                         data-es="2 Corintios 4:8 — Sostenidos en la Tormenta: Presión Exterior vs. Espacio Interior" 
+                         data-en="2 Corinthians 4:8 — Sustained in the Storm: Outer Pressure vs. Inner Space">
+                         2 Corintios 4:8 — Sostenidos en la Tormenta: Presión Exterior vs. Espacio Interior
                     </div>
                 </div>
 
-                <!-- Contenedor del Mensaje Completo que se exportará a PDF -->
-                <div class="col-lg-7" id="pdf-content">
-                    <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
-                        <div>
-                            <h6 class="text-muted text-uppercase fw-bold mb-1" style="letter-spacing: 2px;" data-es="Resumen de Estudio Profético" data-en="Prophetic Study Summary">Resumen de Estudio Profético</h6>
-                            <h2 class="fw-bold mb-0" data-es="MENSAJE DE LA SEMANA" data-en="MESSAGE OF THE WEEK">MENSAJE DE LA SEMANA</h2>
-                        </div>
-                        <!-- Botón de Exportación -->
-                        <button id="download-pdf-btn" class="btn btn-sm btn-dark rounded-0 px-3 py-2 text-uppercase fw-bold" style="letter-spacing: 0.5px;">
-                            <i class="fa-solid fa-file-pdf me-2 text-danger"></i>
-                            <span data-es="Descargar PDF" data-en="Download PDF">Descargar PDF</span>
-                        </button>
-                    </div>
-
-                    <h4 class="text-body fw-bold mb-4" data-es="🔥 Una Vida Entera Entregada a Dios" data-en="🔥 A Whole Life Surrendered to God">🔥 Una Vida Entera Entregada a Dios</h4>
+                <div class="col-lg-7">
+                    <h6 class="text-muted text-uppercase fw-bold mb-2" style="letter-spacing: 2px;" data-es="Resumen de Estudio Profético" data-en="Prophetic Study Summary">Resumen de Estudio Profético</h6>
+                    <h2 class="fw-bold mb-1" data-es="MENSAJE DE LA SEMANA" data-en="MESSAGE OF THE WEEK">MENSAJE DE LA SEMANA</h2>
+                    <h4 class="text-body fw-bold mb-4" data-es="⚓ Las Paradojas del Cristiano: Sostenidos en la Tormenta" data-en="⚓ The Paradoxes of the Christian: Sustained in the Storm">⚓ Las Paradojas del Cristiano: Sostenidos en la Tormenta</h4>
                     
+                    <div class="mb-4 text-secondary small fw-bold">
+                        <span data-es="Pasaje Base: 2 Corintios 4:8 (RVR1960)" data-en="Base Scripture: 2 Corinthians 4:8 (RVR1960)">Pasaje Base: 2 Corintios 4:8 (RVR1960)</span>
+                    </div>
+
+                    <div class="p-3 bg-body border-start border-4 border-dark mb-4 italic">
+                        <p class="mb-0 fw-bold" data-es='"Que estamos atribulados en todo, mas no angustiados; en apuros, mas no desesperados;"' data-en='"We are troubled on every side, yet not distressed; we are perplexed, but not in despair;"'>"Que estamos atribulados en todo, mas no angustiados; en apuros, mas no desesperados;"</p>
+                    </div>
+
                     <p class="fs-6 text-secondary mb-4" 
-                       data-es="En nuestra comunidad hemos venido caminando en una serie de enseñanzas profundas acerca del liderazgo bíblico, la sumisión a Cristo y el verdadero valor de una vida dedicada. Sin embargo, la verdad de las Escrituras suele ser malinterpretada o filtrada por aquellos que operan bajo un corazón carnal, escuchando únicamente lo que les conviene.<br><br>Ningún principio bíblico puede ser vivido por una persona carnal. La obediencia a Dios es tan necesaria como peligrosa si se asume desde el legalismo humano. Como bien afirmaba el predicador Charles Spurgeon: «Sin el Espíritu de Dios, nada se puede hacer. Somos como veleros sin viento». La verdadera regeneración no es un esfuerzo de la carne; es un acto sobrenatural del Altísimo en nuestra vida.<br><br>Para comprender esta entrega absoluta, nos sumergimos en la columna vertebral de la consagración: Romanos 12:1-2. Este pasaje nos marca la transición perfecta entre recibir la teología de la gracia y comenzar a vivirla en el altar del día a día." 
-                       data-en="In our community, we have been walking through a series of deep teachings about biblical leadership, submission to Christ, and the true value of a dedicated life. However, the truth of Scripture is often misinterpreted or filtered by those operating under a carnal heart, listening only to what suits them.<br><br>No biblical principle can be lived out by a carnal person. Obedience to God is as necessary as it is dangerous if approached from human legalism. As the preacher Charles Spurgeon well stated: 'Without the Spirit of God, nothing can be done. We are like ships without wind.' True regeneration is not an effort of the flesh; it is a supernatural act of the Most High in our lives.<br><br>To understand this absolute surrender, we dive into the backbone of consecration: Romans 12:1-2. This passage marks the perfect transition between receiving the theology of grace and beginning to live it out on the altar of daily life.">
-                       En nuestra comunidad hemos venido caminando en una serie de enseñanzas profundas acerca del liderazgo bíblico, la sumisión a Cristo y el verdadero valor de una vida dedicada. Sin embargo, la verdad de las Escrituras suele ser malinterpretada o filtrada por aquellos que operan bajo un corazón carnal, escuchando únicamente lo que les conviene.<br><br>Ningún principio bíblico puede ser vivido por una persona carnal. La obediencia a Dios es tan necesaria como peligrosa si se asume desde el legalismo humano. Como bien afirmaba el predicador Charles Spurgeon: «Sin el Espíritu de Dios, nada se puede hacer. Somos como veleros sin viento». La verdadera regeneración no es un esfuerzo de la carne; es un acto sobrenatural del Altísimo en nuestra vida.<br><br>Para comprender esta entrega absoluta, nos sumergimos en la columna vertebral de la consagración: Romanos 12:1-2. Este pasaje nos marca la transición perfecta entre recibir la teología de la gracia y comenzar a vivirla en el altar del día a día.
+                       data-es="El apóstol Pablo expone con crudeza la realidad de nuestra vida en la tierra, pero introduce de inmediato una contraparte sobrenatural. Dios permite que seamos vasijas vulnerables de barro para que, cuando el mundo nos vea resistir de pie, entienda que el verdadero Héroe habita dentro de nosotros." 
+                       data-en="The apostle Paul bluntly exposes the reality of our life on earth, but immediately introduces a supernatural counterpart. God allows us to be vulnerable clay vessels so that when the world sees us standing resilient, it understands that the true Hero dwells within us.">
+                       El apóstol Pablo expone con crudeza la realidad de nuestra vida en la tierra, pero introduce de inmediato una contraparte sobrenatural. Dios permite que seamos vasijas vulnerables de barro para que, cuando el mundo nos vea resistir de pie, entienda que el verdadero Héroe habita dentro de nosotros.
                     </p>
 
-                    <h5 class="fw-bold fs-6 mb-3 text-uppercase tracking-wider" data-es="🏺 El Altar del Cuerpo: El Sacrificio Vivo (v. 1)" data-en="🏺 The Altar of the Body: The Living Sacrifice (v. 1)">🏺 El Altar del Cuerpo: El Sacrificio Vivo (v. 1)</h5>
-                    <div class="p-2 bg-body border-start border-4 border-dark mb-3 italic small">
-                        <p class="mb-0 fw-bold" data-es="«Así que, hermanos, os ruego por las misericordias de Dios, que presentéis vuestros cuerpos en sacrificio vivo, santo, agradable a Dios, que es vuestro culto racional.»" data-en="“I urge you therefore, brothers, by the mercies of God, to present your bodies as a living sacrifice, holy and acceptable to God, which is your spiritual worship.”">«Así que, hermanos, os ruego por las misericordias de Dios, que presentéis vuestros cuerpos en sacrificio vivo, santo, agradable a Dios, que es vuestro culto racional.»</p>
+                    <div class="row g-4 mb-4">
+                        <div class="col-md-6">
+                            <h5 class="fw-bold fs-6 mb-2" data-es="1. Presión Exterior vs. Espacio Interior 🥊" data-en="1. Outer Pressure vs. Inner Space 🥊">1. Presión Exterior vs. Espacio Interior 🥊</h5>
+                            <p class="small text-muted" 
+                               data-es="El ataque del entorno (Thlíbō) significa estar bajo una fuerte presión, comprimido o aplastado por los flancos (crisis familiares, financieras o culturales). Sin embargo, la respuesta del Espíritu impide la angustia (Stenochōréō), que significa 'quedarse sin espacio'. La paradoja radica en que el mundo te puede apretar por fuera, pero el Espíritu Santo ensancha tu capacidad interna. Hay presión, pero no hay confinamiento." 
+                               data-en="The environmental attack (Thlíbō) means being under heavy pressure, compressed or crushed from the flanks (family, financial, or cultural crises). However, the Spirit's response prevents distress (Stenochōréō), which means 'running out of space'. The paradox is that the world can squeeze you from the outside, but the Holy Spirit expands your internal capacity. There is pressure, but no confinement.">
+                               El ataque del entorno (Thlíbō) significa estar bajo una fuerte presión, comprimido o aplastado por los flancos (crisis familiares, financieras o culturales). Sin embargo, la respuesta del Espíritu impide la angustia (Stenochōréō), que significa "quedarse sin espacio". La paradoja radica en que el mundo te puede apretar por fuera, pero el Espíritu Santo ensancha tu capacidad interna. Hay presión, pero no hay confinamiento.
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <h5 class="fw-bold fs-6 mb-2" data-es="2. Callejones sin Salida vs. Esperanza Inquebrantable 🛡️" data-en="2. Dead Ends vs. Unshakable Hope 🛡️">2. Callejones sin Salida vs. Esperanza Inquebrantable 🛡️</h5>
+                            <p class="small text-muted" 
+                               data-es="Estar en apuros (Aporéō) implies tener la mente lógica en cero, encontrarse perplejo, en pérdida, o carecer de recursos humanos. Es el momento donde dices: 'Ya no sé qué más hacer'. Pero el Reino evita el límite de la desesperación (Exaporéō), que es la rendición total. El diseño del Reino nos sostiene para que la confusión temporal no se convierta en una ruina permanente. No tener una salida clara hoy no significa que Dios haya perdido el control del mañana." 
+                               data-en="Being perplexed (Aporéō) implies having the logical mind at zero, being at a loss, or lacking human resources. It's the moment you say, 'I don't know what else to do.' But the Kingdom prevents the limit of absolute despair (Exaporéō), which is total surrender. The Kingdom's design sustains us so that temporary confusion does not become permanent ruin. Not having a clear exit today does not mean God has lost control of tomorrow.">
+                               Estar en apuros (Aporéō) implica tener la mente lógica en cero, encontrarse perplejo, en pérdida, o carecer de recursos humanos. Es el momento donde dices: "Ya no sé qué más hacer". Pero el Reino evita el límite de la desesperación (Exaporéō), que es la rendición total. El diseño del Reino nos sostiene para que la confusión temporal no se convierta en una ruina permanente. No tener una salida clara hoy no significa que Dios haya perdido el control del mañana.
+                            </p>
+                        </div>
                     </div>
-                    <p class="small text-muted mb-4"
-                       data-es="**Rendición Voluntaria (Parístēmi):** Presentar el cuerpo significa colocar el sacrificio sobre el altar a total disposición del Sacerdote, cediendo de manera voluntaria y definitiva todo derecho de propiedad sobre nosotros mismos.<br>**La Paradoja del Sacrificio Vivo (Thysía zōsa):** En el antiguo pacto, los sacrificios eran animales muertos; en el Reino de Cristo, el altar exige que el vaso permanezca vivo. El reto diario del cristiano es no 'bajarse del altar' when siente el fuego del proceso.<br>**Coherencia Teológica (Logikē latreía):** El culto racional no es un ritual frío, sino la respuesta inteligente, lógica y coherente de la vasija ante las infinitas misericordias del Héroe divino que nos rescató de la quiebra. Dios no es el número uno de una lista, ni forma parte de una categoría; Él es el centro de todo."
-                       data-en="**Voluntary Surrender (Parístēmi):** Presenting the body means placing the sacrifice upon the altar at the complete disposal of the Priest, voluntarily and definitively yielding all rights of ownership over ourselves.<br>**The Paradox of the Living Sacrifice (Thysía zōsa):** In the old covenant, sacrifices were dead animals; in the Kingdom of Christ, the altar demands that the vessel remains alive. The Christian's daily challenge is not to 'step off the altar' when feeling the fire of the process.<br>**Theological Coherence (Logikē latreía):** Reasonable worship is not a cold ritual, but the intelligent, logical, and coherent response of the vessel before the infinite mercies of the divine Hero who rescued us from bankruptcy. God is not number one on a list, nor does He belong to a category; He is the center of everything.">
-                       <strong>Rendición Voluntaria (Parístēmi):</strong> Presentar el cuerpo significa colocar el sacrificio sobre el altar a total disposición del Sacerdote, cediendo de manera voluntaria y definitiva todo derecho de propiedad sobre nosotros mismos.<br>
-                       <strong>La Paradoja del Sacrificio Vivo (Thysía zōsa):</strong> En el antiguo pacto, los sacrificios eran animales muertos; en el Reino de Cristo, el altar exige que el vaso permanezca vivo. El reto diario del cristiano es no "bajarse del altar" cuando siente el fuego del proceso.<br>
-                       <strong>Coherencia Teológica (Logikē latreía):</strong> El culto racional no es un ritual frío, sino la respuesta inteligente, lógica y coherente de la vasija ante las infinitas misericordias del Héroe divino que nos rescató de la quiebra. Dios no es el número uno de una lista, ni forma parte de una categoría; Él es el centro de todo.
-                    </p>
 
-                    <h5 class="fw-bold fs-6 mb-3 text-uppercase tracking-wider" data-es="🧠 El Campo de Batalla de la Mente: La Metamorfosis (v. 2)" data-en="🧠 The Battlefield of the Mind: The Metamorphosis (v. 2)">🧠 El Campo de Batalla de la Mente: La Metamorfosis (v. 2)</h5>
-                    <div class="p-2 bg-body border-start border-4 border-dark mb-3 italic small">
-                        <p class="mb-0 fw-bold" data-es="«No os conforméis a este siglo, sino transformaos por medio de la renovación de vuestro entendimiento...»" data-en="“Do not be conformed to this world, but be transformed by the renewal of your mind...”">«No os conforméis a este siglo, sino transformaos por medio de la renovación de vuestro entendimiento...»</p>
+                    <div class="p-3 bg-body shadow-sm border mb-4">
+                        <h6 class="fw-bold text-uppercase small mb-2" data-es="El Impacto Terrenal (Para Reflexionar):" data-en="The Earthly Impact (To Ponder):">El Impacto Terrenal (Para Reflexionar):</h6>
+                        <ul class="small text-muted ps-3 mb-0">
+                            <li class="mb-2" 
+                                data-es="**Matrimonios Bajo Presión:** Las familias y los matrimonios están siendo fuertemente atribulados (thlíbō) por las corrientes del individualismo y el diseño del mundo." 
+                                data-en="**Marriages Under Pressure:** Families and marriages are being heavily troubled (thlíbō) by the currents of individualism and the world's design.">
+                                <strong>Matrimonios Bajo Presión:</strong> Las familias y los matrimonios están siendo fuertemente atribulados (thlíbō) por las corrientes del individualismo y el diseño del mundo.
+                            </li>
+                            <li 
+                                data-es="**El Factor Desilusión:** La decepción o el desánimo se harán presentes en el caminar del cristiano, pero el Evangelio no es inmunidad frente al dolor, sino una plataforma sobrenatural para levantarnos de él." 
+                                data-en="**The Disillusionment Factor:** Deception or discouragement will appear on the Christian walk, but the Gospel is not immunity from pain, but a supernatural platform to rise above it.">
+                                <strong>El Factor Desilusión:</strong> La decepción o el desánimo se harán presentes en el caminar del cristiano, pero el Evangelio no es inmunidad frente al dolor, sino una plataforma sobrenatural para levantarnos de él.
+                            </li>
+                        </ul>
                     </div>
-                    <p class="small text-muted mb-4"
-                       data-es="**Romper el Molde del Mundo (Syschématizō):** El sistema de este siglo intenta constantemente ejercer presión externa para forzar al vaso de barro a encajar en sus patrones de orgullo, egoísmo y amargura.<br>**Transformación Radical (Metamorphóō):** La verdadera transformación (metamorfosis) no viene por reglas externas, sino que brota desde el interior profundo del vaso. Como escribió Jonathan Edwards: «No reclamo ningún derecho sobre mí... Me he entregado por completo a Dios».<br>**Renovación Mental (Anakainōsis):** El motor del cambio es la renovación de nuestra mente. Al desplazar las lógicas del mundo y pensar bajo la frecuencia de la Palabra, nuestras llagas del pasado son sanadas y el cuerpo comienza a revelar lo que realmente gobierna el corazón."
-                       data-en="**Breaking the World's Mold (Syschématizō):** The system of this age constantly attempts to exert external pressure to force the clay vessel to fit into its patterns of pride, selfishness, and bitterness.<br>**Radical Transformation (Metamorphóō):** True transformation (metamorphosis) does not come through external rules, but wells up from deep within the vessel. As Jonathan Edwards wrote: 'I claim no right to myself... I have given myself clean away to God.'<br>**Mental Renewal (Anakainōsis):** The engine of change is the renewal of our mind. By displacing the world's logic and thinking under the frequency of the Word, our past wounds are healed and the body begins to reveal what truly governs the heart.">
-                       <strong>Romper el Molde del Mundo (Syschématizō):</strong> El sistema de este siglo intenta constantemente ejercer presión externa para forzar al vaso de barro a encajar en sus patrones de orgullo, egoísmo y amargura.<br>
-                       <strong>Transformación Radical (Metamorphóō):</strong> La verdadera transformación (metamorfosis) no viene por reglas externas, sino que brota desde el interior profundo del vaso. Como escribió Jonathan Edwards: «No reclamo ningún derecho sobre mí... Me he entregado por completo a Dios».<br>
-                       <strong>Renovación Mental (Anakainōsis):</strong> El motor del cambio es la renovación de nuestra mente. Al desplazar las lógicas del mundo y pensar bajo la frecuencia de la Palabra, nuestras llagas del pasado son sanadas y el cuerpo comienza a revelar lo que realmente gobierna el corazón.
-                    </p>
 
-                    <h5 class="fw-bold fs-6 mb-3 text-uppercase tracking-wider" data-es="💎 El Resultado: Comprobar Su Voluntad" data-en="💎 The Result: Proving His Will">💎 El Resultado: Comprobar Su Voluntad</h5>
-                    <p class="small text-muted mb-4"
-                       data-es="Al entregar por completo la estructura de nuestra vida al fuego del Alfarero, pasamos de la duda a la experiencia práctica. El término griego Dokimázō significa poner a prueba en el fuego para certificar el valor de un metal. Solo el vaso rendido en el altar llega a experimentar de primera mano que los caminos de Dios son siempre perfectos, deleitables y justos.<br><br>Vivamos con la urgencia del Reino, sabiendo que el púlpito está para exaltar la Palabra y no al predicador. Como oraba Edwards: «Marca la eternidad en mis ojos», para que cada decisión diaria se tome a la luz de lo eterno. Recuerda las palabras de Spurgeon: «La santidad no es el camino hacia Cristo; Cristo es el camino hacia la santidad»."
-                       data-en="By completely surrendering the structure of our life to the Potter's fire, we move from doubt to practical experience. The Greek term Dokimázō means to test in the fire to certify the value of a metal. Only the vessel surrendered on the altar comes to experience firsthand that God's ways are always perfect, delightful, and just.<br><br>Let us live with the urgency of the Kingdom, knowing that the pulpit is there to exalt the Word and not the preacher. As Edwards prayed: 'Stamp eternity on my eyes,' so that every daily decision is made in the light of eternity. Remember Spurgeon's words: 'Holiness is not the way to Christ; Cristo es el camino hacia la santidad'." >
-                       Al entregar por completo la estructura de nuestra vida al fuego del Alfarero, pasamos de la duda a la experiencia práctica. El término griego Dokimázō significa poner a prueba en el fuego para certificar el valor de un metal. Solo el vaso rendido en el altar llega a experimentar de primera mano que los caminos de Dios son siempre perfectos, deleitables y justos.<br><br>
-                       Vivamos con la urgencia del Reino, sabiendo que el púlpito está para exaltar la Palabra y no al predicador. Como oraba Edwards: «Marca la eternidad en mis ojos», para que cada decisión diaria se tome a la luz de lo eterno. Recuerda las palabras de Spurgeon: «La santidad no es el camino hacia Cristo; Cristo es el camino hacia la santidad».
-                    </p>
-
-                    <div class="p-3 bg-dark text-white rounded-0 shadow-sm mb-4 text-layout-pdf">
-                        <h6 class="fw-bold text-uppercase small mb-2" data-es="🪵🏺🔥 Índice de Enfoque Teológico" data-en="🪵🏺🔥 Theological Focus Index">🪵🏺🔥 Índice de Enfoque Teológico</h6>
-                        <p class="small mb-2" 
-                           data-es="• **Dios es el Héroe, el hombre es el Vaso:** El vaso no aporta el fuego ni la santidad; aporta la disponibilidad y el cuerpo en el altar para que el Héroe lo llene con Su gloria." 
-                           data-en="• **God is the Hero, man is the Vessel:** The vessel does not provide the fire or holiness; it provides availability and the body on the altar for the Hero to fill it with His glory.">
-                           • <strong>Dios es el Héroe, el hombre es el Vaso:</strong> El vaso no aporta el fuego ni la santidad; aporta la disponibilidad y el cuerpo en el altar para que el Héroe lo llene con Su gloria.
-                        </p>
-                        <p class="small mb-2" 
-                           data-es="• **La Libertad de la Esclavitud Voluntaria (⚓):** Al rendirnos por completo ante el Maestro, rompemos las cadenas de este siglo y experimentamos la verdadera libertad del Espíritu." 
-                           data-en="• **The Freedom of Voluntary Slavery (⚓):** By completely surrendering to the Master, we break the chains of this age and experience the true freedom of the Spirit.">
-                           • <strong>La Libertad de la Esclavitud Voluntaria (⚓):</strong> Al rendirnos por completo ante el Maestro, rompemos las cadenas de este siglo y experimentamos la verdadera libertad del Espíritu.
-                        </p>
+                    <div class="p-3 bg-dark text-white rounded-0 shadow-sm mb-4">
                         <p class="small mb-0" 
-                           data-es="• **Sanidad en el Altar (🩺🩸):** La metamorfosis de la mente opera como una cirugía divina que extrae los patrones de dolor del pasado para que el vaso refleje el carácter sano de nuestro Salvador." 
-                           data-en="• **Healing on the Altar (🩺🩸):** The metamorphosis of the mind operates as a divine surgery that extracts past patterns of pain so that the vessel reflects the healthy character of our Savior.">
-                           • <strong>Sanidad en el Altar (🩺🩸):</strong> La metamorfosis de la mente opera como una cirugía divina que extrae los patrones de dolor del pasado para que el vaso refleje el carácter sano de nuestro Salvador.
+                           data-es="📌 Veredicto: La madurez espiritual no nos vuelve inmunes a las presiones de la vida, sino resistentes a sus efectos destructivos. El cristiano de hoy camina como un ancla (⚓): el entorno puede estar agitado y en constante turbulencia, pero nuestra fe permanece fija, inmóvil y segura en lo invisible. Golpeados por el entorno, pero sostenidos por el Eterno." 
+                           data-en="📌 Verdict: Spiritual maturity does not make us immune to life's pressures, but resilient against their destructive effects. Today's Christian walks like an anchor (⚓): the environment may be agitated and in constant turbulence, but our faith remains fixed, motionless, and secure in the invisible. Hit by the surroundings, but sustained by the Eternal.">
+                           📌 Veredicto: La madurez espiritual no nos vuelve inmunes a las presiones de la vida, sino resistentes a sus efectos destructivos. El cristiano de hoy camina como un ancla (⚓): el entorno puede estar agitado y en constante turbulencia, pero nuestra fe permanece fija, inmóvil y segura en lo invisible. Golpeados por el entorno, pero sostenidos por el Eterno.
                         </p>
                     </div>
-
                 </div>
+
             </div>
         </div>
     </section>
@@ -404,7 +335,7 @@
             </div>
             
             <div class="col-md-6 ps-md-5">
-                <h2 class="fw-bold mb-4" data-es="CONÉCTATE WITH US" data-en="CONNECT WITH US">CONÉCTATE CON NOSOTROS</h2>
+                <h2 class="fw-bold mb-4" data-es="CONÉCTATE CON NOSOTROS" data-en="CONNECT WITH US">CONÉCTATE CON NOSOTROS</h2>
                 <p class="text-muted mb-4" data-es="Nos encantaría recibirte en persona. Si tienes preguntas sobre nuestra comunidad, no dudes en escribirnos o visitarnos." data-en="We would love to welcome you in person. If you have questions about our community, please don't hesitate to reach out or visit us.">Nos encantaría recibirte en persona. Si tienes preguntas sobre nuestra comunidad, no dudes en escribirnos o visitarnos.</p>
                 
                 <div class="d-flex align-items-start mb-4">
@@ -454,7 +385,7 @@
             currentLang = currentLang === 'es' ? 'en' : 'es';
             langBtn.textContent = currentLang === 'es' ? 'EN' : 'ES';
 
-            document.title = currentLang === 'en' ? "MESYF Church | Evangelism & Prayer" : "Iglesia MESYF | Evangelismo y Oración";
+            document.title = currentLang === 'en' ? "MESYF Church | Evangelism & Pray" : "Iglesia MESYF | Evangelismo y Oracion";
 
             const devBtn = document.getElementById('devInfoBtn');
             if (devBtn) { devBtn.setAttribute('title', currentLang === 'en' ? 'Technical info' : 'Información técnica'); }
@@ -475,10 +406,6 @@
                 const placeholderValue = currentLang === 'en' ? input.getAttribute('data-en-placeholder') : input.getAttribute('data-es-placeholder');
                 input.setAttribute('placeholder', placeholderValue);
             });
-
-            if (typeof updateCountdown === 'function') {
-                updateCountdown();
-            }
         });
     </script>
 
@@ -511,7 +438,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const direccionGoogleMaps = "https://maps.google.com/?q=38304+15th+St+East+Palmdale,+CA+93550";
+            const direccionGoogleMaps = "https://maps.google.com/?q=38304 15th St East Palmdale, CA 93550";
             const direccionAppleMaps  = "maps://maps.apple.com/?q=38304 15th St East Palmdale, CA 93550";
             const botonComoLlegar = document.getElementById('como-llegar');
             if (botonComoLlegar) {
@@ -525,10 +452,10 @@
     <div id="audio-container" style="position: fixed; bottom: 20px; left: 20px; z-index: 9999;" class="d-flex align-items-center">
         <button id="musicBtn" class="btn btn-dark rounded-circle shadow-lg d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; border: 2px solid rgba(255,255,255,0.2); transition: all 0.3s ease; font-size: 1.2rem;" title="Música de meditación"><span id="musicEmoji">🎵</span></button>
         <span id="musicTitle" class="badge bg-dark text-wrap shadow-sm ms-2 px-3 py-2" style="display: none; font-weight: 500; font-size: 0.9rem; letter-spacing: 0.5px; border: 1px solid rgba(255,255,255,0.15); border-radius: 20px; max-width: 250px; animation: fadeIn 0.4s ease-in-out;">
-            <span id="song-name" data-es="Increíble" data-en="Incredible">Increíble</span> 
+            <span id="song-name" data-es="Santo por Siempre" data-en="Holly Forever">Santo por Siempre/</span> 
             <span id="eq-animation" class="ms-2 d-none"><span class="eq-bar"></span><span class="eq-bar"></span><span class="eq-bar"></span></span>
         </span>
-        <audio id="bgMusic" loop preload="auto"><source src="images/increible.mp3" type="audio/mpeg"></audio>
+        <audio id="bgMusic" loop preload="auto"><source src="images/santo-siempre.m4a" type="audio/mp4"></audio>
     </div>
 
     <style>@keyframes fadeIn { from { opacity: 0; transform: translateX(-10px); } to { opacity: 1; transform: translateX(0); } }</style>
@@ -561,11 +488,11 @@
                     <button type="button" class="btn-close btn-close-white fs-4" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body p-0 text-center">                  
-                    <img src="images/sacrificio-vivo.png" alt="Estudio Profético - Una Vida Entera Entregada a Dios - Completo" class="img-fluid rounded shadow-lg" style="max-height: 85vh; object-fit: contain;">                               
+                    <img src="images/paradoja.png" alt="Estudio Profético Las Paradojas del Cristiano - Completo" class="img-fluid rounded shadow-lg" style="max-height: 85vh; object-fit: contain;">                               
                     <div class="text-white-50 mt-3 small text-uppercase fw-bold" style="letter-spacing: 2px;"
-                         data-es="Una Vida Entera Entregada a Dios — Romanos 12:1-2" 
-                         data-en="A Whole Life Surrendered to God — Romans 12:1-2">
-                         Una Vida Entera Entregada a Dios — Romanos 12:1-2
+                         data-es="Las Paradojas del Cristiano — Sostenidos en la Tormenta" 
+                         data-en="The Paradoxes of the Christian — Sustained in the Storm">
+                         Las Paradojas del Cristiano — Sostenidos en la Tormenta
                     </div>                                                 
                 </div>
             </div>
@@ -586,114 +513,6 @@
             if (formularioOracion) {
                 formularioOracion.reset();
             }
-        });
-    </script>
-
-    <script>
-        function updateCountdown() {
-            const now = new Date();
-            const schedules = [
-                { day: 5, hours: 19, minutes: 30, durationHours: 1.5 },
-                { day: 0, hours: 9, minutes: 0, durationHours: 2 }
-            ];
-            
-            let nextService = null;
-            let isLive = false;
-            let minDiff = Infinity;
-            
-            schedules.forEach(service => {
-                let target = new Date(now);
-                target.setHours(service.hours, service.minutes, 0, 0);
-                
-                const currentDay = now.getDay();
-                let daysAhead = service.day - currentDay;
-                if (daysAhead < 0 || (daysAhead === 0 && now > new Date(target).getTime() + (service.durationHours * 60 * 60 * 1000))) {
-                    daysAhead += 7;
-                }
-                target.setDate(now.getDate() + daysAhead);
-                
-                if (daysAhead === 0) {
-                    let endService = new Date(target).getTime() + (service.durationHours * 60 * 60 * 1000);
-                    let startService = target.getTime();
-                    if (now.getTime() >= startService && now.getTime() <= endService) {
-                        isLive = true;
-                    }
-                }
-                
-                const diff = target - now;
-                if (diff > 0 && diff < minDiff && !isLive) {
-                    minDiff = diff;
-                    nextService = target;
-                }
-            });
-            
-            const timerDisplay = document.getElementById('timer-display');
-            const countdownText = document.getElementById('countdown-text');
-            
-            if (isLive) {
-                timerDisplay.innerHTML = "";
-                countdownText.className = "live-pulse";
-                countdownText.setAttribute('data-es', '¡El Servicio ha Comenzado! Ven con nosotros ⚓');
-                countdownText.setAttribute('data-en', 'The Service has Started! Join us ⚓');
-                countdownText.textContent = currentLang === 'en' ? 'The Service has Started! Join us ⚓' : '¡El Servicio ha Comenzado! Ven con nosotros ⚓';
-                return;
-            }
-            
-            countdownText.className = "text-uppercase fw-bold small text-secondary";
-            countdownText.setAttribute('data-es', 'Próximo Servicio en:');
-            countdownText.setAttribute('data-en', 'Next Service in:');
-            countdownText.textContent = currentLang === 'en' ? 'Next Service in:' : 'Próximo Servicio en:';
-            
-            const diff = nextService - now;
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-            
-            timerDisplay.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-        }
-        
-        setInterval(updateCountdown, 1000);
-        document.addEventListener('DOMContentLoaded', updateCountdown);
-    </script>
-    
-    <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('sw.js')
-            .then(reg => console.log('Aplicación MESYF lista y registrada con éxito.'))
-            .catch(err => console.log('Error al registrar la app móvil:', err));
-        });
-      }
-    </script>
-
-    <!-- Script de Configuración para la Exportación de PDF limpia -->
-    <script>
-        document.getElementById('download-pdf-btn').addEventListener('click', function () {
-            // Clonamos el nodo para no alterar el DOM en tiempo real mientras se descarga
-            const element = document.getElementById('pdf-content').cloneNode(true);
-            
-            // Removemos el botón de descarga dentro de la copia del PDF para que no aparezca impreso
-            const btnInClone = element.querySelector('#download-pdf-btn');
-            if (btnInClone) { btnInClone.remove(); }
-
-            // Forzamos un estilo de fuente e interlineado limpio para impresión PDF, evitando superposiciones
-            element.style.padding = "20px";
-            element.style.color = "#111111"; 
-            element.style.backgroundColor = "#ffffff";
-
-            // Opciones de configuración de html2pdf
-            const opt = {
-                margin:       [15, 15, 15, 15], // Márgenes [top, left, bottom, right]
-                filename:     `MESYF_Estudio_Semanal_${currentLang === 'en' ? 'EN' : 'ES'}.pdf`,
-                image:        { type: 'jpeg', quality: 0.98 },
-                html2canvas:  { scale: 2, useCORS: true, letterRendering: true },
-                jsPDF:        { unit: 'mm', format: 'letter', orientation: 'portrait' },
-                pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] } // Previene rupturas feas a la mitad de los párrafos
-            };
-
-            // Ejecuta la conversión de HTML a PDF
-            html2pdf().set(opt).from(element).save();
         });
     </script>
 </body>

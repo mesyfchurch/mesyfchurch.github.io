@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta property="og:title" content="Iglesia MESYF | Evangelismo y Oración" />
+    <meta property="og:description" content="El lugar donde tu tormento se transforma en testimonio. Palmdale, California." />
+    <meta property="og:image" content="images/mesyf-logo.jpg" />
+    <meta property="og:type" content="website" />
+
+    <link rel="icon" type="image/jpeg" href="images/mesyf-logo.jpg">
+    <title>Iglesia MESYF | Evangelismo y Oracion</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-dark: #111111;
+            --accent-color: #ffffff;
+        }
+        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; transition: background-color 0.3s ease, color 0.3s ease; }
+
+        /* Sección Hero (Impacto Visual) */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1438232992991-995b7058bbb3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        .hero h1 { font-weight: 800; font-size: 4rem; letter-spacing: -2px; text-transform: uppercase; }
+
+        /* Botones estilo Hillsong (Bordes cuadrados y limpios) */
+        .btn-hillsong {
+            border: 2px solid white;
+            color: white;
+            padding: 15px 40px;
+            text-transform: uppercase;
+            font-weight: bold;
+            border-radius: 0;
+            transition: 0.3s;
+            margin: 10px;
+            text-decoration: none;
+        }
+        .btn-hillsong:hover { background: white; color: black; }
+
+        .section-padding { padding: 80px 20px; }
+        .evangelismo-box { background-color: rgba(0,0,0,0.03); border-radius: 0; padding: 60px; }
+        [data-bs-theme="dark"] .evangelismo-box { background-color: rgba(255,255,255,0.03); }
+
+        /* 5. DISEÑO DE MAPA CON FILTRO ESTÉTICO */
+        .map-container iframe {
+            filter: grayscale(1) opacity(0.85);
+            transition: all 0.5s ease;
+        }
+        .map-container iframe:hover {
+            filter: grayscale(0) opacity(1);
+        }
+
+        /* 3. ANIMACIÓN DEL EQUALIZADOR DE MÚSICA */
+        .eq-bar {
+            width: 3px;
+            background-color: #fff;
+            display: inline-block;
+            margin-right: 1px;
+            animation: bounce 1s ease-in-out infinite alternate;
+            height: 5px;
+        }
+        .eq-bar:nth-child(2) { animation-delay: 0.2s; height: 12px; }
+        .eq-bar:nth-child(3) { animation-delay: 0.4s; height: 8px; }
+        
+        @keyframes bounce {
+            10% { height: 4px; }
+            50% { height: 14px; }
+            100% { height: 6px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="images/mesyf-logo.jpg" 
+                    alt="Logo MESYF" 
+                    width="30" 
+                    height="30" 
+                    class="d-inline-block align-top rounded-circle me-2" 
+                    style="object-fit: cover; border: 1px solid rgba(255,255,255,0.2);">
+                <span>MESYF</span>
+            </a>
+
+            <div class="d-flex align-items-center ms-auto">
+                <button id="theme-toggle" class="btn btn-link text-light me-2 p-1" style="font-size: 1.1rem; text-decoration: none;" title="Cambiar tema">
+                    <i class="fa-solid fa-moon" id="theme-icon"></i>
+                </button>
+
+                <button id="lang-btn" class="btn btn-outline-light me-2 px-3 py-1 text-uppercase" style="font-size: 0.8rem; font-weight: bold; border-radius: 0;">EN</button>
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto text-uppercase" style="font-size: 0.85rem; letter-spacing: 1px;">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#oracion" data-es="Contenido de Oración" data-en="Prayer Content">Contenido de Oración</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#mensaje" data-es="Mensaje de la Semana" data-en="Message of the Week">Mensaje de la Semana</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#eventos" data-es="Eventos" data-en="Events">Eventos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#evangelismo" data-es="Evangelismo" data-en="Evangelism">Evangelismo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#acerca" data-es="Acerca de" data-en="About Us">Acerca de</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link border border-light ms-lg-3 px-3" href="#contacto" data-es="Contáctanos" data-en="Contact Us">Contáctanos</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <h1 class="display-1" data-es="Iglesia Mesyf" data-en="Mesyf Church">Iglesia Mesyf</h1>
+            <p class="lead mb-5" data-es="El lugar donde tu tormento se transforma en testimonio." data-en="The place where your torment is transformed into a testimony.">El lugar donde tu tormento se transforma en testimonio.</p>
+            <a href="#acerca" class="btn btn-hillsong" data-es="Bienvenidos a Casa" data-en="Welcome Home">Bienvenidos a Casa</a>
+            <a href="#oracion" class="btn btn-hillsong" data-es="Necesito Oración" data-en="Need Prayer">Necesito Oración</a>
+        </div>
+    </header>
+
+    <section id="acerca" class="section-padding container text-center border-bottom">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h2 class="fw-bold mb-4" data-es="NUESTRA CASA" data-en="OUR HOUSE">NUESTRA CASA</h2>
+                <p class="fs-5 text-muted" data-es="Somos una comunidad de fe en Palmdale, California, que cree en el poder de la restauración total. No nos importa tu pasado, nos importa tu futuro con Dios." data-en="We are a faith community in Palmdale, California, that believes in the power of total restoration. We don't care about your past; we care about your future with God.">Somos una comunidad de fe en Palmdale, California, que cree en el poder de la restauración total. No nos importa tu pasado, nos importa tu futuro con Dios.</p>
+            </div>
+        </div>
+    </section>
+
+        <section id="eventos" class="section-padding container border-bottom">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold text-uppercase" data-es="Próximos Eventos" data-en="Upcoming Events">Próximos Eventos</h2>
+            <p class="text-muted" data-es="Mantente conectado y participa con nosotros este mes." data-en="Stay connected and participate with us this month.">Mantente conectado y participa con nosotros este mes.</p>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-4">
+                <div class="card h-100 border rounded-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="text-uppercase text-danger fw-bold small mb-1" data-es="Viernes 22" data-en="Friday 22">Viernes 22</div>
+                        <h5 class="card-title fw-bold" data-es="Servicio Regular" data-en="Regular Service">Servicio Regular</h5>
+                        <p class="card-text small text-muted" data-es="Te invitamos a nuestro servicio regular de la semana de 7:00 PM a 9:00 PM. Un tiempo para buscar a Dios en comunidad." data-en="Join us for our regular service of the week from 7:00 PM to 9:00 PM. A time to seek God together.">Te invitamos a nuestro servicio regular de la semana de 7:00 PM a 9:00 PM. Un tiempo para buscar a Dios en comunidad.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border rounded-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="text-uppercase text-danger fw-bold small mb-1" data-es="Mayo 24" data-en="May 24">Mayo 24</div>
+                        <h5 class="card-title fw-bold" data-es="No Habrá Servicio" data-en="No Service">No Habrá Servicio</h5>
+                        <p class="card-text small text-muted" data-es="Le informamos a toda nuestra comunidad que no tendremos servicio en observancia al Día de los Caídos (Memorial Day)." data-en="We inform our community that there will be no service in observance of Memorial Day.">Le informamos a toda nuestra comunidad que no tendremos servicio en observancia al Día de los Caídos (Memorial Day).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="evangelismo" class="section-padding container text-center">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h2 class="fw-bold mb-4" data-es="EVANGELISMO" data-en="EVANGELISM">EVANGELISMO</h2>
+                <p class="fs-5 mb-5" data-es="A veces la vida nos paraliza y el dolor de la espera se vuelve insoportable. Pero la parálisis no es tu final. Dios está moviéndose in la vida de su iglesia y quiere traerte de vuelta a un lugar de paz." data-en="Sometimes life paralyzes us and the pain of waiting becomes unbearable. But paralysis is not your end. God is moving in the life of His church and wants to bring you back to a place of peace.">A veces la vida nos paraliza y el dolor de la espera se vuelve insoportable. Pero la parálisis no es tu final. Dios está moviéndose en la vida de su iglesia y quiere traerte de vuelta a un lugar de paz.</p>
+                
+                <div class="evangelismo-box mt-5 shadow-sm border text-start p-4 p-md-5">
+                    <h3 class="fw-bold text-center mb-3" data-es="EL MAPA HACIA LA RESTAURACIÓN" data-en="THE ROADMAP TO RESTORATION">EL MAPA HACIA LA RESTAURACIÓN</h3>
+                    <p data-es="El evangelio no es una religión de cargas, es un camino de libertad. Jesús pagó el precio para sanar cada herida profunda. Si estás listo para experimentar una transformación real, hoy es el día para dar el primer paso." data-en="The gospel is not a religion of burdens; it is a path of freedom. Jesus paid the price to heal every deep wound. If you are ready to experience real transformation, today is the day to take the first step.">El evangelio no es una religión de cargas, es un camino de libertad. Jesús pagó el precio para sanar cada herida profunda. Si estás listo para experimentar una transformación real, hoy es el día para dar el primer paso.</p>
+                    <div class="text-center">
+                        <button class="btn btn-dark btn-lg mt-3 text-uppercase" data-es="Quiero conocer a Jesús" data-en="I want to know Jesus">Quiero conocer a Jesús</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="mensaje" class="bg-body-tertiary section-padding border-top border-bottom">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                
+                <div class="col-lg-5 text-center">
+                    <img src="images/pablo-agripa.png" 
+                         alt="Pablo ante el Rey Agripa" 
+                         class="img-fluid shadow border" 
+                         style="max-height: 450px; object-fit: cover; width: 100%; cursor: pointer;"
+                         data-bs-toggle="modal" 
+                         data-bs-target="#imageModal"
+                         data-es="Haz clic para agrandar" 
+                         data-en="Click to enlarge"
+                         title="Haz clic para agrandar">
+                    <div class="mt-3 text-muted small text-uppercase" style="letter-spacing: 1px;" data-es="Hechos 26 — Pablo ante Agripa" data-en="Acts 26 — Paul before Agrippa">Hechos 26 — Pablo ante Agripa</div>
+                </div>
+
+                <div class="col-lg-7">
+                    <h6 class="text-muted text-uppercase fw-bold mb-2" style="letter-spacing: 2px;" data-es="Estudio Bíblico" data-en="Bible Study">Estudio Bíblico</h6>
+                    <h2 class="fw-bold mb-1" data-es="MENSAJE DE LA SEMANA" data-en="MESSAGE OF THE WEEK">MENSAJE DE LA SEMANA</h2>
+                    <h4 class="text-body fw-light mb-4" data-es="«De la Parálisis a la Promesa: El Peligro del Casi»" data-en="«From Paralysis to Promise: The Danger of Almost»">«De la Parálisis a la Promesa: El Peligro del Casi»</h4>
+                    
+                    <p class="fs-6 text-secondary mb-4" data-es="En el clímax de Hechos 26:19-32, el apóstol Pablo no se limita a defenderse en un juicio legal; transforma el estrado imperial en un púlpito para confrontar la conciencia de la élite política. Frente al procurador Festo, quien tilda el Evangelio de locura por su racionalidad pagana, y ante el rey Herodes Agripa II, quien poseía el conocimiento de las Escrituras pero cuidaba su estatus, Pablo revela que el Evangelio es un hecho público: 'no se ha hecho esto en algún rincón'." data-en="At the climax of Acts 26:19-32, the Apostle Paul does not merely defend himself in a legal trial; he transforms the imperial stage into a pulpit to confront the conscience of the political elite. Before Governor Festo, who brands the Gospel as madness due to his pagan rationality, and before King Herod Agrippa II, who possessed knowledge of the Scriptures but guarded his status, Paul reveals that the Gospel is a public event: 'this thing was not done in a corner'.">En el clímax de Hechos 26:19-32, el apóstol Pablo no se limita a defenderse en un juicio legal; transforma el estrado imperial en un púlpito para confrontar la conciencia de la élite política. Frente al procurador Festo, quien tilda el Evangelio de locura por su racionalidad pagana, y ante el rey Herodes Agripa II, quien poseía el conocimiento de las Escrituras pero cuidaba su estatus, Pablo revela que el Evangelio es un hecho público: 'no se ha hecho esto en algún rincón'.</p>
+
+                    <div class="row g-4 mb-4">
+                        <div class="col-md-6">
+                            <h5 class="fw-bold fs-6 mb-2" data-es="1. El Mapa del Arrepentimiento" data-en="1. The Roadmap of Repentance">1. El Mapa del Arrepentimiento</h5>
+                            <p class="small text-muted" data-es="El llamado de Pablo exige tres movimientos: Arrepentirse (metanoein: reorientación radical de la mente), volverse a Dios y realizar obras dignas que sirvan como evidencia de una transformación de identidad." data-en="Paul's call demands three movements: Repent (metanoein: a radical reorientation of the mind), turn to God, and perform deeds consistent with repentance as evidence of an identity transformation.">El llamado de Pablo exige tres movimientos: Arrepentirse (metanoein: reorientación radical de la mente), volverse a Dios y realizar obras dignas que sirvan como evidencia de una transformación de identidad.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h5 class="fw-bold fs-6 mb-2" data-es="2. La Tragedia de la Proximidad" data-en="2. The Tragedy of Proximity">2. La Tragedia de la Proximidad</h5>
+                            <p class="small text-muted" data-es="La respuesta de Agripa, 'Por poco me persuades', desnuda el peligro de la cercanía intelectual sin conversión moral. Estar convencido de la verdad no equivale a rendir la corona del corazón." data-en="Agrippa's response, 'Almost thou persuadest me', exposes the danger of intellectual proximity without moral conversion. Being convinced of the truth is not the same as surrendering the crown of the heart.">La respuesta de Agripa, 'Por poco me persuades', desnuda el peligro de la cercanía intelectual sin conversión moral. Estar convencido de la verdad no equivale a rendir la corona del corazón.</p>
+                        </div>
+                    </div>
+
+                    <blockquote class="border-start border-dark border-3 ps-3 my-4 text-muted" style="font-style: italic;">
+                        <p class="mb-1" data-es="“Casi salvado es perderse por completo. Detenerse antes de Cristo es perecer. Un hombre puede estar a un centímetro del cielo y sin embargo ser arrojado al infierno.”" data-en="“Almost saved is to be wholly lost. To stop short of Christ is to perish. A man may be within an inch of heaven, and yet be shut out.”">“Casi salvado es perderse por completo. Detenerse antes de Cristo es perecer. Un hombre puede estar a un centímetro del cielo y sin embargo ser arrojado al infierno.”</p>
+                        <footer class="blockquote-footer text-uppercase" style="font-size: 0.75rem;"><br>Charles Spurgeon</footer>
+                    </blockquote>
+
+                    <p class="fs-6 text-secondary" data-es="El cautiverio más difícil de romper no es el de las cadenas de hierro que cargaba el apóstol, sino el de la indecisión. La ironía del juicio humano absolvió a Pablo formalmente, pero la providencia utilizó esas leyes para llevarlo al corazón del Imperio. No te detengas en la orilla de la fe: ya no eres el rey de tu vida, Cristo reclama el trono de tu corazón." data-en="The captivity hardest to break is not that of the iron chains worn by the apostle, but that of indecision. The irony of human judgment formally acquitted Paul, but providence used those very laws to bring him to the heart of the Empire. Do not stop at the shore of faith: you are no longer the king of your life, Christ claims the throne of your heart.">El cautiverio más difícil de romper no es el de las cadenas de hierro que cargaba el apóstol, sino el de la indecisión. La ironía del juicio humano absolvió a Pablo formalmente, pero la providencia utilizó esas leyes para llevarlo al corazón del Imperio. No te detengas en la orilla de la fe: ya no eres el rey de tu vida, Cristo reclama el trono de tu corazón.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="oracion" class="bg-dark text-white section-padding text-center">
+        <div class="container">
+            <h2 class="fw-bold mb-4" data-es="CONTENIDO DE ORACIÓN" data-en="PRAYER CONTENT">CONTENIDO DE ORACIÓN</h2>
+            <p class="mb-5 px-3" data-es="Creemos firmemente que la oración activa el poder sobrenatural de Dios. Nadie debería cargar con sus aflicciones a solas. Escribe tu petición abajo; nuestro equipo pastoral e intercesores estarán clamando por tu restauración total, tu familia y tus necesidades esta misma semana." data-en="We firmly believe that prayer activates the supernatural power of God. No one should carry their afflictions alone. Write your request below; our pastoral team and intercessors will be crying out for your total restoration, your family, and your needs this very week.">Creemos firmemente que la oración activa el poder sobrenatural de Dios. Nadie debería cargar con sus aflicciones a solas. Escribe tu petición abajo; nuestro equipo pastoral e intercesores estarán clamando por tu restauración total, tu familia y tus necesidades esta misma semana.</p>
+            
+            <div class="row justify-content-center">
+                <div class="col-md-6 px-4">
+                    <form action="https://formspree.io/f/xaqvkewl" method="POST">
+                        <div class="mb-3 text-start">
+                            <label class="form-label" data-es="Tu correo electrónico:" data-en="Your email address:">Tu correo electrónico:</label>
+                            <input type="email" name="email" class="form-control bg-transparent text-white" placeholder="Tu email" data-es-placeholder="Tu email" data-en-placeholder="Your email" required>
+                        </div>
+                        <div class="mb-3 text-start">
+                            <label class="form-label" data-es="¿Cómo podemos interceder por ti?" data-en="How can we intercede for you?">¿Cómo podemos interceder por ti?</label>
+                            <textarea name="mensaje" class="form-control bg-transparent text-white" rows="4" placeholder="Escribe aquí tus peticiones de oración..." data-es-placeholder="Escribe aquí tus peticiones de oración..." data-en-placeholder="Write your prayer requests here..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-outline-light w-100 py-3 fw-bold" data-es="ENVIAR MI PETICIÓN" data-en="SUBMIT MY PRAYER REQUEST">ENVIAR MI PETICIÓN</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="section-padding container">
+        <div class="row g-5">
+            
+            <div class="col-md-6 border-end-md">
+                <h2 class="fw-bold mb-4" data-es="NUESTRO EQUIPO" data-en="OUR TEAM">NUESTRO EQUIPO</h2>
+                
+                <div class="mb-4">
+                    <h5 class="fw-bold mb-1" data-es="Pastor Principal" data-en="Senior Pastor">Pastor Principal</h5>
+                    <p class="text-muted fs-5">César Contreras</p>
+                </div>
+                
+                <div class="mb-5">
+                    <h5 class="fw-bold mb-1" data-es="Intercesor" data-en="Intercessor">Intercesor</h5>
+                    <p class="text-muted fs-5">Hno. Henry Banderas</p>
+                </div>
+                
+                <hr class="my-4 opacity-25">
+                
+                <h3 class="fw-bold mb-4" data-es="HORARIOS DE SERVICIOS" data-en="SERVICE TIMES">HORARIOS DE SERVICIOS</h3>
+                <div class="mb-3">
+                    <h6 class="fw-bold mb-0" data-es="Domingos: Celebración Familiar" data-en="Sundays: Family Celebration">Domingos: Celebración Familiar</h6>
+                    <p class="text-muted" data-es="9:00 AM — Servicio Principal y Escuela Dominical" data-en="9:00 AM — Main Service & Sunday School">9:00 AM — Servicio Principal y Escuela Dominical</p>
+                </div>
+                <div>
+                    <h6 class="fw-bold mb-0" data-es="Viernes: Noche de Oración y Palabra" data-en="Fridays: Prayer & Word Night">Viernes: Noche de Oración y Palabra</h6>
+                    <p class="text-muted" data-es="7:30 PM — Servicio de Intercesión Profunda" data-en="7:30 PM — Deep Intercession Service">7:30 PM — Servicio de Intercesión Profunda</p>
+                </div>
+            </div>
+            
+            <div class="col-md-6 ps-md-5">
+                <h2 class="fw-bold mb-4" data-es="CONÉCTATE CON NOSOTROS" data-en="CONNECT WITH US">CONÉCTATE CON NOSOTROS</h2>
+                <p class="text-muted mb-4" data-es="Nos encantaría recibirte en persona. Si tienes preguntas sobre nuestra comunidad, no dudes en escribirnos o visitarnos." data-en="We would love to welcome you in person. If you have questions about our community, please don't hesitate to reach out or visit us.">Nos encantaría recibirte en persona. Si tienes preguntas sobre nuestra comunidad, no dudes en escribirnos o visitarnos.</p>
+                
+                <div class="d-flex align-items-start mb-4">
+                    <div class="me-3 mt-1 text-body" style="font-size: 1.3rem; width: 25px; text-align: center;">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold mb-1" data-es="Nuestra Ubicación" data-en="Our Location">Nuestra Ubicación</h5>
+                        <p class="text-muted mb-2">38304 15th St East Palmdale, CA 93550</p>
+                        <a id="como-llegar" href="https://maps.google.com/?q=38304+15th+St+East+Palmdale+CA+93550" target="_blank" class="btn btn-sm btn-dark rounded-0 text-uppercase mb-3" data-es="Cómo Llegar" data-en="Get Directions">Cómo Llegar</a>
+                        
+                        <div class="map-container shadow-sm border overflow-hidden mt-2" style="max-width: 100%; width: 400px; height: 200px;">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3278.4346452814324!2d-118.1065114!3d34.5678456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c25607ea692e1b%3A0x6e287ff27ff33008!2s38304%2015th%20St%20E%2C%20Palmdale%2C%20CA%2093550!5e0!3m2!1ses!2sus!4v1716310000000!5m2!1ses!2sus" 
+                                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="d-flex align-items-start mb-4">
+    <div class="me-3 mt-1 text-primary" style="font-size: 1.4rem; width: 25px; text-align: center;">
+        <i class="fa-brands fa-facebook"></i>
+    </div>
+    <div>
+        <h5 class="fw-bold mb-1" data-es="Comunidad en Línea" data-en="Online Community">Comunidad en Línea</h5>
+        <p class="text-muted mb-2" data-es="Sigue nuestras transmisiones, eventos y actividades semanales." data-en="Follow our streams, events, and weekly activities.">Sigue nuestras transmisiones, eventos y actividades semanales.</p>
+        
+        <a href="https://facebook.com/iglesiamesyf1" target="_blank" 
+           class="btn btn-sm text-body bg-body-secondary border border-secondary-subtle rounded-0 text-uppercase fw-bold" 
+           data-es="Visitar Facebook" data-en="Visit Facebook">
+            <i class="fa-brands fa-facebook me-2 text-primary"></i>Facebook
+        </a>
+    </div>
+</div>
+            </div>
+            
+        </div>
+    </section>
+
+    <footer class="py-4 text-center border-top border-secondary-subtle">
+        <div class="container d-flex flex-column align-items-center justify-content-center">
+            
+            <div class="d-flex align-items-center justify-content-center flex-wrap">
+                <p id="copyright-text" class="mb-0 text-muted" style="font-size: 0.75rem; line-height: 1.4;" data-es="© 2026 Iglesia MESYF | Palmdale, California" data-en="© 2026 MESYF Church | Palmdale, California">
+                    © 2026 Iglesia MESYF <br> Palmdale, California
+                </p>
+
+                <button id="devInfoBtn" class="btn btn-sm btn-outline-secondary rounded-circle ms-2" 
+                        style="font-size: 0.65rem; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; padding: 0;" 
+                        title="Información técnica">
+                    <i class="fa-solid fa-info"></i>
+                </button>
+            </div>
+
+            <div id="devBadgeContainer" class="mt-3" style="display: none;">
+                <span id="devBadge" class="badge bg-dark text-wrap shadow-sm px-3 py-2" 
+                      style="font-weight: 500; font-size: 0.85rem; letter-spacing: 0.5px; border: 1px solid rgba(255,255,255,0.15); border-radius: 20px; animation: fadeIn 0.4s ease-in-out;">
+                    
+                    <span data-es="Desarrollo web: mayor información, escríbenos a " data-en="Web Development: For more information, email us at ">
+                        Desarrollo web: mayor información, escríbenos a 
+                    </span>
+                    
+                    <a href="mailto:cerritoslisandro@gmail.com" class="text-white text-decoration-none fw-bold border-bottom border-secondary pb-1">
+                        cerritoslisandro@gmail.com
+                    </a> 💻
+                </span>
+            </div>
+
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script type="text/javascript" id="hs-script-loader" async defer src="https://js-na2.hs-scripts.com/246204734.js"></script>
+    
+    <script>
+        const langBtn = document.getElementById('lang-btn');
+        let currentLang = 'es'; 
+
+        langBtn.addEventListener('click', () => {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            langBtn.textContent = currentLang === 'es' ? 'EN' : 'ES';
+
+            if (currentLang === 'en') {
+                document.title = "MESYF Church | Evangelism & Pray";
+            } else {
+                document.title = "Iglesia MESYF | Evangelismo y Oracion";
+            }
+
+            const devBtn = document.getElementById('devInfoBtn');
+            if (devBtn) {
+                devBtn.setAttribute('title', currentLang === 'en' ? 'Technical info' : 'Información técnica');
+            }
+
+            document.querySelectorAll('[data-es]').forEach(element => {
+                let translatedText = currentLang === 'en' ? element.getAttribute('data-en') : element.getAttribute('data-es');
+                
+                if (translatedText.includes('|')) {
+                    element.innerHTML = translatedText.replace('|', '<br>');
+                } else {
+                    element.textContent = translatedText;
+                }
+                
+                if (element.hasAttribute('data-es') && element.hasAttribute('data-en')) {
+                    element.setAttribute('title', currentLang === 'en' ? element.getAttribute('data-en') : element.getAttribute('data-es'));
+                }
+            });
+
+            document.querySelectorAll('[data-es-placeholder]').forEach(input => {
+                const placeholderValue = currentLang === 'en' ? input.getAttribute('data-en-placeholder') : input.getAttribute('data-es-placeholder');
+                input.setAttribute('placeholder', placeholderValue);
+            });
+        });
+    </script>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const htmlElement = document.documentElement;
+
+        // Recuperar tema preferido guardado
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        htmlElement.setAttribute('data-bs-theme', savedTheme);
+        updateThemeIcon(savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-bs-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            htmlElement.setAttribute('data-bs-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        function updateThemeIcon(theme) {
+            if (theme === 'dark') {
+                themeIcon.className = 'fa-solid fa-sun';
+                themeToggle.setAttribute('title', 'Modo Claro');
+            } else {
+                themeIcon.className = 'fa-solid fa-moon';
+                themeToggle.setAttribute('title', 'Modo Oscuro');
+            }
+        }
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const direccionGoogleMaps = "https://maps.google.com/?q=38304 15th St East Palmdale, CA 93550";
+            const direccionAppleMaps  = "maps://maps.apple.com/?q=38304 15th St East Palmdale, CA 93550";
+
+            const botonComoLlegar = document.getElementById('como-llegar');
+
+            if (botonComoLlegar) {
+                const isApple = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
+                                (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) ||
+                                /Macintosh/.test(navigator.userAgent);
+
+                if (isApple) {
+                    botonComoLlegar.href = direccionAppleMaps;
+                    botonComoLlegar.removeAttribute('target'); 
+                } else {
+                    botonComoLlegar.href = direccionGoogleMaps;
+                }
+            }
+        });
+    </script>
+
+    <div id="audio-container" style="position: fixed; bottom: 20px; left: 20px; z-index: 9999;" class="d-flex align-items-center">
+        <button id="musicBtn" class="btn btn-dark rounded-circle shadow-lg d-flex align-items-center justify-content-center" 
+                style="width: 50px; height: 50px; border: 2px solid rgba(255,255,255,0.2); transition: all 0.3s ease; font-size: 1.2rem;"
+                title="Música de meditación">
+            <span id="musicEmoji">🎵</span>
+        </button>
+
+        <span id="musicTitle" class="badge bg-dark text-wrap shadow-sm ms-2 px-3 py-2" 
+              style="display: none; font-weight: 500; font-size: 0.9rem; letter-spacing: 0.5px; border: 1px solid rgba(255,255,255,0.15); border-radius: 20px; max-width: 250px; animation: fadeIn 0.4s ease-in-out;">
+            <span data-es="Quiero conocer a Jesús" data-en="I Want to Know Jesus">Quiero conocer a Jesús</span> 
+            <span id="eq-animation" class="ms-2 d-none">
+                <span class="eq-bar"></span>
+                <span class="eq-bar"></span>
+                <span class="eq-bar"></span>
+            </span>
+        </span>
+        
+        <audio id="bgMusic" loop preload="auto">
+            <source src="images/quiero-conocer-a-jesus.m4a" type="audio/mp4">
+        </audio>
+    </div>
+
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateX(-10px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+    </style>
+
+    <script>
+        const musicBtn = document.getElementById('musicBtn');
+        const bgMusic = document.getElementById('bgMusic');
+        const musicEmoji = document.getElementById('musicEmoji');
+        const musicTitle = document.getElementById('musicTitle');
+        const eqAnimation = document.getElementById('eq-animation');
+        
+        bgMusic.volume = 0.25;
+
+        musicBtn.addEventListener('click', function() {
+            if (bgMusic.paused) {
+                bgMusic.play()
+                    .then(() => {
+                        musicEmoji.innerText = "⏸️";
+                        musicBtn.classList.remove('btn-dark');
+                        musicBtn.classList.add('btn-secondary');
+                        musicTitle.style.display = "inline-block";
+                        eqAnimation.classList.remove('d-none');
+                    })
+                    .catch(error => {
+                        console.log("Error al reproducir el archivo local:", error);
+                    });
+            } else {
+                bgMusic.pause();
+                musicEmoji.innerText = "🎵";
+                musicBtn.classList.remove('btn-secondary');
+                musicBtn.classList.add('btn-dark');
+                musicTitle.style.display = "none";
+                eqAnimation.classList.add('d-none');
+            }
+        });
+    </script>
+
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content bg-transparent border-0 shadow-none">
+                <div class="modal-header border-0 p-0 mb-2 justify-content-end">
+                    <button type="button" class="btn-close btn-close-white fs-4" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0 text-center">                  
+                    <img src="images/pablo-agripa.png" alt="Pablo ante el Rey Agripa - Pantalla Completa" class="img-fluid rounded shadow-lg" style="max-height: 85vh; object-fit: contain;">                               
+                    <div class="text-white-50 mt-3 small text-uppercase" style="letter-spacing: 2px;"
+                         data-es="El Apóstol Pablo explicando los dogmas de la fe al Rey Agripa" 
+                         data-en="The Apostle Paul explaining the dogmas of faith to King Agrippa">
+                        El Apóstol Pablo explicando los dogmas de la fe al Rey Agripa
+                    </div>                                                 
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const devInfoBtn = document.getElementById('devInfoBtn');
+        const devBadgeContainer = document.getElementById('devBadgeContainer');
+
+        devInfoBtn.addEventListener('click', () => {
+            const currentDisplay = window.getComputedStyle(devBadgeContainer).display;
+
+            if (currentDisplay === 'none') {
+                devBadgeContainer.style.display = 'block';
+            } else {
+                devBadgeContainer.style.display = 'none';
+            }
+        });
+    </script>
+
+</body>
+</html>
+

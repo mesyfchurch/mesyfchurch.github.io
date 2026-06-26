@@ -23,8 +23,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
-    <!-- Librerías para PDF -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <!-- Librería jsPDF para generar PDF directamente -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
     <style>
@@ -132,11 +131,6 @@
         }
         @keyframes blinker {
             50% { opacity: 0; }
-        }
-
-        /* Estilos para impresión/PDF */
-        .pdf-only {
-            display: none;
         }
     </style>
 
@@ -674,116 +668,192 @@
                 // Obtener el idioma actual
                 const isEnglish = document.querySelector('#lang-btn').textContent.trim() === 'EN';
                 
-                // Obtener el contenido en el idioma correcto
-                const title = isEnglish ? 'MESSAGE OF THE WEEK' : 'MENSAJE DE LA SEMANA';
-                const subtitle = isEnglish ? '🔥 A Whole Life Surrendered to God' : '🔥 Una Vida Entera Entregada a Dios';
-                const intro = isEnglish ? 
-                    'In our community, we have been walking through a series of deep teachings about biblical leadership, submission to Christ, and the true value of a dedicated life. However, the truth of Scripture is often misinterpreted or filtered by those operating under a carnal heart, listening only to what suits them.<br><br>No biblical principle can be lived out by a carnal person. Obedience to God is as necessary as it is dangerous if approached from human legalism. As the preacher Charles Spurgeon well stated: "Without the Spirit of God, nothing can be done. We are like ships without wind." True regeneration is not an effort of the flesh; it is a supernatural act of the Most High in our lives.<br><br>To understand this absolute surrender, we dive into the backbone of consecration: Romans 12:1-2. This passage marks the perfect transition between receiving the theology of grace and beginning to live it out on the altar of daily life.' :
-                    'En nuestra comunidad hemos venido caminando en una serie de enseñanzas profundas acerca del liderazgo bíblico, la sumisión a Cristo y el verdadero valor de una vida dedicada. Sin embargo, la verdad de las Escrituras suele ser malinterpretada o filtrada por aquellos que operan bajo un corazón carnal, escuchando únicamente lo que les conviene.<br><br>Ningún principio bíblico puede ser vivido por una persona carnal. La obediencia a Dios es tan necesaria como peligrosa si se asume desde el legalismo humano. Como bien afirmaba el predicador Charles Spurgeon: «Sin el Espíritu de Dios, nada se puede hacer. Somos como veleros sin viento». La verdadera regeneración no es un esfuerzo de la carne; es un acto sobrenatural del Altísimo en nuestra vida.<br><br>Para comprender esta entrega absoluta, nos sumergimos en la columna vertebral de la consagración: Romanos 12:1-2. Este pasaje nos marca la transición perfecta entre recibir la teología de la gracia y comenzar a vivirla en el altar del día a día.';
-                
-                const section1Title = isEnglish ? '🏺 The Altar of the Body: The Living Sacrifice (v. 1)' : '🏺 El Altar del Cuerpo: El Sacrificio Vivo (v. 1)';
-                const section1Quote = isEnglish ? '"I urge you therefore, brothers, by the mercies of God, to present your bodies as a living sacrifice, holy and acceptable to God, which is your spiritual worship."' : '«Así que, hermanos, os ruego por las misericordias de Dios, que presentéis vuestros cuerpos en sacrificio vivo, santo, agradable a Dios, que es vuestro culto racional.»';
-                const section1Text = isEnglish ?
-                    '<strong>Voluntary Surrender (Parístēmi):</strong> Presenting the body means placing the sacrifice upon the altar at the complete disposal of the Priest, voluntarily and definitively yielding all rights of ownership over ourselves.<br><strong>The Paradox of the Living Sacrifice (Thysía zōsa):</strong> In the old covenant, sacrifices were dead animals; in the Kingdom of Christ, the altar demands that the vessel remains alive. The Christian\'s daily challenge is not to "step off the altar" when feeling the fire of the process.<br><strong>Theological Coherence (Logikē latreía):</strong> Reasonable worship is not a cold ritual, but the intelligent, logical, and coherent response of the vessel before the infinite mercies of the divine Hero who rescued us from bankruptcy. God is not number one on a list, nor does He belong to a category; He is the center of everything.' :
-                    '<strong>Rendición Voluntaria (Parístēmi):</strong> Presentar el cuerpo significa colocar el sacrificio sobre el altar a total disposición del Sacerdote, cediendo de manera voluntaria y definitiva todo derecho de propiedad sobre nosotros mismos.<br><strong>La Paradoja del Sacrificio Vivo (Thysía zōsa):</strong> En el antiguo pacto, los sacrificios eran animales muertos; en el Reino de Cristo, el altar exige que el vaso permanezca vivo. El reto diario del cristiano es no "bajarse del altar" cuando siente el fuego del proceso.<br><strong>Coherencia Teológica (Logikē latreía):</strong> El culto racional no es un ritual frío, sino la respuesta inteligente, lógica y coherente de la vasija ante las infinitas misericordias del Héroe divino que nos rescató de la quiebra. Dios no es el número uno de una lista, ni forma parte de una categoría; Él es el centro de todo.';
-                
-                const section2Title = isEnglish ? '🧠 The Battlefield of the Mind: The Metamorphosis (v. 2)' : '🧠 El Campo de Batalla de la Mente: La Metamorfosis (v. 2)';
-                const section2Quote = isEnglish ? '"Do not be conformed to this world, but be transformed by the renewal of your mind..."' : '«No os conforméis a este siglo, sino transformaos por medio de la renovación de vuestro entendimiento...»';
-                const section2Text = isEnglish ?
-                    '<strong>Breaking the World\'s Mold (Syschématizō):</strong> The system of this age constantly attempts to exert external pressure to force the clay vessel to fit into its patterns of pride, selfishness, and bitterness.<br><strong>Radical Transformation (Metamorphóō):</strong> True transformation (metamorphosis) does not come through external rules, but wells up from deep within the vessel. As Jonathan Edwards wrote: "I claim no right to myself... I have given myself clean away to God."<br><strong>Mental Renewal (Anakainōsis):</strong> The engine of change is the renewal of our mind. By displacing the world\'s logic and thinking under the frequency of the Word, our past wounds are healed and the body begins to reveal what truly governs the heart.' :
-                    '<strong>Romper el Molde del Mundo (Syschématizō):</strong> El sistema de este siglo intenta constantemente ejercer presión externa para forzar al vaso de barro a encajar en sus patrones de orgullo, egoísmo y amargura.<br><strong>Transformación Radical (Metamorphóō):</strong> La verdadera transformación (metamorfosis) no viene por reglas externas, sino que brota desde el interior profundo del vaso. Como escribió Jonathan Edwards: «No reclamo ningún derecho sobre mí... Me he entregado por completo a Dios».<br><strong>Renovación Mental (Anakainōsis):</strong> El motor del cambio es la renovación de nuestra mente. Al desplazar las lógicas del mundo y pensar bajo la frecuencia de la Palabra, nuestras llagas del pasado son sanadas y el cuerpo comienza a revelar lo que realmente gobierna el corazón.';
-                
-                const section3Title = isEnglish ? '💎 The Result: Proving His Will' : '💎 El Resultado: Comprobar Su Voluntad';
-                const section3Text = isEnglish ?
-                    'By completely surrendering the structure of our life to the Potter\'s fire, we move from doubt to practical experience. The Greek term Dokimázō means to test in the fire to certify the value of a metal. Only the vessel surrendered on the altar comes to experience firsthand that God\'s ways are always perfect, delightful, and just.<br><br>Let us live with the urgency of the Kingdom, knowing that the pulpit is there to exalt the Word and not the preacher. As Edwards prayed: "Stamp eternity on my eyes," so that every daily decision is made in the light of eternity. Remember Spurgeon\'s words: "Holiness is not the way to Christ; Christ is the way to holiness."' :
-                    'Al entregar por completo la estructura de nuestra vida al fuego del Alfarero, pasamos de la duda a la experiencia práctica. El término griego Dokimázō significa poner a prueba en el fuego para certificar el valor de un metal. Solo el vaso rendido en el altar llega a experimentar de primera mano que los caminos de Dios son siempre perfectos, deleitables y justos.<br><br>Vivamos con la urgencia del Reino, sabiendo que el púlpito está para exaltar la Palabra y no al predicador. Como oraba Edwards: «Marca la eternidad en mis ojos», para que cada decisión diaria se tome a la luz de lo eterno. Recuerda las palabras de Spurgeon: «La santidad no es el camino hacia Cristo; Cristo es el camino hacia la santidad».';
-                
-                const indexTitle = isEnglish ? '🪵🏺🔥 Theological Focus Index' : '🪵🏺🔥 Índice de Enfoque Teológico';
-                const index1 = isEnglish ? '• <strong>God is the Hero, man is the Vessel:</strong> The vessel does not provide the fire or holiness; it provides availability and the body on the altar for the Hero to fill it with His glory.' : '• <strong>Dios es el Héroe, el hombre es el Vaso:</strong> El vaso no aporta el fuego ni la santidad; aporta la disponibilidad y el cuerpo en el altar para que el Héroe lo llene con Su gloria.';
-                const index2 = isEnglish ? '• <strong>The Freedom of Voluntary Slavery (⚓):</strong> By completely surrendering to the Master, we break the chains of this age and experience the true freedom of the Spirit.' : '• <strong>La Libertad de la Esclavitud Voluntaria (⚓):</strong> Al rendirnos por completo ante el Maestro, rompemos las cadenas de este siglo y experimentamos la verdadera libertad del Espíritu.';
-                const index3 = isEnglish ? '• <strong>Healing on the Altar (🩺🩸):</strong> The metamorphosis of the mind operates as a divine surgery that extracts past patterns of pain so that the vessel reflects the healthy character of our Savior.' : '• <strong>Sanidad en el Altar (🩺🩸):</strong> La metamorfosis de la mente opera como una cirugía divina que extrae los patrones de dolor del pasado para que el vaso refleje el carácter sano de nuestro Salvador.';
-                
                 // Mostrar indicador de carga
                 exportBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin me-2"></i> <span>' + (isEnglish ? 'Generating...' : 'Generando...') + '</span>';
                 exportBtn.disabled = true;
                 
-                // Crear el HTML para el PDF
-                const pdfHtml = `
-                    <div style="font-family: Helvetica, Arial, sans-serif; color: #000; padding: 30px; max-width: 800px; margin: 0 auto; line-height: 1.6;">
-                        <h1 style="font-size: 24px; font-weight: 700; color: #000; margin-bottom: 8px; text-align: center;">${title}</h1>
-                        <h2 style="font-size: 18px; font-weight: 700; color: #000; margin-bottom: 20px; text-align: center;">${subtitle}</h2>
-                        
-                        <p style="font-size: 13px; color: #333; line-height: 1.7; margin-bottom: 16px;">${intro}</p>
-                        
-                        <h3 style="font-size: 15px; font-weight: 700; color: #000; margin-top: 20px; margin-bottom: 10px;">${section1Title}</h3>
-                        <div style="background-color: #f5f5f5; padding: 10px 14px; border-left: 4px solid #1a1a2e; margin-bottom: 12px; font-style: italic; font-size: 13px;">
-                            ${section1Quote}
-                        </div>
-                        <p style="font-size: 12px; color: #555; line-height: 1.7; margin-bottom: 16px;">${section1Text}</p>
-                        
-                        <h3 style="font-size: 15px; font-weight: 700; color: #000; margin-top: 20px; margin-bottom: 10px;">${section2Title}</h3>
-                        <div style="background-color: #f5f5f5; padding: 10px 14px; border-left: 4px solid #1a1a2e; margin-bottom: 12px; font-style: italic; font-size: 13px;">
-                            ${section2Quote}
-                        </div>
-                        <p style="font-size: 12px; color: #555; line-height: 1.7; margin-bottom: 16px;">${section2Text}</p>
-                        
-                        <h3 style="font-size: 15px; font-weight: 700; color: #000; margin-top: 20px; margin-bottom: 10px;">${section3Title}</h3>
-                        <p style="font-size: 12px; color: #555; line-height: 1.7; margin-bottom: 20px;">${section3Text}</p>
-                        
-                        <div style="background-color: #1a1a2e; color: #ffffff; padding: 14px 18px; border-radius: 0; margin-top: 20px;">
-                            <h4 style="font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 8px; text-transform: uppercase;">${indexTitle}</h4>
-                            <p style="font-size: 11px; color: #fff; line-height: 1.6; margin-bottom: 6px;">${index1}</p>
-                            <p style="font-size: 11px; color: #fff; line-height: 1.6; margin-bottom: 6px;">${index2}</p>
-                            <p style="font-size: 11px; color: #fff; line-height: 1.6; margin-bottom: 0;">${index3}</p>
-                        </div>
-                        
-                        <p style="text-align: center; font-size: 10px; color: #999; margin-top: 30px; border-top: 1px solid #ddd; padding-top: 15px;">
-                            © 2026 Iglesia MESYF | Palmdale, California
-                        </p>
-                    </div>
-                `;
-                
-                // Crear un contenedor temporal para el PDF
-                const tempContainer = document.createElement('div');
-                tempContainer.style.position = 'absolute';
-                tempContainer.style.left = '-9999px';
-                tempContainer.style.top = '0';
-                tempContainer.style.width = '100%';
-                tempContainer.style.backgroundColor = '#ffffff';
-                tempContainer.innerHTML = pdfHtml;
-                document.body.appendChild(tempContainer);
-                
-                // Esperar un momento para que el DOM se actualice
-                setTimeout(function() {
-                    html2pdf().set({
-                        margin: [15, 15, 15, 15],
-                        filename: isEnglish ? 'MESYF_Message_of_the_Week.pdf' : 'MESYF_Mensaje_de_la_Semana.pdf',
-                        image: { type: 'jpeg', quality: 0.98 },
-                        html2canvas: { 
-                            scale: 2, 
-                            useCORS: true,
-                            letterRendering: true,
-                            width: 800
-                        },
-                        jsPDF: { 
-                            unit: 'mm', 
-                            format: 'a4', 
-                            orientation: 'portrait' 
+                try {
+                    // Crear el PDF con jsPDF
+                    const { jsPDF } = window.jspdf;
+                    const doc = new jsPDF('p', 'mm', 'a4');
+                    
+                    // Configuración de márgenes y posición
+                    const pageWidth = doc.internal.pageSize.getWidth();
+                    const margin = 20;
+                    const maxWidth = pageWidth - (margin * 2);
+                    let y = margin;
+                    
+                    // Función para agregar texto con ajuste de línea
+                    function addWrappedText(text, fontSize, isBold = false, color = '#000000') {
+                        doc.setFontSize(fontSize);
+                        doc.setTextColor(color);
+                        if (isBold) {
+                            doc.setFont('helvetica', 'bold');
+                        } else {
+                            doc.setFont('helvetica', 'normal');
                         }
-                    }).from(tempContainer).save().then(function() {
-                        exportBtn.innerHTML = '<i class="fa-solid fa-file-pdf me-2"></i> <span>' + (isEnglish ? 'Export to PDF' : 'Exportar a PDF') + '</span>';
-                        exportBtn.disabled = false;
-                        document.body.removeChild(tempContainer);
-                    }).catch(function(error) {
-                        console.error('Error al generar PDF:', error);
-                        exportBtn.innerHTML = '<i class="fa-solid fa-file-pdf me-2"></i> <span>' + (isEnglish ? 'Export to PDF' : 'Exportar a PDF') + '</span>';
-                        exportBtn.disabled = false;
-                        if (document.body.contains(tempContainer)) {
-                            document.body.removeChild(tempContainer);
+                        const lines = doc.splitTextToSize(text, maxWidth);
+                        doc.text(lines, margin, y);
+                        y += (lines.length * (fontSize * 0.4)) + 3;
+                        return lines.length;
+                    }
+                    
+                    // Función para agregar un salto de línea
+                    function addLineBreak() {
+                        y += 4;
+                    }
+                    
+                    // Función para agregar una línea separadora
+                    function addSeparator() {
+                        y += 2;
+                        doc.setDrawColor(200, 200, 200);
+                        doc.line(margin, y, pageWidth - margin, y);
+                        y += 6;
+                    }
+                    
+                    // Función para verificar si necesitamos nueva página
+                    function checkPage() {
+                        if (y > doc.internal.pageSize.getHeight() - margin) {
+                            doc.addPage();
+                            y = margin;
+                            return true;
                         }
-                        alert(isEnglish ? 'Error generating PDF. Please try again.' : 'Error al generar el PDF. Por favor, intenta de nuevo.');
-                    });
-                }, 300);
+                        return false;
+                    }
+                    
+                    // --- TÍTULO PRINCIPAL ---
+                    const title = isEnglish ? 'MESSAGE OF THE WEEK' : 'MENSAJE DE LA SEMANA';
+                    doc.setFontSize(20);
+                    doc.setFont('helvetica', 'bold');
+                    doc.setTextColor('#000000');
+                    doc.text(title, pageWidth / 2, y, { align: 'center' });
+                    y += 10;
+                    
+                    // --- SUBTÍTULO ---
+                    const subtitle = isEnglish ? 'A Whole Life Surrendered to God' : 'Una Vida Entera Entregada a Dios';
+                    doc.setFontSize(16);
+                    doc.setFont('helvetica', 'bold');
+                    doc.setTextColor('#000000');
+                    doc.text('🔥 ' + subtitle, pageWidth / 2, y, { align: 'center' });
+                    y += 12;
+                    
+                    // --- INTRODUCCIÓN ---
+                    const intro = isEnglish ? 
+                        'In our community, we have been walking through a series of deep teachings about biblical leadership, submission to Christ, and the true value of a dedicated life. However, the truth of Scripture is often misinterpreted or filtered by those operating under a carnal heart, listening only to what suits them. No biblical principle can be lived out by a carnal person. Obedience to God is as necessary as it is dangerous if approached from human legalism. As the preacher Charles Spurgeon well stated: "Without the Spirit of God, nothing can be done. We are like ships without wind." True regeneration is not an effort of the flesh; it is a supernatural act of the Most High in our lives. To understand this absolute surrender, we dive into the backbone of consecration: Romans 12:1-2. This passage marks the perfect transition between receiving the theology of grace and beginning to live it out on the altar of daily life.' :
+                        'En nuestra comunidad hemos venido caminando en una serie de enseñanzas profundas acerca del liderazgo bíblico, la sumisión a Cristo y el verdadero valor de una vida dedicada. Sin embargo, la verdad de las Escrituras suele ser malinterpretada o filtrada por aquellos que operan bajo un corazón carnal, escuchando únicamente lo que les conviene. Ningún principio bíblico puede ser vivido por una persona carnal. La obediencia a Dios es tan necesaria como peligrosa si se asume desde el legalismo humano. Como bien afirmaba el predicador Charles Spurgeon: "Sin el Espíritu de Dios, nada se puede hacer. Somos como veleros sin viento". La verdadera regeneración no es un esfuerzo de la carne; es un acto sobrenatural del Altísimo en nuestra vida. Para comprender esta entrega absoluta, nos sumergimos en la columna vertebral de la consagración: Romanos 12:1-2. Este pasaje nos marca la transición perfecta entre recibir la teología de la gracia y comenzar a vivirla en el altar del día a día.';
+                    
+                    addWrappedText(intro, 11, false, '#333333');
+                    addLineBreak();
+                    
+                    // --- SECCIÓN 1 ---
+                    const section1Title = isEnglish ? 'The Altar of the Body: The Living Sacrifice (v. 1)' : 'El Altar del Cuerpo: El Sacrificio Vivo (v. 1)';
+                    const section1Quote = isEnglish ? '"I urge you therefore, brothers, by the mercies of God, to present your bodies as a living sacrifice, holy and acceptable to God, which is your spiritual worship."' : '"Así que, hermanos, os ruego por las misericordias de Dios, que presentéis vuestros cuerpos en sacrificio vivo, santo, agradable a Dios, que es vuestro culto racional."';
+                    const section1Text = isEnglish ?
+                        'Voluntary Surrender (Parístēmi): Presenting the body means placing the sacrifice upon the altar at the complete disposal of the Priest, voluntarily and definitively yielding all rights of ownership over ourselves. The Paradox of the Living Sacrifice (Thysía zōsa): In the old covenant, sacrifices were dead animals; in the Kingdom of Christ, the altar demands that the vessel remains alive. The Christian\'s daily challenge is not to "step off the altar" when feeling the fire of the process. Theological Coherence (Logikē latreía): Reasonable worship is not a cold ritual, but the intelligent, logical, and coherent response of the vessel before the infinite mercies of the divine Hero who rescued us from bankruptcy. God is not number one on a list, nor does He belong to a category; He is the center of everything.' :
+                        'Rendición Voluntaria (Parístēmi): Presentar el cuerpo significa colocar el sacrificio sobre el altar a total disposición del Sacerdote, cediendo de manera voluntaria y definitiva todo derecho de propiedad sobre nosotros mismos. La Paradoja del Sacrificio Vivo (Thysía zōsa): En el antiguo pacto, los sacrificios eran animales muertos; en el Reino de Cristo, el altar exige que el vaso permanezca vivo. El reto diario del cristiano es no "bajarse del altar" cuando siente el fuego del proceso. Coherencia Teológica (Logikē latreía): El culto racional no es un ritual frío, sino la respuesta inteligente, lógica y coherente de la vasija ante las infinitas misericordias del Héroe divino que nos rescató de la quiebra. Dios no es el número uno de una lista, ni forma parte de una categoría; Él es el centro de todo.';
+                    
+                    addWrappedText('🏺 ' + section1Title, 13, true, '#000000');
+                    checkPage();
+                    
+                    // Cita
+                    doc.setFontSize(11);
+                    doc.setFont('helvetica', 'italic');
+                    doc.setTextColor('#555555');
+                    const quoteLines = doc.splitTextToSize(section1Quote, maxWidth - 8);
+                    doc.text(quoteLines, margin + 4, y);
+                    y += (quoteLines.length * 4.5) + 4;
+                    
+                    // Texto de la sección
+                    addWrappedText(section1Text, 11, false, '#444444');
+                    addLineBreak();
+                    
+                    // --- SECCIÓN 2 ---
+                    checkPage();
+                    const section2Title = isEnglish ? 'The Battlefield of the Mind: The Metamorphosis (v. 2)' : 'El Campo de Batalla de la Mente: La Metamorfosis (v. 2)';
+                    const section2Quote = isEnglish ? '"Do not be conformed to this world, but be transformed by the renewal of your mind..."' : '"No os conforméis a este siglo, sino transformaos por medio de la renovación de vuestro entendimiento..."';
+                    const section2Text = isEnglish ?
+                        'Breaking the World\'s Mold (Syschématizō): The system of this age constantly attempts to exert external pressure to force the clay vessel to fit into its patterns of pride, selfishness, and bitterness. Radical Transformation (Metamorphóō): True transformation (metamorphosis) does not come through external rules, but wells up from deep within the vessel. As Jonathan Edwards wrote: "I claim no right to myself... I have given myself clean away to God." Mental Renewal (Anakainōsis): The engine of change is the renewal of our mind. By displacing the world\'s logic and thinking under the frequency of the Word, our past wounds are healed and the body begins to reveal what truly governs the heart.' :
+                        'Romper el Molde del Mundo (Syschématizō): El sistema de este siglo intenta constantemente ejercer presión externa para forzar al vaso de barro a encajar en sus patrones de orgullo, egoísmo y amargura. Transformación Radical (Metamorphóō): La verdadera transformación (metamorfosis) no viene por reglas externas, sino que brota desde el interior profundo del vaso. Como escribió Jonathan Edwards: "No reclamo ningún derecho sobre mí... Me he entregado por completo a Dios". Renovación Mental (Anakainōsis): El motor del cambio es la renovación de nuestra mente. Al desplazar las lógicas del mundo y pensar bajo la frecuencia de la Palabra, nuestras llagas del pasado son sanadas y el cuerpo comienza a revelar lo que realmente gobierna el corazón.';
+                    
+                    addWrappedText('🧠 ' + section2Title, 13, true, '#000000');
+                    checkPage();
+                    
+                    // Cita
+                    doc.setFontSize(11);
+                    doc.setFont('helvetica', 'italic');
+                    doc.setTextColor('#555555');
+                    const quoteLines2 = doc.splitTextToSize(section2Quote, maxWidth - 8);
+                    doc.text(quoteLines2, margin + 4, y);
+                    y += (quoteLines2.length * 4.5) + 4;
+                    
+                    // Texto de la sección
+                    addWrappedText(section2Text, 11, false, '#444444');
+                    addLineBreak();
+                    
+                    // --- SECCIÓN 3 ---
+                    checkPage();
+                    const section3Title = isEnglish ? 'The Result: Proving His Will' : 'El Resultado: Comprobar Su Voluntad';
+                    const section3Text = isEnglish ?
+                        'By completely surrendering the structure of our life to the Potter\'s fire, we move from doubt to practical experience. The Greek term Dokimázō means to test in the fire to certify the value of a metal. Only the vessel surrendered on the altar comes to experience firsthand that God\'s ways are always perfect, delightful, and just. Let us live with the urgency of the Kingdom, knowing that the pulpit is there to exalt the Word and not the preacher. As Edwards prayed: "Stamp eternity on my eyes," so that every daily decision is made in the light of eternity. Remember Spurgeon\'s words: "Holiness is not the way to Christ; Christ is the way to holiness."' :
+                        'Al entregar por completo la estructura de nuestra vida al fuego del Alfarero, pasamos de la duda a la experiencia práctica. El término griego Dokimázō significa poner a prueba en el fuego para certificar el valor de un metal. Solo el vaso rendido en el altar llega a experimentar de primera mano que los caminos de Dios son siempre perfectos, deleitables y justos. Vivamos con la urgencia del Reino, sabiendo que el púlpito está para exaltar la Palabra y no al predicador. Como oraba Edwards: "Marca la eternidad en mis ojos", para que cada decisión diaria se tome a la luz de lo eterno. Recuerda las palabras de Spurgeon: "La santidad no es el camino hacia Cristo; Cristo es el camino hacia la santidad".';
+                    
+                    addWrappedText('💎 ' + section3Title, 13, true, '#000000');
+                    checkPage();
+                    addWrappedText(section3Text, 11, false, '#444444');
+                    addLineBreak();
+                    
+                    // --- ÍNDICE TEOLÓGICO ---
+                    checkPage();
+                    const indexTitle = isEnglish ? 'Theological Focus Index' : 'Índice de Enfoque Teológico';
+                    const index1 = isEnglish ? '• God is the Hero, man is the Vessel: The vessel does not provide the fire or holiness; it provides availability and the body on the altar for the Hero to fill it with His glory.' : '• Dios es el Héroe, el hombre es el Vaso: El vaso no aporta el fuego ni la santidad; aporta la disponibilidad y el cuerpo en el altar para que el Héroe lo llene con Su gloria.';
+                    const index2 = isEnglish ? '• The Freedom of Voluntary Slavery (⚓): By completely surrendering to the Master, we break the chains of this age and experience the true freedom of the Spirit.' : '• La Libertad de la Esclavitud Voluntaria (⚓): Al rendirnos por completo ante el Maestro, rompemos las cadenas de este siglo y experimentamos la verdadera libertad del Espíritu.';
+                    const index3 = isEnglish ? '• Healing on the Altar (🩺🩸): The metamorphosis of the mind operates as a divine surgery that extracts past patterns of pain so that the vessel reflects the healthy character of our Savior.' : '• Sanidad en el Altar (🩺🩸): La metamorfosis de la mente opera como una cirugía divina que extrae los patrones de dolor del pasado para que el vaso refleje el carácter sano de nuestro Salvador.';
+                    
+                    // Fondo oscuro para el índice
+                    const rectHeight = 60;
+                    doc.setFillColor(26, 26, 46);
+                    doc.rect(margin, y - 4, maxWidth, rectHeight, 'F');
+                    
+                    doc.setFontSize(13);
+                    doc.setFont('helvetica', 'bold');
+                    doc.setTextColor('#FFFFFF');
+                    doc.text('🪵🏺🔥 ' + indexTitle, margin + 4, y + 6);
+                    
+                    doc.setFontSize(10);
+                    doc.setFont('helvetica', 'normal');
+                    doc.setTextColor('#FFFFFF');
+                    
+                    const indexLines1 = doc.splitTextToSize(index1, maxWidth - 8);
+                    doc.text(indexLines1, margin + 4, y + 14);
+                    const indexLines2 = doc.splitTextToSize(index2, maxWidth - 8);
+                    doc.text(indexLines2, margin + 4, y + 26);
+                    const indexLines3 = doc.splitTextToSize(index3, maxWidth - 8);
+                    doc.text(indexLines3, margin + 4, y + 38);
+                    
+                    y += rectHeight + 6;
+                    
+                    // --- PIE DE PÁGINA ---
+                    checkPage();
+                    addSeparator();
+                    doc.setFontSize(9);
+                    doc.setFont('helvetica', 'normal');
+                    doc.setTextColor('#999999');
+                    doc.text('© 2026 Iglesia MESYF | Palmdale, California', pageWidth / 2, y, { align: 'center' });
+                    
+                    // Guardar el PDF
+                    doc.save(isEnglish ? 'MESYF_Message_of_the_Week.pdf' : 'MESYF_Mensaje_de_la_Semana.pdf');
+                    
+                    // Restaurar el botón
+                    exportBtn.innerHTML = '<i class="fa-solid fa-file-pdf me-2"></i> <span>' + (isEnglish ? 'Export to PDF' : 'Exportar a PDF') + '</span>';
+                    exportBtn.disabled = false;
+                    
+                } catch (error) {
+                    console.error('Error al generar PDF:', error);
+                    const isEnglish = document.querySelector('#lang-btn').textContent.trim() === 'EN';
+                    exportBtn.innerHTML = '<i class="fa-solid fa-file-pdf me-2"></i> <span>' + (isEnglish ? 'Export to PDF' : 'Exportar a PDF') + '</span>';
+                    exportBtn.disabled = false;
+                    alert(isEnglish ? 'Error generating PDF. Please try again.' : 'Error al generar el PDF. Por favor, intenta de nuevo.');
+                }
             });
         });
     </script>

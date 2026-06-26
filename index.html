@@ -294,7 +294,7 @@
                         <p class="small mb-2" data-es="• **Dios es el Héroe, el hombre es el Vaso:** El vaso no aporta el fuego ni la santidad; aporta la disponibilidad y el cuerpo en el altar para que el Héroe lo llene con Su gloria." data-en="• **God is the Hero, man is the Vessel:** The vessel does not provide the fire or holiness; it provides availability and the body on the altar for the Hero to fill it with His glory.">
                            • <strong>Dios es el Héroe, el hombre es el Vaso:</strong> El vaso no aporta el fuego ni la santidad; aporta la disponibilidad y el cuerpo en el altar para que el Héroe lo llene con Su gloria.
                         </p>
-                        <p class="small mb-2" data-es="• **La Libertad de la Esclavitud Voluntaria (⚓):** Al rendirnos por completo ante el Maestro, rompemos las cadenas de este siglo and experimentamos la verdadera libertad del Espíritu." data-en="• **The Freedom of Voluntary Slavery (⚓):** By completely surrendering to the Master, we break the chains of this age and experience the true freedom of the Spirit.">
+                        <p class="small mb-2" data-es="• **La Libertad de la Esclavitud Voluntaria (⚓):** Al rendirnos por completo ante el Maestro, rompemos las cadenas de este siglo y experimentamos la verdadera libertad del Espíritu." data-en="• **The Freedom of Voluntary Slavery (⚓):** By completely surrendering to the Master, we break the chains of this age and experience the true freedom of the Spirit.">
                            • <strong>La Libertad de la Esclavitud Voluntaria (⚓):</strong> Al rendirnos por completo ante el Maestro, rompemos las cadenas de este siglo y experimentamos la verdadera libertad del Espíritu.
                         </p>
                         <p class="small mb-0" data-es="• **Sanidad en el Altar (🩺🩸):** La metamorfosis de la mente opera como una cirugía divina que extrae los patrones de dolor del pasado para que el vaso refleje el carácter sano de nuestro Salvador." data-en="• **Healing on the Altar (🩺🩸):** The metamorphosis of the mind operates as a divine surgery that extracts past patterns of pain so that the vessel reflects the healthy character of our Savior.">
@@ -309,7 +309,7 @@
     <section id="oracion" class="bg-dark text-white section-padding text-center">
         <div class="container">
             <h2 class="fw-bold mb-4" data-es="CONTENIDO DE ORACIÓN" data-en="PRAYER CONTENT">CONTENIDO DE ORACIÓN</h2>
-            <p class="mb-5 px-3" data-es="Creemos firmemente que la oración activa el poder sobrenatural de Dios. Nadie debería cargar con sus aflicciones a solas. Escribe tu petición abajo; nuestro equipo pastoral e intercesores estarán clamando por tu restauración total, tu familia y tus necesidades esta misma semana." data-en="We firmly believe that prayer activates the supernatural power of God. No one should carry their afflictions alone. Write your request below; our pastoral team and intercessors will be crying out for your total restoration, your family, and your needs this very week.">Creemos firmemente que la oración activa el poder sobrenatural de Dios. Nadie debería cargar con sus aflicciones a solas. Escribe tu petición abajo; nuestro equipo pastoral e intercesores estarán clamando por tu restauración total, tu familia y tus necesidades esta misma semana.</p>
+            <p class="mb-5 px-3" data-es="Creemos firmemente que la oración activa el power sobrenatural de Dios. Nadie debería cargar con sus aflicciones a solas. Escribe tu petición abajo; nuestro equipo pastoral e intercesores estarán clamando por tu restauración total, tu familia y tus necesidades esta misma semana." data-en="We firmly believe that prayer activates the supernatural power of God. No one should carry their afflictions alone. Write your request below; our pastoral team and intercessors will be crying out for your total restoration, your family, and your needs this very week.">Creemos firmemente que la oración activa el poder sobrenatural de Dios. Nadie debería cargar con sus aflicciones a solas. Escribe tu petición abajo; nuestro equipo pastoral e intercesores estarán clamando por tu restauración total, tu familia y tus necesidades esta misma semana.</p>
             <div class="row justify-content-center">
                 <div class="col-md-6 px-4">
                     <form id="form-oracion" action="https://formspree.io/f/xbdbeywk" method="POST">
@@ -615,35 +615,23 @@
 
             const isEn = (typeof currentLang !== 'undefined' ? currentLang : 'es') === 'en';
 
-            // Limpieza lineal estricta y eliminación de marcas Markdown para no romper la matriz horizontal
+            // Limpieza lineal estricta y remoción de caracteres conflictivos
             function cleanText(text) {
                 if (!text) return '';
                 return text
                     .replace(/[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD00-\uDFFF]/g, '') 
                     .replace(/«|»/g, '"').replace(/“|”/g, '"')
                     .replace(/🔥|🏺|🧠|💎|🪵|⚓|🩺|🩸/g, '')
-                    .replace(/\*\*/g, '') // Eliminación preventiva de marcas para un cálculo de caja perfecto
+                    .replace(/\*\*/g, '') 
                     .replace(/[\r\n]+/g, ' ') 
                     .replace(/\s+/g, ' ') 
                     .trim();
             }
 
-            const section = document.querySelector('#mensaje');
-            const subtitleText = cleanText(section.querySelector('h6').getAttribute(isEn ? 'data-en' : 'data-es'));
-            const titleText = cleanText(section.querySelector('h2').getAttribute(isEn ? 'data-en' : 'data-es'));
-            const mainHeading = cleanText(section.querySelector('h4').getAttribute(isEn ? 'data-en' : 'data-es'));
-            
-            let rawIntro = section.querySelector('p.fs-6').getAttribute(isEn ? 'data-en' : 'data-es');
-            const introParas = rawIntro.split(/<br\s*\/?>\s*<br\s*\/?>/gi); 
-
-            const subHeaders = section.querySelectorAll('h5');
-            const blockquotes = section.querySelectorAll('.italic p');
-            const generalParas = section.querySelectorAll('p.small.text-muted');
-
             const marginX = 20;
             let currentY = 25;
             const pageHeight = doc.internal.pageSize.height;
-            const printableWidth = 210 - (marginX * 2);
+            const printableWidth = 210 - (marginX * 2); // 170mm exactos de ancho de impresión
 
             function checkPageOverflow(lineHeight) {
                 if (currentY + lineHeight > pageHeight - 25) {
@@ -652,7 +640,29 @@
                 }
             }
 
-            // Membrete
+            // Función centralizadora para imprimir bloques de texto controlando márgenes de forma rígida
+            function renderBlock(text, fontSize, fontType, textColor, lineSpacing, marginBottom, isQuote = false) {
+                doc.setFont('Helvetica', fontType);
+                doc.setFontSize(fontSize);
+                doc.setTextColor(textColor[0], textColor[1], textColor[2]);
+
+                let targetWidth = isQuote ? (printableWidth - 10) : printableWidth;
+                let xCoordinate = isQuote ? (marginX + 5) : marginX;
+
+                let lines = doc.splitTextToSize(text, targetWidth);
+                let flatLines = Array.isArray(lines) ? lines.flat() : [lines];
+
+                flatLines.forEach(line => {
+                    let cleanLine = line.trim();
+                    if (!cleanLine) return;
+                    checkPageOverflow(lineSpacing);
+                    doc.text(cleanLine, xCoordinate, currentY);
+                    currentY += lineSpacing;
+                });
+                currentY += marginBottom;
+            }
+
+            // Membrete superior fijo
             doc.setFont('Helvetica', 'bold');
             doc.setFontSize(9);
             doc.setTextColor(100, 100, 100);
@@ -665,50 +675,36 @@
             
             currentY += 12;
 
-            // Subcabecera
-            doc.setFont('Helvetica', 'normal');
-            doc.setFontSize(10);
-            doc.setTextColor(120, 120, 120);
-            doc.text(subtitleText.toUpperCase(), marginX, currentY);
-            currentY += 8;
+            const section = document.querySelector('#mensaje');
+            
+            // 1. Subcabecera
+            const subtitleText = cleanText(section.querySelector('h6').getAttribute(isEn ? 'data-en' : 'data-es'));
+            renderBlock(subtitleText.toUpperCase(), 10, 'normal', [120, 120, 120], 5, 4);
 
-            // Título Principal
-            doc.setFont('Helvetica', 'bold');
-            doc.setFontSize(22);
-            doc.setTextColor(17, 17, 17);
-            doc.text(titleText, marginX, currentY);
-            currentY += 9;
+            // 2. Título Principal
+            const titleText = cleanText(section.querySelector('h2').getAttribute(isEn ? 'data-en' : 'data-es'));
+            renderBlock(titleText, 22, 'bold', [17, 17, 17], 9, 4);
 
-            // Enfoque Semanal
-            doc.setFont('Helvetica', 'bold');
-            doc.setFontSize(13);
-            doc.setTextColor(50, 50, 50);
-            doc.text(mainHeading, marginX, currentY);
-            currentY += 10;
+            // 3. Enfoque Semanal
+            const mainHeading = cleanText(section.querySelector('h4').getAttribute(isEn ? 'data-en' : 'data-es'));
+            renderBlock(mainHeading, 13, 'bold', [50, 50, 50], 7, 6);
 
-            // Párrafos Introductorios
-            doc.setFont('Helvetica', 'normal');
-            doc.setFontSize(11);
-            doc.setTextColor(60, 60, 60);
+            // 4. Párrafos Introductorios
+            let rawIntro = section.querySelector('p.fs-6').getAttribute(isEn ? 'data-en' : 'data-es');
+            const introParas = rawIntro.split(/<br\s*\/?>\s*<br\s*\/?>/gi); 
 
             introParas.forEach(para => {
                 let cleanPara = cleanText(para.replace(/<br\s*\/?>/gi, ' '));
-                if (!cleanPara) return;
-                
-                let lines = doc.splitTextToSize(cleanPara, printableWidth);
-                let flatLines = Array.isArray(lines) ? lines.flat() : [lines];
-                
-                flatLines.forEach(line => {
-                    let cleanLine = line.trim();
-                    if (!cleanLine) return;
-                    checkPageOverflow(6);
-                    doc.text(cleanLine, marginX, currentY);
-                    currentY += 6.5; 
-                });
-                currentY += 4; 
+                if (cleanPara) {
+                    renderBlock(cleanPara, 11, 'normal', [60, 60, 60], 6.5, 3);
+                }
             });
 
-            // Secciones Teológicas y Versículos
+            // 5. Secciones Teológicas, Citas y Cuerpo
+            const subHeaders = section.querySelectorAll('h5');
+            const blockquotes = section.querySelectorAll('.italic p');
+            const generalParas = section.querySelectorAll('p.small.text-muted');
+
             for (let i = 0; i < subHeaders.length; i++) {
                 if (!subHeaders[i]) continue;
 
@@ -716,16 +712,13 @@
                 let quote = blockquotes[i] ? cleanText(blockquotes[i].getAttribute(isEn ? 'data-en' : 'data-es')) : '';
                 let bodyP = generalParas[i] ? generalParas[i].getAttribute(isEn ? 'data-en' : 'data-es') : '';
 
-                currentY += 4;
-                checkPageOverflow(8);
-                doc.setFont('Helvetica', 'bold');
-                doc.setFontSize(12);
-                doc.setTextColor(20, 20, 20);
-                doc.text(subTitle, marginX, currentY);
-                currentY += 7;
+                // Render de Subtítulo Teológico
+                currentY += 2;
+                renderBlock(subTitle, 12, 'bold', [20, 20, 20], 6, 4);
 
+                // Render de Cita Bíblica en Bloque (Rectángulo protector)
                 if (quote) {
-                    let splitQuote = doc.splitTextToSize(quote, printableWidth - 8);
+                    let splitQuote = doc.splitTextToSize(quote, printableWidth - 10);
                     let flatQuoteLines = Array.isArray(splitQuote) ? splitQuote.flat() : [splitQuote];
                     let blockHeight = (flatQuoteLines.length * 5.5) + 4;
                     
@@ -736,91 +729,43 @@
                     doc.setFillColor(17, 17, 17);
                     doc.rect(marginX, currentY - 4, 1.2, blockHeight, 'F');
 
-                    doc.setFont('Helvetica', 'oblique');
-                    doc.setFontSize(10);
-                    doc.setTextColor(60, 60, 60);
-                    
-                    flatQuoteLines.forEach(line => {
-                        doc.text(line.trim(), marginX + 5, currentY);
-                        currentY += 5.5;
-                    });
-                    currentY += 4;
+                    renderBlock(quote, 10, 'oblique', [60, 60, 60], 5.5, 4, true);
                 }
 
+                // Render de Cuerpo del Análisis Teológico
                 if (bodyP) {
-                    let cleanBodyText = bodyP.replace(/<br\s*\/?>/gi, ' ');
-                    
-                    // Tratamiento unificado libre de marcas para un renderizado seguro
-                    let cleanChunk = cleanText(cleanBodyText);
-
-                    if (cleanChunk) {
-                        let splitBody = doc.splitTextToSize(cleanChunk, printableWidth);
-                        let flatBodyLines = Array.isArray(splitBody) ? splitBody.flat() : [splitBody];
-
-                        doc.setFont('Helvetica', 'normal');
-                        doc.setFontSize(10.5);
-                        doc.setTextColor(70, 70, 70);
-
-                        flatBodyLines.forEach(line => {
-                            let cleanLine = line.trim();
-                            if (!cleanLine) return;
-
-                            checkPageOverflow(6);
-                            doc.text(cleanLine, marginX, currentY);
-                            currentY += 6; 
-                        });
-                        currentY += 3;
+                    let cleanBodyText = cleanText(bodyP.replace(/<br\s*\/?>/gi, ' '));
+                    if (cleanBodyText) {
+                        renderBlock(cleanBodyText, 10.5, 'normal', [70, 70, 70], 6, 4);
                     }
                 }
             }
 
-            // Tarjeta de Enfoque Teológico Final
+            // 6. Tarjeta Oscura de Enfoque Teológico Final
             const finalCard = section.querySelector('.bg-dark.text-white');
             if (finalCard) {
-                currentY += 6;
-                checkPageOverflow(15);
-                
+                currentY += 4;
                 let cardTitle = cleanText(finalCard.querySelector('h6').getAttribute(isEn ? 'data-en' : 'data-es'));
-                doc.setFont('Helvetica', 'bold');
-                doc.setFontSize(11);
-                doc.setTextColor(17, 17, 17);
-                doc.text(cardTitle, marginX, currentY);
-                currentY += 7;
+                renderBlock(cardTitle, 11, 'bold', [17, 17, 17], 6, 3);
 
                 const items = finalCard.querySelectorAll('p.small');
                 items.forEach(item => {
                     let itemText = cleanText(item.getAttribute(isEn ? 'data-en' : 'data-es'));
-                    let splitItem = doc.splitTextToSize(itemText, printableWidth);
-                    let flatItemLines = Array.isArray(splitItem) ? splitItem.flat() : [splitItem];
-                    
-                    doc.setFont('Helvetica', 'normal');
-                    doc.setFontSize(10);
-                    doc.setTextColor(80, 80, 80);
-
-                    flatItemLines.forEach(line => {
-                        let cleanLine = line.trim();
-                        if (!cleanLine) return;
-
-                        checkPageOverflow(6);
-                        doc.text(cleanLine, marginX, currentY);
-                        currentY += 5.5;
-                    });
-                    currentY += 2;
+                    if (itemText) {
+                        renderBlock(itemText, 10, 'normal', [80, 80, 80], 5.5, 2);
+                    }
                 });
             }
 
-            // Numeración del pie de página
+            // Numeración final alineada a la derecha de forma nativa
             const totalPages = doc.internal.getNumberOfPages();
             for (let i = 1; i <= totalPages; i++) {
                 doc.setPage(i);
                 doc.setFont('Helvetica', 'normal');
                 doc.setFontSize(8);
                 doc.setTextColor(150, 150, 150);
-                doc.text(
-                    isEn ? `Page ${i} of ${totalPages}` : `Página ${i} de ${totalPages}`, 
-                    210 - marginX - 15, 
-                    pageHeight - 10
-                );
+                let pageLabel = isEn ? `Page ${i} of ${totalPages}` : `Página ${i} de ${totalPages}`;
+                doc.text(pageLabel, 210 - marginX, pageHeight - 10, { align: 'right' });
             }
 
             const fileName = `${titleText.toLowerCase().replace(/\s+/g, '-')}-${isEn ? 'en' : 'es'}.pdf`;

@@ -437,7 +437,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" id="hs-script-loader" async defer src="https://js-na2.hs-scripts.com/246352614.js"></script>
     
-    <!-- Librería jsPDF -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
     <script>
@@ -507,7 +506,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             const direccionGoogleMaps = "https://maps.google.com/?q=38304+15th+St+East+Palmdale,+CA+93550";
             const direccionAppleMaps  = "maps://maps.apple.com/?q=38304 15th St East Palmdale, CA 93550";
-            const botonComoLlegar = document.getElementById('como-llegar');
+            const botonComo Llegar = document.getElementById('como-llegar');
             if (botonComoLlegar) {
                 const isApple = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) || /Macintosh/.test(navigator.userAgent);
                 if (isApple) { botonComoLlegar.href = direccionAppleMaps; botonComoLlegar.removeAttribute('target'); } 
@@ -661,7 +660,6 @@
       }
     </script>
 
-    <!-- SCRIPT EXCLUSIVO PARA GENERAR EL PDF LIMPIO Y EDITORIAL -->
     <script>
         document.getElementById('btn-export-pdf').addEventListener('click', function () {
             const { jsPDF } = window.jspdf;
@@ -675,6 +673,7 @@
                     .replace(/[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD00-\uDFFF]/g, '') 
                     .replace(/«|»/g, '"').replace(/“|”/g, '"')
                     .replace(/🔥|🏺|🧠|💎|🪵|⚓|🩺|🩸/g, '')
+                    .replace(/\s+/g, ' ') 
                     .trim();
             }
 
@@ -684,7 +683,7 @@
             const mainHeading = cleanText(section.querySelector('h4').getAttribute(isEn ? 'data-en' : 'data-es'));
             
             let rawIntro = section.querySelector('p.fs-6').getAttribute(isEn ? 'data-en' : 'data-es');
-            const introText = cleanText(rawIntro.replace(/<br\s*\/?>/gi, '\n'));
+            const introParas = rawIntro.split(/<br\s*\/?>\s*<br\s*\/?>/gi); 
 
             const subHeaders = section.querySelectorAll('h5');
             const blockquotes = section.querySelectorAll('.italic p');
@@ -693,15 +692,16 @@
             const marginX = 20;
             let currentY = 25;
             const pageHeight = doc.internal.pageSize.height;
+            const printableWidth = 210 - (marginX * 2);
 
-            function checkPageOverflow(additionalHeight) {
-                if (currentY + additionalHeight > pageHeight - 20) {
+            function checkPageOverflow(lineHeight) {
+                if (currentY + lineHeight > pageHeight - 25) {
                     doc.addPage();
                     currentY = 25;
                 }
             }
 
-            // Membrete Institucional superior
+            // Membrete
             doc.setFont('Helvetica', 'bold');
             doc.setFontSize(9);
             doc.setTextColor(100, 100, 100);
@@ -719,43 +719,47 @@
             doc.setFontSize(10);
             doc.setTextColor(120, 120, 120);
             doc.text(subtitleText.toUpperCase(), marginX, currentY);
-            currentY += 7;
+            currentY += 8;
 
             // Título Principal
             doc.setFont('Helvetica', 'bold');
             doc.setFontSize(22);
             doc.setTextColor(17, 17, 17);
             doc.text(titleText, marginX, currentY);
-            currentY += 8;
+            currentY += 9;
 
             // Enfoque Semanal
             doc.setFont('Helvetica', 'bold');
-            doc.setFontSize(14);
-            doc.setTextColor(40, 40, 40);
+            doc.setFontSize(13);
+            doc.setTextColor(50, 50, 50);
             doc.text(mainHeading, marginX, currentY);
             currentY += 10;
 
-            // Párrafo introductorio
+            // Párrafos Introductorios con interlineado estricto
             doc.setFont('Helvetica', 'normal');
             doc.setFontSize(11);
             doc.setTextColor(60, 60, 60);
-            
-            let splitIntro = doc.splitTextToSize(introText, 210 - (marginX * 2));
-            splitIntro.forEach(line => {
-                checkPageOverflow(6);
-                doc.text(line, marginX, currentY);
-                currentY += 5.5;
+
+            introParas.forEach(para => {
+                let cleanPara = cleanText(para.replace(/<br\s*\/?>/gi, ' '));
+                if (!cleanPara) return;
+                
+                let lines = doc.splitTextToSize(cleanPara, printableWidth);
+                lines.forEach(line => {
+                    checkPageOverflow(6);
+                    doc.text(line, marginX, currentY);
+                    currentY += 6.5; 
+                });
+                currentY += 4; 
             });
 
-            currentY += 5;
-
-            // Secciones y Versículos
+            // Secciones Teológicas y Versículos
             for (let i = 0; i < subHeaders.length; i++) {
                 if (!subHeaders[i]) continue;
 
                 let subTitle = cleanText(subHeaders[i].getAttribute(isEn ? 'data-en' : 'data-es'));
                 let quote = blockquotes[i] ? cleanText(blockquotes[i].getAttribute(isEn ? 'data-en' : 'data-es')) : '';
-                let bodyP = generalParas[i] ? cleanText(generalParas[i].getAttribute(isEn ? 'data-en' : 'data-es')).replace(/<br\s*\/?>/gi, '\n') : '';
+                let bodyP = generalParas[i] ? generalParas[i].getAttribute(isEn ? 'data-en' : 'data-es') : '';
 
                 currentY += 4;
                 checkPageOverflow(8);
@@ -763,85 +767,101 @@
                 doc.setFontSize(12);
                 doc.setTextColor(20, 20, 20);
                 doc.text(subTitle, marginX, currentY);
-                currentY += 6;
+                currentY += 7;
 
                 if (quote) {
-                    let splitQuote = doc.splitTextToSize(quote, 210 - (marginX * 2) - 6);
-                    let blockHeight = (splitQuote.length * 5) + 4;
+                    let splitQuote = doc.splitTextToSize(quote, printableWidth - 8);
+                    let blockHeight = (splitQuote.length * 5.5) + 4;
                     
                     checkPageOverflow(blockHeight);
                     
                     doc.setFillColor(245, 245, 245);
-                    doc.rect(marginX, currentY - 4, 210 - (marginX * 2), blockHeight, 'F');
+                    doc.rect(marginX, currentY - 4, printableWidth, blockHeight, 'F');
                     doc.setFillColor(17, 17, 17);
                     doc.rect(marginX, currentY - 4, 1.2, blockHeight, 'F');
 
                     doc.setFont('Helvetica', 'oblique');
                     doc.setFontSize(10);
-                    doc.setTextColor(50, 50, 50);
+                    doc.setTextColor(60, 60, 60);
                     
                     splitQuote.forEach(line => {
                         doc.text(line, marginX + 5, currentY);
-                        currentY += 5;
+                        currentY += 5.5;
                     });
                     currentY += 4;
                 }
 
                 if (bodyP) {
-                    doc.setFont('Helvetica', 'normal');
-                    doc.setFontSize(10.5);
-                    doc.setTextColor(70, 70, 70);
+                    let bodyParas = bodyP.split(/<br\s*\/?>/gi); 
                     
-                    let splitBody = doc.splitTextToSize(bodyP, 210 - (marginX * 2));
-                    splitBody.forEach(line => {
-                        checkPageOverflow(6);
-                        
-                        if (line.includes('**')) {
-                            let parts = line.split('**');
-                            doc.setFont('Helvetica', 'bold');
-                            doc.text(parts[1] || '', marginX, currentY);
-                            let boldWidth = doc.getTextWidth(parts[1] || '');
+                    bodyParas.forEach(pChunk => {
+                        let cleanChunk = cleanText(pChunk);
+                        if (!cleanChunk) return;
+
+                        let splitBody = doc.splitTextToSize(cleanChunk, printableWidth);
+                        splitBody.forEach(line => {
+                            checkPageOverflow(6);
+                            
                             doc.setFont('Helvetica', 'normal');
-                            doc.text(parts[2] || '', marginX + boldWidth, currentY);
-                        } else {
-                            doc.text(line, marginX, currentY);
-                        }
-                        currentY += 5.5;
+                            doc.setFontSize(10.5);
+                            doc.setTextColor(70, 70, 70);
+
+                            if (line.includes('**')) {
+                                let parts = line.split('**');
+                                doc.text(parts[0] || '', marginX, currentY);
+                                let width0 = doc.getTextWidth(parts[0] || '');
+
+                                doc.setFont('Helvetica', 'bold');
+                                doc.text(parts[1] || '', marginX + width0, currentY);
+                                let width1 = doc.getTextWidth(parts[1] || '');
+
+                                doc.setFont('Helvetica', 'normal');
+                                doc.text(parts[2] || '', marginX + width0 + width1, currentY);
+                            } else {
+                                doc.text(line, marginX, currentY);
+                            }
+                            currentY += 6; 
+                        });
                     });
                     currentY += 3;
                 }
             }
 
-            // Bloque final de Enfoque Teológico desde la tarjeta oscura web
+            // Tarjeta de Enfoque Teológico Final
             const finalCard = section.querySelector('.bg-dark.text-white');
             if (finalCard) {
-                currentY += 5;
-                checkPageOverflow(25);
+                currentY += 6;
+                checkPageOverflow(15);
                 
                 let cardTitle = cleanText(finalCard.querySelector('h6').getAttribute(isEn ? 'data-en' : 'data-es'));
                 doc.setFont('Helvetica', 'bold');
                 doc.setFontSize(11);
                 doc.setTextColor(17, 17, 17);
                 doc.text(cardTitle, marginX, currentY);
-                currentY += 6;
+                currentY += 7;
 
                 const items = finalCard.querySelectorAll('p.small');
                 items.forEach(item => {
                     let itemText = cleanText(item.getAttribute(isEn ? 'data-en' : 'data-es'));
-                    doc.setFont('Helvetica', 'normal');
-                    doc.setFontSize(10);
-                    doc.setTextColor(80, 80, 80);
+                    let splitItem = doc.splitTextToSize(itemText, printableWidth);
                     
-                    let splitItem = doc.splitTextToSize(itemText, 210 - (marginX * 2));
                     splitItem.forEach(line => {
                         checkPageOverflow(6);
+                        doc.setFont('Helvetica', 'normal');
+                        doc.setFontSize(10);
+                        doc.setTextColor(80, 80, 80);
+
                         if (line.includes('**')) {
                             let parts = line.split('**');
+                            doc.text(parts[0] || '', marginX, currentY);
+                            let w0 = doc.getTextWidth(parts[0] || '');
+
                             doc.setFont('Helvetica', 'bold');
-                            doc.text(parts[1] || '', marginX, currentY);
-                            let boldWidth = doc.getTextWidth(parts[1] || '');
+                            doc.text(parts[1] || '', marginX + w0, currentY);
+                            let w1 = doc.getTextWidth(parts[1] || '');
+
                             doc.setFont('Helvetica', 'normal');
-                            doc.text(parts[2] || '', marginX + boldWidth, currentY);
+                            doc.text(parts[2] || '', marginX + w0 + w1, currentY);
                         } else {
                             doc.text(line, marginX, currentY);
                         }
@@ -851,7 +871,7 @@
                 });
             }
 
-            // Numeración final del pie de página
+            // Numeración del pie de página
             const totalPages = doc.internal.getNumberOfPages();
             for (let i = 1; i <= totalPages; i++) {
                 doc.setPage(i);

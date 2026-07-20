@@ -325,13 +325,6 @@
                         </p>
                     </div>
 
-                    <!-- Integración del Video del Mensaje -->
-                    <div class="mt-4 shadow-sm border p-2 bg-body">
-                        <div class="ratio ratio-16x9">
-                            <iframe src="https://www.youtube.com/embed/WuxVa_hzRvc" title="YouTube video player" allowfullscreen style="border:0;"></iframe>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </div>
@@ -494,11 +487,11 @@
         document.addEventListener('DOMContentLoaded', function() {
             const direccionGoogleMaps = "https://maps.google.com/?q=38304+15th+St+East+Palmdale,+CA+93550";
             const direccionAppleMaps  = "maps://maps.apple.com/?q=38304 15th St East Palmdale, CA 93550";
-            const botonComo LLegar = document.getElementById('como-llegar');
-            if (botonComoLlegar) {
+            const botonComoLLegar = document.getElementById('como-llegar');
+            if (botonComoLLegar) {
                 const isApple = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) || /Macintosh/.test(navigator.userAgent);
-                if (isApple) { botonComoLlegar.href = direccionAppleMaps; botonComoLlegar.removeAttribute('target'); } 
-                else { botonComoLlegar.href = direccionGoogleMaps; }
+                if (isApple) { botonComoLLegar.href = direccionAppleMaps; botonComoLLegar.removeAttribute('target'); } 
+                else { botonComoLLegar.href = direccionGoogleMaps; }
             }
         });
     </script>
